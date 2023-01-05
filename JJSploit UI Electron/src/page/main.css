@@ -12,6 +12,10 @@
 ::-webkit-scrollbar-thumb:hover {
     background-color: #373737;
 }
+::-webkit-scrollbar-corner {
+    background-color: #232323;
+    border-color: 0px solid transparent;
+}
 body {
     font-family: Segoe UI;
     background-color: #191919;
@@ -91,15 +95,25 @@ body {
 .buttonsPage {
     position: absolute;
     right: 0;
+    bottom: 0;
+    top: 0;
     width: 79.5%;
     height: 100%;
     color: white;
     overflow-y: scroll;
 }
+.buttonsPage .columns {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
 .buttonsPage .scriptContainer {
     background-color: #1e1e1e;
     padding: 15px;
-    margin-top: 3px;
+    width: 100%;
+    margin-top: 5px;
+    height: 150px;
+    position: relative;
 }
 .buttonsPage .scriptContainer .title {
     font-size: 16px;
@@ -117,8 +131,11 @@ body {
     margin-top: 5px;
 }
 .buttonsPage .scriptContainer button {
-    width: 100%;
-    margin-top: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 5px;
     color: white;
     background-color: #232323;
     border: 0px;
@@ -207,7 +224,7 @@ body {
 }
 .scriptsLibrary .addScript button {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 5px;
     color: white;
     background-color: #232323;
     border: 0px;
@@ -241,9 +258,34 @@ body {
     font-weight: 500;
     margin: 0;
 }
-.scriptsLibrary .scriptsList button {
+.scriptsLibrary .scriptsList .script textarea {
+    margin-top: 5px;
+    width: 98%;
+    max-width: 98%;
+    padding: 7px;
+    font-size: 15px;
+    background-color: transparent;
+    color: white;
+    border: 0.5px solid gray;
+    border-radius: 5px;
+    transition: all 0.2s;
+}
+.scriptsLibrary .scriptsList .script textarea:hover {
+    border: 0.5px solid darkgray;
+    transition: all 0.2s;
+}
+.scriptsLibrary .scriptsList .script textarea:active {
+    border: 0.5px solid lightgray;
+    transition: all 0.2s;
+}
+.scriptsLibrary .scriptsList .script .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 5px;
+}
+.scriptsLibrary .scriptsList .script button {
     width: 100%;
-    margin-top: 10px;
     color: white;
     background-color: #232323;
     border: 0px;
@@ -252,12 +294,12 @@ body {
     font-size: 13px;
     transition: all 0.5s;
 }
-.scriptsLibrary .scriptsList button:hover {
+.scriptsLibrary .scriptsList .script button:hover {
     font-size: 14px;
     background-color: #2d2d2d;
     transition: all 0.2s;
 }
-.scriptsLibrary .scriptsList button:active {
+.scriptsLibrary .scriptsList .script button:active {
     background-color: #373737;
     transition: all 0.2s;
 }

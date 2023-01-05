@@ -21,6 +21,8 @@ const createWindow = () => {
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, "page", 'index.html'));
 
+  mainWindow.title = "JJSploit++ by Charlzk05";
+
   mainWindow.maximize();
 };
 
