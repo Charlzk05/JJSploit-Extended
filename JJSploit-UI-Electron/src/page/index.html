@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>JJSploit++ by Charlzk05</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<body>
+    <div class="sideMenu">
+        <h4>JJSploit++ By Charlzk05</h4>
+        <hr>
+        <button onclick="luaExecutor_click()">Lua executor</button>
+        <button onclick="buttons_click()">Buttons</button>
+        <button onclick="scriptsLibrary_click()">Scripts Library</button>
+    </div>
+    <div class="executorPage" style="display: block;">
+        <div class="buttons">
+            <button>Execute</button>
+            <button>Clear</button>
+            <button>Save File</button>
+            <button>Open File</button>
+        </div>
+        <div id="editor"></div>
+    </div>
+    <div class="buttonsPage" style="display: none;">
+        <div class="scriptContainer" style="margin: 0;">
+            <p class="title">Fly <span>by (Unknown)</span></p>
+            <p class="desc">Why walk when you can fly?</p>
+            <button>Execute</button>
+        </div>
+        <div class="scriptContainer">
+            <p class="title">Aimbot <span>by WeAreDevs</span></p>
+            <p class="desc">Snaps aim to player heads. Featuring wall detection, team check, and mouse movement bypass.</p>
+            <button>Execute</button>
+        </div>
+        <div class="scriptContainer">
+            <p class="title">Gravity Switch <span>by WeAreDevs</span></p>
+            <p class="desc">Press "e" to toggle the game's gravity.</p>
+            <button>Execute</button>
+        </div>
+        <div class="scriptContainer">
+            <p class="title">Gravity Switch <span>by WeAreDevs</span></p>
+            <p class="desc">Press "e" to toggle the game's gravity.</p>
+            <button>Execute</button>
+        </div>
+        <div class="scriptContainer">
+            <p class="title">Human Flashlight <span>by WeAreDevs</span></p>
+            <p class="desc">Turns your character into a private flashlight.</p>
+            <button>Execute</button>
+        </div>
+        <div class="scriptContainer">
+            <p class="title">Remove Legs <span>by WeAreDevs</span></p>
+            <p class="desc">Removes the legs from your player's character</p>
+            <button>Execute</button>
+        </div>
+        <div class="scriptContainer">
+            <p class="title">Float Character <span>by WeAreDevs</span></p>
+            <p class="desc">Makes your player's character float in the air.</p>
+            <button>Execute</button>
+        </div>
+        <div class="scriptContainer">
+            <p class="title">High Hips <span>by WeAreDevs</span></p>
+            <p class="desc">Walk like normal, but a little "taller".</p>
+            <button>Execute</button>
+        </div>
+        <div class="scriptContainer">
+            <p class="title">BTools <span>by WeAreDevs</span></p>
+            <p class="desc">Gives your player the old system of building tools.</p>
+            <button>Execute</button>
+        </div>
+        <div class="scriptContainer">
+            <p class="title">Night Time Toggle <span>by WeAreDevs</span></p>
+            <p class="desc">Changes the time of day so that it is night.</p>
+            <button>Execute</button>
+        </div>
+        <div class="scriptContainer">
+            <p class="title">Limp Character <span>by WeAreDevs</span></p>
+            <p class="desc">Messes with your characters joints so it walks with a limp.</p>
+            <button>Execute</button>
+        </div>
+        <div class="scriptContainer">
+            <p class="title">Blockhead <span>by WeAreDevs</span></p>
+            <p class="desc">Turns your character's head into a plain block.</p>
+            <button>Execute</button>
+        </div>
+        <div class="scriptContainer">
+            <p class="title">Highlight Player <span>by WeAreDevs</span></p>
+            <p class="desc">Places a selection box around the selected player.</p>
+            <button>Execute</button>
+        </div>
+        <div class="scriptContainer">
+            <p class="title">Remove Arms <span>by WeAreDevs</span></p>
+            <p class="desc">Removes the arms from your player's character.</p>
+            <button>Execute</button>
+        </div>
+        <div class="scriptContainer">
+            <p class="title">Invisible Character <span>by WeAreDevs</span></p>
+            <p class="desc">Makes your character's baseparts fully transparent.</p>
+            <button>Execute</button>
+        </div>
+        <div class="scriptContainer">
+            <p class="title">Magnetize To Player <span>by WeAreDevs</span></p>
+            <p class="desc">Makes your character magnetically attracted to another player.</p>
+            <button>Execute</button>
+        </div>
+        <div class="scriptContainer">
+            <p class="title">Teleport To Player <span>by WeAreDevs</span></p>
+            <p class="desc">Teleports your player's character to the selected player's character.</p>
+            <button>Execute</button>
+        </div>
+        <div class="scriptContainer">
+            <p class="title">Unlock Workspace Baseparts <span>by WeAreDevs</span></p>
+            <p class="desc">Unlocks all bricks in the game so you can use btools on them.</p>
+            <button>Execute</button>
+        </div>
+        <div class="scriptContainer">
+            <p class="title">WRD ESP <span>by WeAreDevs</span></p>
+            <p class="desc">Draws boxes around other players. As used in JJSploit.</p>
+            <button>Execute</button>
+        </div>
+        <div class="scriptContainer">
+            <p class="title">Infinite Jump <span>by WeAreDevs</span></p>
+            <p class="desc">Spam the spacebar to jump as high as you want.</p>
+            <button>Execute</button>
+        </div>
+    </div>
+    <div class="scriptsLibrary" style="display: none;">
+        <div class="addScript">
+            <p>Add Script</p>
+            <hr>
+            <p class="scriptName">Script Name</p>
+            <input type="text">
+            <hr>
+            <p class="scriptContent">Content</p>
+            <textarea></textarea>
+            <button>Add</button>
+        </div>
+        <h2>Your Library</h2>
+        <div class="scriptsList">
+            <div class="script">
+                <h3>My Script</h3>
+                <button>Execute</button>
+            </div>
+            <div class="script">
+                <h3>My Script</h3>
+                <button>Execute</button>
+            </div>
+        </div>
+    </div>
+    <script src="vs/loader.js"></script>
+    <script src='main.js'></script>
+</body>
+</html>
