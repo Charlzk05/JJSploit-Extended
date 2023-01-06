@@ -1,305 +1,138 @@
+/* scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
-}
-::-webkit-scrollbar-track {
-    background-color: #232323;
+    z-index: 1;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: #2d2d2d;
-    border-radius: 5px;
+    background-color: #323232;
+    border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
     background-color: #373737;
 }
+::-webkit-scrollbar-thumb:active {
+    background-color: #3c3c3c;
+}
 ::-webkit-scrollbar-corner {
-    background-color: #232323;
-    border-color: 0px solid transparent;
-}
-body {
-    font-family: Segoe UI;
-    background-color: #191919;
-    margin: 0;
-    padding: 0;
-}
-.sideMenu {
-    background-color: #1e1e1e;
-    padding: 5px;
-    position: fixed;
-    left: 0;
-    width: 20%;
-    height: 100%;
-    border-right: 0.5px solid #232323;
-    z-index: 1;
-}
-.sideMenu h4 {
-    margin: 0;
-    padding: 5px;
-    color: darkgray;
-    font-weight: 500;
-}
-.sideMenu hr {
-    border: 0.5px solid #232323;
-}
-.sideMenu button {
-    width: 100%;
-    margin-top: 5px;
-    color: white;
-    background-color: #232323;
-    border: 0px;
-    border-radius: 5px;
-    padding: 7px;
-    font-size: 13px;
-    transition: all 0.2s;
-}
-.sideMenu button:hover {
-    font-size: 14px;
-    background-color: #2d2d2d;
-    transition: all 0.2s;
-}
-.sideMenu button:active {
-    background-color: #373737;
-    transition: all 0.2s;
-}
-.executorPage {
-    position: absolute;
-    right: 0;
-    width: 79.5%;
-    height: 100%;
-}
-.executorPage button {
-    color: white;
     background-color: transparent;
     border: 0px;
-    padding: 7px;
-    margin-left: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-    font-size: 13px;
+}
+body {
+    background-color: #191919;
+    color: white;
+    font-family: "Segoe UI";
+    overflow: scroll;
+}
+/* navigator bar */
+.navigatorBar {
+    background-color: #141414;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+.navigatorBar p {
+    background-color: transparent;
+    margin: 0;
+    padding: 12px;
+}
+.navigatorBar p:hover {
+    background-color: #1e1e1e;
+}
+.navigatorBar p:hover {
+    background-color: #232323;
     transition: all 0.2s;
 }
-.executorPage button:hover {
-    font-size: 14px;
-    background-color: #2d2d2d;
+.navigatorBar p:active {
+    background-color: #282828;
     transition: all 0.2s;
 }
-.executorPage button:active {
-    background-color: #373737;
+/* executor page */
+.executorPage {
+    top: 45px;
+    position: absolute;
+    height: 100%;
+    right: 0;
+    left: 0;
+}
+.executorPage .buttons {
+    margin: 10px;
+}
+.executorPage .buttons button {
+    background-color: #1e1e1e;
+    color: white;
+    border: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    transition: all 0.2s;
+    border-radius: 5px;
+}
+.executorPage .buttons button:hover {
+    background-color: #232323;
+    transition: all 0.2s;
+}
+.executorPage .buttons button:active {
+    background-color: #282828;
     transition: all 0.2s;
 }
 .executorPage #editor {
     height: 100%;
-    width: 100%;
-    top: 0;
 }
+/* buttons page */
 .buttonsPage {
+    top: 45px;
     position: absolute;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    width: 79.5%;
     height: 100%;
-    color: white;
-    overflow-y: scroll;
-}
-.buttonsPage .columns {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-}
-.buttonsPage .scriptContainer {
-    background-color: #1e1e1e;
-    padding: 15px;
-    width: 100%;
-    margin-top: 5px;
-    height: 150px;
-    position: relative;
-}
-.buttonsPage .scriptContainer .title {
-    font-size: 16px;
-    font-weight: 500;
-    margin: 0;
-}
-.buttonsPage .scriptContainer .title span {
-    font-size: 14px;
-    color: gray;
-    font-weight: 400;
-}
-.buttonsPage .scriptContainer .desc {
-    font-size: 14px;
-    margin: 0;
-    margin-top: 5px;
-}
-.buttonsPage .scriptContainer button {
-    position: absolute;
-    bottom: 0;
+    right: 0;
     left: 0;
-    right: 0;
-    margin: 5px;
-    color: white;
-    background-color: #232323;
-    border: 0px;
-    border-radius: 5px;
-    padding: 7px;
-    font-size: 13px;
-    transition: all 0.5s;
 }
-.buttonsPage .scriptContainer button:hover {
-    font-size: 14px;
-    background-color: #2d2d2d;
-    transition: all 0.2s;
-}
-.buttonsPage .scriptContainer button:active {
-    background-color: #373737;
-    transition: all 0.2s;
-}
-.scriptsLibrary {
-    position: absolute;
-    right: 0;
-    width: 79.5%;
-    height: 100%;
-    color: white;
-    overflow-y: scroll;
-}
-.scriptsLibrary .addScript {
-    background-color: #1e1e1e;
-    padding: 10px;
-}
-.scriptsLibrary .addScript p {
-    margin: 0;
-    margin-bottom: 5px;
-    font-size: 16px;
-}
-.scriptsLibrary .addScript hr {
-    border: 0.5px solid #232323;
-}
-.scriptsLibrary .addScript .scriptName {
-    margin: 0;
-    margin-bottom: 5px;
-    font-size: 14px;
-    color: gray;
-}
-.scriptsLibrary .addScript input[type=text] {
-    width: 98%;
-    padding: 7px;
-    font-size: 15px;
-    background-color: transparent;
-    color: white;
-    border: 0.5px solid gray;
-    border-radius: 5px;
-    transition: all 0.2s;
-}
-.scriptsLibrary .addScript input[type=text]:hover {
-    border: 0.5px solid darkgray;
-    transition: all 0.2s;
-}
-.scriptsLibrary .addScript input[type=text]:active {
-    border: 0.5px solid lightgray;
-    transition: all 0.2s;
-}
-.scriptsLibrary .addScript .scriptContent {
-    margin: 0;
-    margin-bottom: 5px;
-    font-size: 14px;
-    color: gray;
-}
-.scriptsLibrary .addScript textarea {
-    width: 98%;
-    max-width: 98%;
-    padding: 7px;
-    font-size: 15px;
-    background-color: transparent;
-    color: white;
-    border: 0.5px solid gray;
-    border-radius: 5px;
-    transition: all 0.2s;
-}
-.scriptsLibrary .addScript textarea:hover {
-    border: 0.5px solid darkgray;
-    transition: all 0.2s;
-}
-.scriptsLibrary .addScript textarea:active {
-    border: 0.5px solid lightgray;
-    transition: all 0.2s;
-}
-.scriptsLibrary .addScript button {
-    width: 100%;
-    margin-top: 5px;
-    color: white;
-    background-color: #232323;
-    border: 0px;
-    border-radius: 5px;
-    padding: 7px;
-    font-size: 13px;
-    transition: all 0.5s;
-}
-.scriptsLibrary .addScript button:hover {
-    font-size: 14px;
-    background-color: #2d2d2d;
-    transition: all 0.2s;
-}
-.scriptsLibrary .addScript button:active {
-    background-color: #373737;
-    transition: all 0.2s;
-}
-.scriptsLibrary h2 {
-    font-weight: 400;
-    padding-left: 15px;
-    margin: 0;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-.scriptsLibrary .scriptsList .script {
-    background-color: #1e1e1e;
-    padding: 15px;
-    margin-top: 3px;
-}
-.scriptsLibrary .scriptsList .script h3 {
-    font-weight: 500;
-    margin: 0;
-}
-.scriptsLibrary .scriptsList .script textarea {
-    margin-top: 5px;
-    width: 98%;
-    max-width: 98%;
-    padding: 7px;
-    font-size: 15px;
-    background-color: transparent;
-    color: white;
-    border: 0.5px solid gray;
-    border-radius: 5px;
-    transition: all 0.2s;
-}
-.scriptsLibrary .scriptsList .script textarea:hover {
-    border: 0.5px solid darkgray;
-    transition: all 0.2s;
-}
-.scriptsLibrary .scriptsList .script textarea:active {
-    border: 0.5px solid lightgray;
-    transition: all 0.2s;
-}
-.scriptsLibrary .scriptsList .script .buttons {
+.buttonsPage .column {
     display: flex;
     justify-content: center;
-    gap: 5px;
+    margin-top: 10px;
+}
+.buttonsPage .script {
+    position: relative;
+    width: 100%;
+    margin-left: 5px;
+    background-color: #141414;
+    border-radius: 10px;
+    padding: 10px;
+    height: 150px;
+}
+.buttonsPage .script span {
+    font-size: 14px;
+    color: gray;
+}
+.buttonsPage .script p {
+    margin: 0;
     margin-top: 5px;
 }
-.scriptsLibrary .scriptsList .script button {
-    width: 100%;
+.buttonsPage .script button {
+    background-color: #1e1e1e;
+    position: absolute;
     color: white;
-    background-color: #232323;
     border: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
     border-radius: 5px;
-    padding: 7px;
-    font-size: 13px;
-    transition: all 0.5s;
-}
-.scriptsLibrary .scriptsList .script button:hover {
-    font-size: 14px;
-    background-color: #2d2d2d;
     transition: all 0.2s;
 }
-.scriptsLibrary .scriptsList .script button:active {
-    background-color: #373737;
+.buttonsPage .script button:hover {
+    background-color: #232323;
+    transition: all 0.2s;
+}
+.buttonsPage .script button:active {
+    background-color: #282828;
     transition: all 0.2s;
 }
