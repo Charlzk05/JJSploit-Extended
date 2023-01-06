@@ -14,6 +14,7 @@
     <div class="navigatorBar">
         <p onclick="luaExecutor_click()">Lua executor</p>
         <p onclick="buttons_click()">Buttons</p>
+        <p onclick="scriptsLib_click()">Scripts library</p>
     </div>
     <div class="executorPage" style="display: block;">
         <div class="buttons">
@@ -136,8 +137,15 @@
             </div>
         </div>
     </div>
-    <div class="scriptsLibrary">
-
+    <div class="scriptsLibPage" style="display: none;">
+        <div class="addScript">
+            <p class="header">Add Script</p>
+            <hr>
+            <p>Script name:</p>
+            <input type="text" class="name">
+            <p>Script content:</p>
+            <input type="text" class="content">
+        </div>
     </div>
 
     <script src="vs/loader.js"></script>

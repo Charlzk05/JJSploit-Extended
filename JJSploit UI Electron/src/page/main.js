@@ -1,5 +1,6 @@
 const executorPage = document.getElementsByClassName("executorPage")[0];
 const buttonsPage = document.getElementsByClassName("buttonsPage")[0];
+const scriptsLibPage = document.getElementsByClassName("scriptsLibPage")[0];
 const navigatorBar = document.getElementsByClassName("navigatorBar")[0];
 const gotoTop = document.getElementsByClassName("gotoTop")[0];
 
@@ -17,11 +18,13 @@ require(["vs/editor/editor.main"], () => {
 luaExecutor_click = () => {
     executorPage.setAttribute("style", "display: block;");
     buttonsPage.setAttribute("style", "display: none;");
+    scriptsLibPage.setAttribute("style", "display: none;");
 }
 
 buttons_click = () => {
     executorPage.setAttribute("style", "display: none;");
     buttonsPage.setAttribute("style", "display: block;");
+    scriptsLibPage.setAttribute("style", "display: none;");
 }
 
 window.addEventListener("scroll", () => {
@@ -36,4 +39,10 @@ window.addEventListener("scroll", () => {
 
 gotoTop_click = () => {
     window.scroll(0, 0);
+}
+
+scriptsLib_click = () => {
+    executorPage.setAttribute("style", "display: none;");
+    buttonsPage.setAttribute("style", "display: none;");
+    scriptsLibPage.setAttribute("style", "display: block;");
 }

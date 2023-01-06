@@ -179,3 +179,31 @@ body {
     background-color: #282828;
     transition: all 0.2s;
 }
+/* scripts library */
+.scriptsLibPage {
+    top: 45px;
+    position: absolute;
+    height: 100%;
+    right: 0;
+    left: 0;
+}
+.scriptsLibPage .addScript {
+    width: 100%;
+    margin-left: 5px;
+    background-color: #141414;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+.scriptsLibPage .addScript .header {
+    font-size: 16px;
+    color: white;
+}
+.scriptsLibPage .addScript hr {
+    border: 0.2px solid gray;
+}
+.scriptsLibPage .addScript p {
+    font-size: 14px;
+    margin: 0;
+    color: gray;
+}
