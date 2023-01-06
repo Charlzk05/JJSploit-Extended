@@ -24,6 +24,38 @@ body {
     font-family: "Segoe UI";
     overflow: scroll;
 }
+/* go to top */
+.gotoTop {
+    left: -150px;
+    top: 45px;
+    position: fixed;
+    z-index: 1;
+    margin: 10px;
+    transition: all 0.5s;
+}
+.gotoTopActive {
+    left: 0;
+    transition: all 0.5s;
+}
+.gotoTop p {
+    background-color: #05a95c;
+    margin: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: black;
+}
+.gotoTop p:hover {
+    background-color: #04fc84;
+    transition: all 0.2s;
+}
+.gotoTop p:hover {
+    background-color: #84fbc4;
+    transition: all 0.2s;
+}
 /* navigator bar */
 .navigatorBar {
     background-color: #141414;
@@ -33,6 +65,16 @@ body {
     left: 0;
     right: 0;
     top: 0;
+    z-index: 1;
+    transition: all 0.5s;
+}
+.navigatorBarActive {
+    background-color: #3c3c3c;
+    transition: all 0.5s;
+}
+.navigatorBar div {
+    position: absolute;
+    left: 0;
 }
 .navigatorBar p {
     background-color: transparent;
@@ -41,6 +83,7 @@ body {
 }
 .navigatorBar p:hover {
     background-color: #1e1e1e;
+    transition: all 0.2s;
 }
 .navigatorBar p:hover {
     background-color: #232323;
