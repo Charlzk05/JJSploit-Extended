@@ -137,12 +137,12 @@ body {
 .buttonsPage .column {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin: 10px;
+    gap: 5px;
 }
 .buttonsPage .script {
     position: relative;
     width: 100%;
-    margin-left: 5px;
     background-color: #141414;
     border-radius: 10px;
     padding: 10px;
@@ -188,7 +188,8 @@ body {
     left: 0;
 }
 .scriptsLibPage .addScript {
-    width: 100%;
+    left: 0;
+    right: 0;
     margin-left: 5px;
     background-color: #141414;
     border-radius: 10px;
@@ -200,10 +201,129 @@ body {
     color: white;
 }
 .scriptsLibPage .addScript hr {
-    border: 0.2px solid gray;
+    border: 0.2px solid #191919;
 }
 .scriptsLibPage .addScript p {
     font-size: 14px;
     margin: 0;
+    margin-top: 5px;
     color: gray;
+}
+.scriptsLibPage .addScript input[type=text] {
+    background-color: transparent;
+    border: 0.5px solid #191919;
+    color: white;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    width: 100vh;
+}
+.scriptsLibPage .addScript textarea {
+    background-color: transparent;
+    border: 0.5px solid #191919;
+    color: white;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    width: 100vh;
+    max-width: 100vh;
+    font-family: 'Courier New', Courier, monospace;
+}
+.scriptsLibPage .addScript button {
+    background-color: #1e1e1e;
+    color: white;
+    border: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: all 0.2s;
+}
+.scriptsLibPage .addScript button:hover {
+    background-color: #232323;
+    transition: all 0.2s;
+}
+.scriptsLibPage .addScript button:active {
+    background-color: #282828;
+    transition: all 0.2s;
+}
+.scriptsLibPage .column {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    gap: 5px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    padding: 10px;
+}
+.scriptsLibPage .script {
+    width: 100%;
+    background-color: #141414;
+    border-radius: 10px;
+    padding: 10px;
+}
+.scriptsLibPage .script h3 {
+    margin: 0;
+    font-weight: 500;
+}
+.scriptsLibPage .script p {
+    font-size: 14px;
+    color: gray;
+}
+.scriptsLibPage .script .buttons {
+    display: flex;
+    justify-content: left;
+    gap: 5px;
+}
+.scriptsLibPage .script .buttons button {
+    background-color: #1e1e1e;
+    color: white;
+    border: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    border-radius: 5px;
+    transition: all 0.2s;
+}
+.scriptsLibPage .script .buttons button:hover {
+    background-color: #232323;
+    transition: all 0.2s;
+}
+.scriptsLibPage .script .buttons button:active {
+    background-color: #282828;
+    transition: all 0.2s;
+}
+.scriptsLibPage .addColumn {
+    margin: 10px;
+}
+.scriptsLibPage .addColumn hr {
+    border: 0.2px solid #141414;
+}
+.scriptsLibPage .addColumn button {
+    background-color: #1e1e1e;
+    color: white;
+    border: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-radius: 5px;
+    transition: all 0.2s;
+}
+.scriptsLibPage .addColumn button:hover {
+    background-color: #232323;
+    transition: all 0.2s;
+}
+.scriptsLibPage .addColumn button:active {
+    background-color: #282828;
+    transition: all 0.2s;
 }
