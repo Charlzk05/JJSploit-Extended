@@ -18,10 +18,10 @@
     </div>
     <div class="executorPage" style="display: block;">
         <div class="buttons">
-            <button>Execute</button>
-            <button>Clear</button>
-            <button>Open file</button>
-            <button>Save file</button>
+            <button onclick="execPageExecuteButton_click()">Execute</button>
+            <button onclick="execPageClearButton_click()">Clear</button>
+            <button onclick="openFileButton_click()">Open file</button>
+            <button onclick="saveFileButton_click()">Save file</button>
         </div>
         <div id="editor"></div>
     </div>
@@ -138,16 +138,19 @@
         </div>
     </div>
     <div class="scriptsLibPage" style="display: none;">
+        <div class="warning">
+            <p>Script name and Script content must be more than 5 characters in length</p>
+        </div>
         <div class="addScript">
             <p class="header">Add Script</p>
             <hr>
-            <p style="margin-top: 0;">Script name (Must be more than 5 in length)</p>
-            <input type="text" id="scriptName" oninput="addScriptInput_oninput()">
+            <p style="margin-top: 0;">Script name (Must be more than 5 characters in length)</p>
+            <input type="text" id="scriptName">
             <p>Script description (Optional)</p>
-            <input type="text" id="scriptDesc" oninput="addScriptInput_oninput()">
-            <p>Script content (Must be more than 5 in length)</p>
-            <textarea id="scriptContent" oninput="addScriptInput_oninput()"></textarea>
-            <button onclick="addScript_click()" disabled>Add</button>
+            <input type="text" id="scriptDesc">
+            <p>Script content (Must be more than 5 characters in length)</p>
+            <textarea id="scriptContent"></textarea>
+            <button onclick="addScript_click()">Add</button>
         </div>
         <div class="row">
 
@@ -156,5 +159,6 @@
 
     <script src="vs/loader.js"></script>
     <script src='main.js'></script>
+    <script src='functions.js'></script>
 </body>
 </html>

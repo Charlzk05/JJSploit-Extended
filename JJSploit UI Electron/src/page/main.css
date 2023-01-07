@@ -188,6 +188,22 @@ body {
     right: 0;
     left: 0;
 }
+.scriptsLibPage .warning {
+    position: fixed;
+    right: -1000px;
+    background-color: #dc3545;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    transition: all 1s;
+}
+.scriptsLibPage .warning p {
+    margin: 0px;
+}
+.scriptsLibPage .warningActive {
+    right: 0;
+    transition: all 1s;
+}
 .scriptsLibPage .addScript {
     left: 0;
     right: 0;
@@ -255,11 +271,6 @@ body {
     margin-top: 10px;
     transition: all 0.2s;
 }
-.scriptLib .addScript button:disabled {
-    background-color: #191919;
-    color: gray;
-    transition: all 0.2s;
-}
 .scriptsLibPage .addScript button:hover {
     background-color: #232323;
     transition: all 0.2s;
@@ -270,9 +281,6 @@ body {
 }
 .scriptsLibPage .row {
     margin: 10px;
-    background-color: #1e1e1e;
-    border-radius: 10px;
-    padding: 10px;
 }
 .scriptsLibPage .script {
     margin-top: 5px;
@@ -328,6 +336,7 @@ body {
     margin-top: 10px;
     border-radius: 5px;
     width: 100vh;
+    height: 200px;
     max-width: 100vh;
     font-family: 'Courier New', Courier, monospace;
     transition: all 0.2s;

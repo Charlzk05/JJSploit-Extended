@@ -1,5 +1,6 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
+const fs = require("fs");
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -24,6 +25,68 @@ const createWindow = () => {
   mainWindow.title = "JJSploit++ by Charlzk05";
 
   mainWindow.maximize();
+
+  ipcMain.on("execPageExecuteButton", async (event, script) => {
+    try {
+      await fs.writeFile("script.txt", script, () => {
+        
+      });
+    } catch (err) {
+      await dialog.showMessageBox("Error: " + err, {
+        type: "error"
+      });
+    }
+  });
+
+  ipcMain.on("openFileButton_Call", async (event) => {
+    try {
+      await dialog.showOpenDialog(mainWindow, {
+        filters: [
+          { name: "Txt Files", extensions: ["txt"] },
+          { name: "Lua Files", extensions: ["lua"] },
+          { name: "All Files", extensions: ["*"] }
+        ]
+      }).then(async (result) => {
+        if (result.canceled == false) {
+          await fs.readFile(result.filePaths.toString(), { encoding: "utf-8" }, async (err, data) => {
+            if (err) {
+              return console.log(err);
+            }
+            await mainWindow.webContents.send("openFileButton_Content", data);
+          });
+        }
+      });
+    } catch (err) {
+      await dialog.showMessageBox("Error: " + err, {
+        type: "error"
+      });
+    }
+  });
+
+  ipcMain.on("saveFileButton_Call", async (event) => {
+    try {
+      await dialog.showOpenDialog(mainWindow, {
+        filters: [
+          { name: "Txt Files", extensions: ["txt"] },
+          { name: "Lua Files", extensions: ["lua"] },
+          { name: "All Files", extensions: ["*"] }
+        ]
+      }).then(async (result) => {
+        if (result.canceled == false) {
+          await fs.readFile(result.filePaths.toString(), { encoding: "utf-8" }, async (err, data) => {
+            if (err) {
+              return console.log(err);
+            }
+            await mainWindow.webContents.send("saveFileButton_", data);
+          });
+        }
+      });
+    } catch (err) {
+      await dialog.showMessageBox("Error: " + err, {
+        type: "error"
+      });
+    }
+  });
 };
 
 // This method will be called when Electron has finished
