@@ -141,46 +141,16 @@
         <div class="addScript">
             <p class="header">Add Script</p>
             <hr>
-            <p style="margin-top: 0;">Script name</p>
-            <input type="text" id="scriptName">
+            <p style="margin-top: 0;">Script name (Must be more than 5 in length)</p>
+            <input type="text" id="scriptName" oninput="addScriptInput_oninput()">
             <p>Script description (Optional)</p>
-            <input type="text" id="scriptDesc">
-            <p>Script content:</p>
-            <textarea id="scriptContent"></textarea>
-            <button onclick="addScript_click()">Add</button>
+            <input type="text" id="scriptDesc" oninput="addScriptInput_oninput()">
+            <p>Script content (Must be more than 5 in length)</p>
+            <textarea id="scriptContent" oninput="addScriptInput_oninput()"></textarea>
+            <button onclick="addScript_click()" disabled>Add</button>
         </div>
-        <div class="addColumn">
-            <button onclick="addRow_click()">Add row</button>
-            <hr>
-        </div>
-        <div class="column">
-            <div class="script">
-                <h3>Example 1</h3>
-                <p>Description Example</p>
-                <div class="buttons">
-                    <button>Execute</button>
-                    <button>Delete</button>
-                </div>
-                <textarea style="display: none;"></textarea>
-            </div>
-            <div class="script">
-                <h3>Example 1</h3>
-                <p>Description Example</p>
-                <div class="buttons">
-                    <button>Execute</button>
-                    <button>Delete</button>
-                </div>
-                <textarea style="display: none;"></textarea>
-            </div>
-            <div class="script">
-                <h3>Example 1</h3>
-                <p>Description Example</p>
-                <div class="buttons">
-                    <button>Execute</button>
-                    <button>Delete</button>
-                </div>
-                <textarea style="display: none;"></textarea>
-            </div>
+        <div class="row">
+
         </div>
     </div>
 

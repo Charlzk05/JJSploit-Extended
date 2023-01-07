@@ -18,6 +18,7 @@
     background-color: transparent;
     border: 0px;
 }
+/* body */
 body {
     background-color: #191919;
     color: white;
@@ -211,16 +212,21 @@ body {
 }
 .scriptsLibPage .addScript input[type=text] {
     background-color: transparent;
-    border: 0.5px solid #191919;
+    border: 0.5px solid #1e1e1e;
     color: white;
     padding: 10px;
     margin-top: 5px;
     border-radius: 5px;
     width: 100vh;
+    transition: all 0.2s;
+}
+.scriptsLibPage .addScript input[type=text]:hover {
+    background-color: #232323;
+    transition: all 0.2s;
 }
 .scriptsLibPage .addScript textarea {
     background-color: transparent;
-    border: 0.5px solid #191919;
+    border: 0.5px solid #1e1e1e;
     color: white;
     padding: 10px;
     margin-top: 5px;
@@ -228,6 +234,11 @@ body {
     width: 100vh;
     max-width: 100vh;
     font-family: 'Courier New', Courier, monospace;
+    transition: all 0.2s;
+}
+.scriptsLibPage .addScript textarea:hover {
+    background-color: #232323;
+    transition: all 0.2s;
 }
 .scriptsLibPage .addScript button {
     background-color: #1e1e1e;
@@ -244,6 +255,11 @@ body {
     margin-top: 10px;
     transition: all 0.2s;
 }
+.scriptLib .addScript button:disabled {
+    background-color: #191919;
+    color: gray;
+    transition: all 0.2s;
+}
 .scriptsLibPage .addScript button:hover {
     background-color: #232323;
     transition: all 0.2s;
@@ -252,16 +268,14 @@ body {
     background-color: #282828;
     transition: all 0.2s;
 }
-.scriptsLibPage .column {
-    display: flex;
-    justify-content: center;
+.scriptsLibPage .row {
     margin: 10px;
-    gap: 5px;
     background-color: #1e1e1e;
     border-radius: 10px;
     padding: 10px;
 }
 .scriptsLibPage .script {
+    margin-top: 5px;
     width: 100%;
     background-color: #141414;
     border-radius: 10px;
@@ -302,28 +316,23 @@ body {
     background-color: #282828;
     transition: all 0.2s;
 }
-.scriptsLibPage .addColumn {
-    margin: 10px;
+.scriptsLibPage .script .content p {
+    margin: 0px;
+    margin-top: 10px;
 }
-.scriptsLibPage .addColumn hr {
-    border: 0.2px solid #141414;
-}
-.scriptsLibPage .addColumn button {
+.scriptsLibPage .script textarea {
     background-color: #1e1e1e;
-    color: white;
     border: 0px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 7px;
-    padding-bottom: 7px;
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
     border-radius: 5px;
+    width: 100vh;
+    max-width: 100vh;
+    font-family: 'Courier New', Courier, monospace;
     transition: all 0.2s;
 }
-.scriptsLibPage .addColumn button:hover {
+.scriptsLibPage .script textarea:hover {
     background-color: #232323;
-    transition: all 0.2s;
-}
-.scriptsLibPage .addColumn button:active {
-    background-color: #282828;
     transition: all 0.2s;
 }
