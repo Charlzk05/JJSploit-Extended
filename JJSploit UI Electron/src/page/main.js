@@ -104,10 +104,6 @@ addScript_click = () => {
             var deleteButton = document.createElement("button");
             deleteButton.innerText = "Delete";
         
-            deleteButton.addEventListener("click", () => {
-                scriptsLibPage.getElementsByClassName("row")[0].removeChild(scriptContainer);
-            });
-        
             scriptButtons.appendChild(executeButton);
             scriptButtons.appendChild(viewButton);
             scriptButtons.appendChild(deleteButton);
@@ -117,6 +113,11 @@ addScript_click = () => {
             scriptContainer.appendChild(scriptButtons);
             scriptContainer.appendChild(scriptContentContainer);
         
+            deleteButton.addEventListener("click", () => {
+                scriptsLibPage.getElementsByClassName("row")[0].removeChild(scriptContainer);
+                window.localStorage.setItem("scriptsLibrary", scriptsLibPage.getElementsByClassName("row")[0].innerHTML);
+            });
+            
             scriptsLibPage.getElementsByClassName("row")[0].appendChild(scriptContainer);
         } else {
             var scriptContainer = document.createElement("div");
@@ -168,10 +169,6 @@ addScript_click = () => {
             var deleteButton = document.createElement("button");
             deleteButton.innerText = "Delete";
         
-            deleteButton.addEventListener("click", () => {
-                scriptsLibPage.getElementsByClassName("row")[0].removeChild(scriptContainer);
-            });
-        
             scriptButtons.appendChild(executeButton);
             scriptButtons.appendChild(viewButton);
             scriptButtons.appendChild(deleteButton);
@@ -180,6 +177,11 @@ addScript_click = () => {
             scriptContainer.appendChild(scriptP);
             scriptContainer.appendChild(scriptButtons);
             scriptContainer.appendChild(scriptContentContainer);
+
+            deleteButton.addEventListener("click", () => {
+                scriptsLibPage.getElementsByClassName("row")[0].removeChild(scriptContainer);
+                window.localStorage.setItem("scriptsLibrary", scriptsLibPage.getElementsByClassName("row")[0].innerHTML);
+            });
         
             scriptsLibPage.getElementsByClassName("row")[0].appendChild(scriptContainer);
         }
@@ -189,6 +191,8 @@ addScript_click = () => {
             scriptsLibPage.getElementsByClassName("warning")[0].setAttribute("class", "warning");
         }, 3000);
     }
+
+    window.localStorage.setItem("scriptsLibrary", scriptsLibPage.getElementsByClassName("row")[0].innerHTML);
 }
 
 execPageExecuteButton_click = () => {
@@ -203,8 +207,8 @@ openFileButton_click = () => {
     window.electronAPI.openFileButton_Call();
 }
 
-window.electronAPI.openFileButton_Content((event, script) => {
-    editor.setValue(script);
+window.electronAPI.openFileButton_Content((event, content) => {
+    editor.setValue(content);
 });
 
 saveFileButton_click = () => {
@@ -223,7 +227,8 @@ explorerButton_click = () => {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-    window.electronAPI.explorerLoad_Call();
+    window.electronAPI.explorerLoad();
+    scriptsLibPage.getElementsByClassName("row")[0].innerHTML = window.localStorage.getItem("scriptsLibrary");
 });
 
 window.electronAPI.explorerLoad_Files((event, files) => {
@@ -233,10 +238,14 @@ window.electronAPI.explorerLoad_Files((event, files) => {
             script.innerText = file;
             
             script.addEventListener("click", () => {
-                console.log(file);
+                window.electronAPI.explorerSelectedFile(file);
             });
 
             scriptsExplorer.appendChild(script);
         }
     });
+});
+
+window.electronAPI.explorerSelectedFile_Content((event, content) => {
+    editor.setValue(content);
 });

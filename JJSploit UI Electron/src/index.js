@@ -26,9 +26,9 @@ const createWindow = () => {
 
   mainWindow.maximize();
 
-  ipcMain.on("execPageExecuteButton", async (event, script) => {
+  ipcMain.on("execPageExecuteButton", async (event, content) => {
     try {
-      await fs.writeFile("script.txt", script, (err) => {
+      await fs.writeFile("Script.txt", content, (err) => {
         if (err) {
           return console.log(err);
         }
@@ -65,7 +65,7 @@ const createWindow = () => {
     }
   });
 
-  ipcMain.on("saveFileButton", async (event, script) => {
+  ipcMain.on("saveFileButton", async (event, content) => {
     try {
       await dialog.showSaveDialog(mainWindow, {
         filters: [
@@ -75,7 +75,7 @@ const createWindow = () => {
         ]
       }).then(async (result) => {
         if (result.canceled == false) {
-          await fs.writeFile(result.filePath, script, { encoding: "utf-8" }, (err) => {
+          await fs.writeFile(result.filePath, content, { encoding: "utf-8" }, (err) => {
             if (err) {
               return console.log(err);
             }
@@ -89,13 +89,28 @@ const createWindow = () => {
     }
   });
 
-  ipcMain.on("explorerLoad_Call", async (event) => {
+  ipcMain.on("explorerLoad", async (event) => {
     try {
       await fs.readdir("./Scripts", async (err, files) => {
         if (err) {
           return console.log(err);
         }
         await mainWindow.webContents.send("explorerLoad_Files", files);
+      });
+    } catch (err) {
+      await dialog.showMessageBox(err, {
+        type: "error"
+      });
+    }
+  });
+
+  ipcMain.on("explorerSelectedFile", async (event, file) => {
+    try {
+      await fs.readFile(path.join("./Scripts", file), { encoding: "utf-8" }, async (err, data) => {
+        if (err) {
+          return console.log(err);
+        }
+        await mainWindow.webContents.send("explorerSelectedFile_Content", data);
       });
     } catch (err) {
       await dialog.showMessageBox(err, {
