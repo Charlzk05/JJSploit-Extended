@@ -28,11 +28,13 @@ const createWindow = () => {
 
   ipcMain.on("execPageExecuteButton", async (event, script) => {
     try {
-      await fs.writeFile("script.txt", script, () => {
-        
+      await fs.writeFile("script.txt", script, (err) => {
+        if (err) {
+          return console.log(err);
+        }
       });
     } catch (err) {
-      await dialog.showMessageBox("Error: " + err, {
+      await dialog.showMessageBox(err, {
         type: "error"
       });
     }
@@ -57,15 +59,15 @@ const createWindow = () => {
         }
       });
     } catch (err) {
-      await dialog.showMessageBox("Error: " + err, {
+      await dialog.showMessageBox(err, {
         type: "error"
       });
     }
   });
 
-  ipcMain.on("saveFileButton_Call", async (event) => {
+  ipcMain.on("saveFileButton", async (event, script) => {
     try {
-      await dialog.showOpenDialog(mainWindow, {
+      await dialog.showSaveDialog(mainWindow, {
         filters: [
           { name: "Txt Files", extensions: ["txt"] },
           { name: "Lua Files", extensions: ["lua"] },
@@ -73,16 +75,30 @@ const createWindow = () => {
         ]
       }).then(async (result) => {
         if (result.canceled == false) {
-          await fs.readFile(result.filePaths.toString(), { encoding: "utf-8" }, async (err, data) => {
+          await fs.writeFile(result.filePath, script, { encoding: "utf-8" }, (err) => {
             if (err) {
               return console.log(err);
             }
-            await mainWindow.webContents.send("saveFileButton_", data);
           });
         }
       });
     } catch (err) {
-      await dialog.showMessageBox("Error: " + err, {
+      await dialog.showMessageBox(err, {
+        type: "error"
+      });
+    }
+  });
+
+  ipcMain.on("explorerLoad_Call", async (event) => {
+    try {
+      await fs.readdir("./Scripts", async (err, files) => {
+        if (err) {
+          return console.log(err);
+        }
+        await mainWindow.webContents.send("explorerLoad_Files", files);
+      });
+    } catch (err) {
+      await dialog.showMessageBox(err, {
         type: "error"
       });
     }

@@ -6,6 +6,8 @@ const gotoTop = document.getElementsByClassName("gotoTop")[0];
 const scriptName = document.getElementById("scriptName");
 const scriptDesc = document.getElementById("scriptDesc");
 const scriptContent = document.getElementById("scriptContent");
+const explorer = document.getElementsByClassName("explorer")[0];
+const scriptsExplorer = document.getElementsByClassName("explorer")[0].getElementsByClassName("scripts")[0];
 
 var editor;
 
@@ -188,3 +190,53 @@ addScript_click = () => {
         }, 3000);
     }
 }
+
+execPageExecuteButton_click = () => {
+    window.electronAPI.execPageExecuteButton(editor.getValue());
+}
+
+execPageClearButton_click = () => {
+    editor.setValue("");
+}
+
+openFileButton_click = () => {
+    window.electronAPI.openFileButton_Call();
+}
+
+window.electronAPI.openFileButton_Content((event, script) => {
+    editor.setValue(script);
+});
+
+saveFileButton_click = () => {
+    window.electronAPI.saveFileButton(editor.getValue());
+}
+
+isHidden = true;
+explorerButton_click = () => {
+    if (isHidden == false) {
+        isHidden = true;
+        explorer.setAttribute("class", "explorer explorerHidden");
+    } else {
+        isHidden = false;
+        explorer.setAttribute("class", "explorer");
+    }
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    window.electronAPI.explorerLoad_Call();
+});
+
+window.electronAPI.explorerLoad_Files((event, files) => {
+    files.forEach((file) => {
+        if (file.includes(".txt") || file.includes(".lua")) {
+            var script = document.createElement("p");
+            script.innerText = file;
+            
+            script.addEventListener("click", () => {
+                console.log(file);
+            });
+
+            scriptsExplorer.appendChild(script);
+        }
+    });
+});

@@ -22,8 +22,18 @@
             <button onclick="execPageClearButton_click()">Clear</button>
             <button onclick="openFileButton_click()">Open file</button>
             <button onclick="saveFileButton_click()">Save file</button>
+            <button onclick="explorerButton_click()">Scripts explorer</button>
         </div>
         <div id="editor"></div>
+        <div class="explorer explorerHidden">
+            <p class="header">Explorer</p>
+            <hr>
+            <div class="scripts">
+                <p>Script 1</p>
+                <p>Script 2</p>
+                <p>Script 3</p>
+            </div>
+        </div>
     </div>
     <div class="buttonsPage" style="display: none;">
         <div class="column">
@@ -159,6 +169,5 @@
 
     <script src="vs/loader.js"></script>
     <script src='main.js'></script>
-    <script src='functions.js'></script>
 </body>
 </html>

@@ -124,6 +124,54 @@ body {
     background-color: #282828;
     transition: all 0.2s;
 }
+.executorPage .explorer {
+    z-index: 1;
+    background-color: #1e1e1e;
+    position: fixed;
+    right: 0px;
+    bottom: 0;
+    top: 45px;
+    width: 20%;
+    padding: 10px;
+    border-left: 0.5px solid #282828;
+    transition: all 0.5s;
+}
+.executorPage .explorerHidden {
+    z-index: 1;
+    background-color: #1e1e1e;
+    position: fixed;
+    right: -500px;
+    bottom: 0;
+    top: 45px;
+    width: 20%;
+    padding: 10px;
+    border-left: 0.5px solid #282828;
+    transition: all 0.5s;
+}
+.executorPage .explorer .header {
+    margin: 0px;
+    font-size: 14px;
+    color: gray;
+}
+.executorPage .explorer hr {
+    border: 0.2px solid #191919;
+}
+.executorPage .explorer .scripts p {
+    padding: 2px;
+    padding-left: 10px;
+    margin: 0px;
+    border-radius: 5px;
+    background-color: transparent;
+    transition: all 0.2s;
+}
+.executorPage .explorer .scripts p:hover {
+    background-color: #232323;
+    transition: all 0.2s;
+}
+.executorPage .explorer .scripts p:active {
+    background-color: #282828;
+    transition: all 0.2s;
+}
 .executorPage #editor {
     height: 100%;
 }
@@ -284,7 +332,8 @@ body {
 }
 .scriptsLibPage .script {
     margin-top: 5px;
-    width: 100%;
+    left: 0;
+    right: 0;
     background-color: #141414;
     border-radius: 10px;
     padding: 10px;
