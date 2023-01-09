@@ -118,6 +118,45 @@ const createWindow = () => {
       });
     }
   });
+
+  ipcMain.on("scriptsLibraryLoad", async (event) => {
+    try {
+      await fs.readFile("./ScriptsLibrary.json", { encoding: "utf-8" }, async (err, data) => {
+        if (err) {
+          return console.log(err);
+        }
+        await mainWindow.webContents.send("scriptsLibraryLoad_Scripts", data);
+      });
+    } catch (err) {
+      await dialog.showMessageBox(err, {
+        type: "error"
+      });}
+  });
+
+  ipcMain.on("scriptLibraryData", async (event, name, desc, url) => {
+    try {
+      fs.readFile("./ScriptsLibrary.json", { encoding: "utf-8" }, async (err, data) => {
+        if (err) {
+          return console.log(err);
+        }
+        var dataArray = JSON.parse(data);
+        dataArray.push({
+          "name": name,
+          "desc": desc,
+          "url": url
+        });
+        await fs.writeFile("./ScriptsLibrary.json", JSON.stringify(dataArray, null, 4), { encoding: "utf-8" }, (err) => {
+          if (err) {
+            return console.log(err);
+          }
+        });
+      });
+    } catch (err) {
+      await dialog.showMessageBox(err, {
+        type: "error"
+      });
+    }
+  });
 };
 
 // This method will be called when Electron has finished

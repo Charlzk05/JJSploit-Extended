@@ -288,26 +288,11 @@ body {
     background-color: #232323;
     transition: all 0.2s;
 }
-.scriptsLibPage .addScript textarea {
-    background-color: transparent;
-    border: 0.5px solid #1e1e1e;
-    color: white;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    width: 100vh;
-    max-width: 100vh;
-    font-family: 'Courier New', Courier, monospace;
-    transition: all 0.2s;
-}
-.scriptsLibPage .addScript textarea:hover {
-    background-color: #232323;
-    transition: all 0.2s;
-}
 .scriptsLibPage .addScript button {
     background-color: #1e1e1e;
     color: white;
     border: 0px;
+    margin-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 7px;
@@ -345,7 +330,21 @@ body {
     font-size: 14px;
     color: gray;
 }
+.scriptsLibPage .script input[type=text] {
+    background-color: transparent;
+    border: 0.5px solid #1e1e1e;
+    color: gray;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100vh;
+    transition: all 0.2s;
+}
+.scriptsLibPage .script input[type=text]:hover {
+    background-color: #232323;
+    transition: all 0.2s;
+}
 .scriptsLibPage .script .buttons {
+    margin-top: 10px;
     display: flex;
     justify-content: left;
     gap: 5px;
@@ -372,11 +371,12 @@ body {
     background-color: #282828;
     transition: all 0.2s;
 }
-.scriptsLibPage .script .content p {
+.scriptsLibPage .script .url p {
     margin: 0px;
     margin-top: 10px;
 }
-.scriptsLibPage .script textarea {
+/*
+.scriptsLibPage .script input {
     background-color: #1e1e1e;
     border: 0px;
     color: white;
@@ -393,3 +393,4 @@ body {
     background-color: #232323;
     transition: all 0.2s;
 }
+*/

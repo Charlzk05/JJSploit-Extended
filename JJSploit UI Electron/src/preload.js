@@ -9,4 +9,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
     explorerLoad_Files: (files) => ipcRenderer.on("explorerLoad_Files", files),
     explorerSelectedFile: (file) => ipcRenderer.send("explorerSelectedFile", file),
     explorerSelectedFile_Content: (content) => ipcRenderer.on("explorerSelectedFile_Content", content),
+    scriptsLibraryLoad: () => ipcRenderer.send("scriptsLibraryLoad"),
+    scriptsLibraryLoad_Scripts: (jsonItems) => ipcRenderer.on("scriptsLibraryLoad_Scripts", jsonItems),
+    scriptLibraryData: (name, desc, url) => ipcRenderer.send("scriptLibraryData", name, desc, url),
 });

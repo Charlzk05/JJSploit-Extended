@@ -5,7 +5,8 @@ const navigatorBar = document.getElementsByClassName("navigatorBar")[0];
 const gotoTop = document.getElementsByClassName("gotoTop")[0];
 const scriptName = document.getElementById("scriptName");
 const scriptDesc = document.getElementById("scriptDesc");
-const scriptContent = document.getElementById("scriptContent");
+const scriptUrl = document.getElementById("scriptUrl");
+const scriptsLibraryRow = document.getElementsByClassName("scriptsLibPage")[0].getElementsByClassName("row")[0]
 const explorer = document.getElementsByClassName("explorer")[0];
 const scriptsExplorer = document.getElementsByClassName("explorer")[0].getElementsByClassName("scripts")[0];
 
@@ -53,137 +54,13 @@ scriptsLib_click = () => {
 }
 
 addScript_click = () => {
-    if (scriptName.value.length >= 5 && scriptContent.value.length >= 5) {
+    if (scriptName.value.length >= 5 && scriptUrl.value.slice(0, 4) == "http" || scriptUrl.value.slice(0, 5) == "https") {
         if (scriptDesc.value == "") {
-            var scriptContainer = document.createElement("div");
-            scriptContainer.setAttribute("class", "script");
-        
-            var scriptH3 = document.createElement("h3");
-            scriptH3.innerText = scriptName.value;
-        
-            var scriptP = document.createElement("p");
-            scriptP.innerText = "(No description provided)";
-        
-            var scriptButtons = document.createElement("div");
-            scriptButtons.setAttribute("class", "buttons");
-        
-            var scriptContentContainer = document.createElement("div");
-            scriptContentContainer.setAttribute("class", "content");
-            scriptContentContainer.setAttribute("style", "display: none;");
-        
-            var scriptContentP = document.createElement("p");
-            scriptContentP.innerText = "Script";
-        
-            var scriptContentTextArea = document.createElement("textarea");
-            scriptContentTextArea.value = scriptContent.value;
-        
-            scriptContentContainer.appendChild(scriptContentP);
-            scriptContentContainer.appendChild(scriptContentTextArea);
-        
-            var executeButton = document.createElement("button");
-            executeButton.innerText = "Execute";
-        
-            executeButton.addEventListener("click", () => {
-                console.log(scriptContentContainer.value);
-            });
-        
-            var viewButton = document.createElement("button");
-            viewButton.innerText = "View script";
-        
-            var isViewed = false;
-            viewButton.addEventListener("click", () => {
-                if (isViewed == false) {
-                    isViewed = true;
-                    scriptContentContainer.setAttribute("style", "display: block;");
-                } else {
-                    isViewed = false;
-                    scriptContentContainer.setAttribute("style", "display: none;");
-                }
-            });
-        
-            var deleteButton = document.createElement("button");
-            deleteButton.innerText = "Delete";
-        
-            scriptButtons.appendChild(executeButton);
-            scriptButtons.appendChild(viewButton);
-            scriptButtons.appendChild(deleteButton);
-        
-            scriptContainer.appendChild(scriptH3);
-            scriptContainer.appendChild(scriptP);
-            scriptContainer.appendChild(scriptButtons);
-            scriptContainer.appendChild(scriptContentContainer);
-        
-            deleteButton.addEventListener("click", () => {
-                scriptsLibPage.getElementsByClassName("row")[0].removeChild(scriptContainer);
-                window.localStorage.setItem("scriptsLibrary", scriptsLibPage.getElementsByClassName("row")[0].innerHTML);
-            });
-            
-            scriptsLibPage.getElementsByClassName("row")[0].appendChild(scriptContainer);
+            window.electronAPI.scriptLibraryData(scriptName.value, "(No description provided)", scriptUrl.value);
+            scriptLibraryCreator(scriptName.value, "(No description provided)", scriptUrl.value, scriptsLibraryRow);
         } else {
-            var scriptContainer = document.createElement("div");
-            scriptContainer.setAttribute("class", "script");
-        
-            var scriptH3 = document.createElement("h3");
-            scriptH3.innerText = scriptName.value;
-        
-            var scriptP = document.createElement("p");
-            scriptP.innerText = scriptDesc.value;
-        
-            var scriptButtons = document.createElement("div");
-            scriptButtons.setAttribute("class", "buttons");
-        
-            var scriptContentContainer = document.createElement("div");
-            scriptContentContainer.setAttribute("class", "content");
-            scriptContentContainer.setAttribute("style", "display: none;");
-        
-            var scriptContentP = document.createElement("p");
-            scriptContentP.innerText = "Script";
-        
-            var scriptContentTextArea = document.createElement("textarea");
-            scriptContentTextArea.value = scriptContent.value;
-        
-            scriptContentContainer.appendChild(scriptContentP);
-            scriptContentContainer.appendChild(scriptContentTextArea);
-        
-            var executeButton = document.createElement("button");
-            executeButton.innerText = "Execute";
-        
-            executeButton.addEventListener("click", () => {
-                console.log(scriptContentContainer.value);
-            });
-        
-            var viewButton = document.createElement("button");
-            viewButton.innerText = "View script";
-        
-            var isViewed = false;
-            viewButton.addEventListener("click", () => {
-                if (isViewed == false) {
-                    isViewed = true;
-                    scriptContentContainer.setAttribute("style", "display: block;");
-                } else {
-                    isViewed = false;
-                    scriptContentContainer.setAttribute("style", "display: none;");
-                }
-            });
-        
-            var deleteButton = document.createElement("button");
-            deleteButton.innerText = "Delete";
-        
-            scriptButtons.appendChild(executeButton);
-            scriptButtons.appendChild(viewButton);
-            scriptButtons.appendChild(deleteButton);
-        
-            scriptContainer.appendChild(scriptH3);
-            scriptContainer.appendChild(scriptP);
-            scriptContainer.appendChild(scriptButtons);
-            scriptContainer.appendChild(scriptContentContainer);
-
-            deleteButton.addEventListener("click", () => {
-                scriptsLibPage.getElementsByClassName("row")[0].removeChild(scriptContainer);
-                window.localStorage.setItem("scriptsLibrary", scriptsLibPage.getElementsByClassName("row")[0].innerHTML);
-            });
-        
-            scriptsLibPage.getElementsByClassName("row")[0].appendChild(scriptContainer);
+            scriptLibraryCreator(scriptName.value, scriptDesc.value, scriptUrl.value, scriptsLibraryRow);
+            window.electronAPI.scriptLibraryData(scriptName.value, scriptDesc.value, scriptUrl.value);
         }
     } else {
         scriptsLibPage.getElementsByClassName("warning")[0].setAttribute("class", "warning warningActive");
@@ -191,8 +68,6 @@ addScript_click = () => {
             scriptsLibPage.getElementsByClassName("warning")[0].setAttribute("class", "warning");
         }, 3000);
     }
-
-    window.localStorage.setItem("scriptsLibrary", scriptsLibPage.getElementsByClassName("row")[0].innerHTML);
 }
 
 execPageExecuteButton_click = () => {
@@ -226,9 +101,59 @@ explorerButton_click = () => {
     }
 }
 
+scriptLibraryCreator = (name, desc, url, parent) => {
+    var div = document.createElement("div");
+    div.setAttribute("class", "script");
+
+    var h3 = document.createElement("h3");
+    h3.innerText = name;
+
+    var p = document.createElement("p");
+    p.innerText = desc;
+
+    var input = document.createElement("input");
+    input.type = "text";
+    input.readOnly = true;
+    input.value = url;
+
+    var buttons = document.createElement("div");
+    buttons.setAttribute("class", "buttons");
+
+    var execute = document.createElement("button");
+    execute.innerText = "Execute";
+    execute.addEventListener("click", () => {
+        console.log(input.value);
+    });
+
+    var deleteButton = document.createElement("button");
+    deleteButton.innerText = "Delete";
+    deleteButton.addEventListener("click", () => {
+        parent.removeChild(div);
+    });
+
+    buttons.appendChild(execute);
+    buttons.appendChild(deleteButton);
+
+    div.appendChild(h3);
+    div.appendChild(p);
+    div.appendChild(input);
+    div.appendChild(buttons);
+
+    parent.appendChild(div);
+}
+
 window.addEventListener("DOMContentLoaded", () => {
     window.electronAPI.explorerLoad();
-    scriptsLibPage.getElementsByClassName("row")[0].innerHTML = window.localStorage.getItem("scriptsLibrary");
+    window.electronAPI.scriptsLibraryLoad();
+});
+
+window.electronAPI.scriptsLibraryLoad_Scripts((event, jsonItems) => {
+    JSON.parse(jsonItems).forEach((item) => {
+        var name = JSON.parse(JSON.stringify(item))["name"];
+        var desc = JSON.parse(JSON.stringify(item))["desc"];
+        var url = JSON.parse(JSON.stringify(item))["url"];
+        scriptLibraryCreator(name, desc, url, scriptsLibraryRow);
+    });
 });
 
 window.electronAPI.explorerLoad_Files((event, files) => {

@@ -147,7 +147,7 @@
     </div>
     <div class="scriptsLibPage" style="display: none;">
         <div class="warning">
-            <p>Script name and Script content must be more than 5 characters in length</p>
+            <p>Script name be more than 5 characters in length and Script url must have http or https on the first 4-5 characters</p>
         </div>
         <div class="addScript">
             <p class="header">Add Script</p>
@@ -156,12 +156,20 @@
             <input type="text" id="scriptName">
             <p>Script description (Optional)</p>
             <input type="text" id="scriptDesc">
-            <p>Script content (Must be more than 5 characters in length)</p>
-            <textarea id="scriptContent"></textarea>
+            <p>Script url (Must have http or https on the first 4-5 characters)</p>
+            <input type="text" id="scriptUrl">
             <button onclick="addScript_click()">Add</button>
         </div>
         <div class="row">
-
+            <div class="script">
+                <h3>Title</h3>
+                <p>Desc</p>
+                <input type="text" value="https://example.com/" readonly>
+                <div class="buttons">
+                    <button>Execute</button>
+                    <button>Delete</button>
+                </div>
+            </div>
         </div>
     </div>
 
