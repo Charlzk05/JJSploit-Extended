@@ -157,6 +157,33 @@ const createWindow = () => {
       });
     }
   });
+
+  ipcMain.on("scriptLibraryDeleteItem", async (event, name) => {
+    try {
+      await fs.readFile("./ScriptsLibrary.json", { encoding: "utf-8" }, async (err, data) => {
+        if (err) {
+          return console.log(err);
+        }
+        var dataArray = JSON.parse(data);
+        for (var i = 0; i < dataArray.length; i++) {
+          if (dataArray[i] != null) { 
+            console.log(JSON.parse(JSON.stringify(dataArray[i]))["name"]);
+           } 
+          /*
+          if (JSON.parse(JSON.stringify(dataArray[i]))["name"] == name) {
+            console.log(JSON.parse(JSON.stringify(dataArray[i]))["name"]);
+          } else {
+            console.log("not deletable");
+          }
+          */
+        }
+      });
+    } catch (err) {
+      await dialog.showMessageBox(err, {
+        type: "error"
+      });
+    }
+  });
 };
 
 // This method will be called when Electron has finished

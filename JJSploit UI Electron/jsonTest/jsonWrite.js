@@ -19,7 +19,7 @@ jsonArray.push({
     "url": "test-append"
 });
 
-fs.writeFile("./results.json", JSON.stringify(jsonArray), { 
+fs.writeFile("./results.json", JSON.stringify(jsonArray, null, 4), { 
     encoding: "utf-8" 
 }, (err) => {
     if (err) {

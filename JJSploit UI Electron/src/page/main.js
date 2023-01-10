@@ -54,6 +54,16 @@ scriptsLib_click = () => {
 }
 
 addScript_click = () => {
+    for (var i = 0; i < scriptsLibraryRow.getElementsByClassName("script").length; i++) {
+        if (scriptName.value == scriptsLibraryRow.getElementsByClassName("script")[i].getElementsByTagName("h3")[0].innerText) {
+            scriptsLibPage.getElementsByClassName("existsWarning")[0].setAttribute("class", "existsWarning existsWarningActive");
+                setTimeout(() => {
+                    scriptsLibPage.getElementsByClassName("existsWarning")[0].setAttribute("class", "existsWarning");
+                }, 3000);
+            return;
+        }
+    }
+
     if (scriptName.value.length >= 5 && scriptUrl.value.slice(0, 4) == "http" || scriptUrl.value.slice(0, 5) == "https") {
         if (scriptDesc.value == "") {
             window.electronAPI.scriptLibraryData(scriptName.value, "(No description provided)", scriptUrl.value);
@@ -128,6 +138,7 @@ scriptLibraryCreator = (name, desc, url, parent) => {
     var deleteButton = document.createElement("button");
     deleteButton.innerText = "Delete";
     deleteButton.addEventListener("click", () => {
+        window.electronAPI.scriptLibraryDeleteItem(name);
         parent.removeChild(div);
     });
 
@@ -149,10 +160,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
 window.electronAPI.scriptsLibraryLoad_Scripts((event, jsonItems) => {
     JSON.parse(jsonItems).forEach((item) => {
-        var name = JSON.parse(JSON.stringify(item))["name"];
-        var desc = JSON.parse(JSON.stringify(item))["desc"];
-        var url = JSON.parse(JSON.stringify(item))["url"];
-        scriptLibraryCreator(name, desc, url, scriptsLibraryRow);
+        if (item != null) {
+            var name = JSON.parse(JSON.stringify(item))["name"];
+            var desc = JSON.parse(JSON.stringify(item))["desc"];
+            var url = JSON.parse(JSON.stringify(item))["url"];
+            scriptLibraryCreator(name, desc, url, scriptsLibraryRow);
+        }
     });
 });
 

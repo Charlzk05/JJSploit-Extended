@@ -236,6 +236,22 @@ body {
     right: 0;
     left: 0;
 }
+.scriptsLibPage .existsWarning {
+    position: fixed;
+    right: -1000px;
+    background-color: #dc3545;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    transition: all 1s;
+}
+.scriptsLibPage .existsWarning p {
+    margin: 0px;
+}
+.scriptsLibPage .existsWarningActive {
+    right: 0;
+    transition: all 1s;
+}
 .scriptsLibPage .warning {
     position: fixed;
     right: -1000px;
