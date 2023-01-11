@@ -9,6 +9,7 @@ const scriptUrl = document.getElementById("scriptUrl");
 const scriptsLibraryRow = document.getElementsByClassName("scriptsLibPage")[0].getElementsByClassName("row")[0]
 const explorer = document.getElementsByClassName("explorer")[0];
 const scriptsExplorer = document.getElementsByClassName("explorer")[0].getElementsByClassName("scripts")[0];
+const scriptHubPage = document.getElementsByClassName("scriptHubPage")[0];
 
 var editor;
 
@@ -25,12 +26,14 @@ luaExecutor_click = () => {
     executorPage.setAttribute("style", "display: block;");
     buttonsPage.setAttribute("style", "display: none;");
     scriptsLibPage.setAttribute("style", "display: none;");
+    scriptHubPage.setAttribute("style", "display: none;");
 }
 
 buttons_click = () => {
     executorPage.setAttribute("style", "display: none;");
     buttonsPage.setAttribute("style", "display: block;");
     scriptsLibPage.setAttribute("style", "display: none;");
+    scriptHubPage.setAttribute("style", "display: none;");
 }
 
 window.addEventListener("scroll", () => {
@@ -51,6 +54,14 @@ scriptsLib_click = () => {
     executorPage.setAttribute("style", "display: none;");
     buttonsPage.setAttribute("style", "display: none;");
     scriptsLibPage.setAttribute("style", "display: block;");
+    scriptHubPage.setAttribute("style", "display: none;");
+}
+
+scriptHubButton_click = () => {
+    executorPage.setAttribute("style", "display: none;");
+    buttonsPage.setAttribute("style", "display: none;");
+    scriptsLibPage.setAttribute("style", "display: none;");
+    scriptHubPage.setAttribute("style", "display: block;");
 }
 
 addScript_click = () => {

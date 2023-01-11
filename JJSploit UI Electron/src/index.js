@@ -28,7 +28,7 @@ const createWindow = () => {
 
   ipcMain.on("execPageExecuteButton", async (event, content) => {
     try {
-      await fs.writeFile("Script.txt", content, (err) => {
+      await fs.writeFile("./Bin/Script.txt", content, (err) => {
         if (err) {
           return console.log(err);
         }
@@ -121,7 +121,7 @@ const createWindow = () => {
 
   ipcMain.on("scriptsLibraryLoad", async (event) => {
     try {
-      await fs.readFile("./ScriptsLibrary.json", { encoding: "utf-8" }, async (err, data) => {
+      await fs.readFile("./Bin/ScriptsLibrary.json", { encoding: "utf-8" }, async (err, data) => {
         if (err) {
           return console.log(err);
         }
@@ -135,7 +135,7 @@ const createWindow = () => {
 
   ipcMain.on("scriptLibraryAdd", async (event, name, desc, url) => {
     try {
-      fs.readFile("./ScriptsLibrary.json", { encoding: "utf-8" }, async (err, data) => {
+      fs.readFile("./Bin/ScriptsLibrary.json", { encoding: "utf-8" }, async (err, data) => {
         if (err) {
           return console.log(err);
         }
@@ -145,7 +145,7 @@ const createWindow = () => {
           "desc": desc,
           "url": url
         });
-        await fs.writeFile("./ScriptsLibrary.json", JSON.stringify(dataArray, null, 4), { encoding: "utf-8" }, (err) => {
+        await fs.writeFile("./Bin/ScriptsLibrary.json", JSON.stringify(dataArray, null, 4), { encoding: "utf-8" }, (err) => {
           if (err) {
             return console.log(err);
           }
@@ -160,7 +160,7 @@ const createWindow = () => {
 
   ipcMain.on("scriptLibraryDeleteItem", async (event, name) => {
     try {
-      await fs.readFile("./ScriptsLibrary.json", { encoding: "utf-8" }, async (err, data) => {
+      await fs.readFile("./Bin/ScriptsLibrary.json", { encoding: "utf-8" }, async (err, data) => {
         if (err) {
           return console.log(err);
         }
@@ -169,7 +169,7 @@ const createWindow = () => {
           if (dataArray[i] != null) {
             if (JSON.parse(JSON.stringify(dataArray[i]))["name"] == name) {
               delete dataArray[i];
-              await fs.writeFile("./ScriptsLibrary.json", JSON.stringify(dataArray, null, 4), { encoding: "utf-8" }, async (err) => {
+              await fs.writeFile("./Bin/ScriptsLibrary.json", JSON.stringify(dataArray, null, 4), { encoding: "utf-8" }, async (err) => {
                 if (err) {
                   return console.log(err);
                 }
