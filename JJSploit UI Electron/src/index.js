@@ -133,7 +133,7 @@ const createWindow = () => {
       });}
   });
 
-  ipcMain.on("scriptLibraryData", async (event, name, desc, url) => {
+  ipcMain.on("scriptLibraryAdd", async (event, name, desc, url) => {
     try {
       fs.readFile("./ScriptsLibrary.json", { encoding: "utf-8" }, async (err, data) => {
         if (err) {
@@ -166,16 +166,17 @@ const createWindow = () => {
         }
         var dataArray = JSON.parse(data);
         for (var i = 0; i < dataArray.length; i++) {
-          if (dataArray[i] != null) { 
-            console.log(JSON.parse(JSON.stringify(dataArray[i]))["name"]);
+          if (dataArray[i] != null) {
+            if (JSON.parse(JSON.stringify(dataArray[i]))["name"] == name) {
+              delete dataArray[i];
+              await fs.writeFile("./ScriptsLibrary.json", JSON.stringify(dataArray, null, 4), { encoding: "utf-8" }, async (err) => {
+                if (err) {
+                  return console.log(err);
+                }
+              });
+              break;
+            }
            } 
-          /*
-          if (JSON.parse(JSON.stringify(dataArray[i]))["name"] == name) {
-            console.log(JSON.parse(JSON.stringify(dataArray[i]))["name"]);
-          } else {
-            console.log("not deletable");
-          }
-          */
         }
       });
     } catch (err) {

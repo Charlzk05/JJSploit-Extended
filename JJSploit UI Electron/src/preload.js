@@ -11,6 +11,6 @@ contextBridge.exposeInMainWorld("electronAPI", {
     explorerSelectedFile_Content: (content) => ipcRenderer.on("explorerSelectedFile_Content", content),
     scriptsLibraryLoad: () => ipcRenderer.send("scriptsLibraryLoad"),
     scriptsLibraryLoad_Scripts: (jsonItems) => ipcRenderer.on("scriptsLibraryLoad_Scripts", jsonItems),
-    scriptLibraryData: (name, desc, url) => ipcRenderer.send("scriptLibraryData", name, desc, url),
+    scriptLibraryAdd: (name, desc, url) => ipcRenderer.send("scriptLibraryAdd", name, desc, url),
     scriptLibraryDeleteItem: (name) => ipcRenderer.send("scriptLibraryDeleteItem", name),
 });

@@ -20,6 +20,7 @@
 }
 /* body */
 body {
+    scroll-behavior: smooth;
     background-color: #191919;
     color: white;
     font-family: "Segoe UI";

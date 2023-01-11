@@ -66,11 +66,11 @@ addScript_click = () => {
 
     if (scriptName.value.length >= 5 && scriptUrl.value.slice(0, 4) == "http" || scriptUrl.value.slice(0, 5) == "https") {
         if (scriptDesc.value == "") {
-            window.electronAPI.scriptLibraryData(scriptName.value, "(No description provided)", scriptUrl.value);
+            window.electronAPI.scriptLibraryAdd(scriptName.value, "(No description provided)", scriptUrl.value);
             scriptLibraryCreator(scriptName.value, "(No description provided)", scriptUrl.value, scriptsLibraryRow);
         } else {
             scriptLibraryCreator(scriptName.value, scriptDesc.value, scriptUrl.value, scriptsLibraryRow);
-            window.electronAPI.scriptLibraryData(scriptName.value, scriptDesc.value, scriptUrl.value);
+            window.electronAPI.scriptLibraryAdd(scriptName.value, scriptDesc.value, scriptUrl.value);
         }
     } else {
         scriptsLibPage.getElementsByClassName("warning")[0].setAttribute("class", "warning warningActive");

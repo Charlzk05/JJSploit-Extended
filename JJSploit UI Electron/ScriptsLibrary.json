@@ -1,18 +1,3 @@
 [
-    {
-        "name": "Example name",
-        "desc": "Example desc",
-        "url": "Example url"
-    },
-    {
-        "name": "test123n",
-        "desc": "(No description provided)",
-        "url": "https://example.com/"
-    },
-    null,
-    {
-        "name": "test123n123n",
-        "desc": "(No description provided)",
-        "url": "httpsadasf213"
-    }
+    null
 ]
