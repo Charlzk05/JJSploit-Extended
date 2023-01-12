@@ -22,6 +22,8 @@ const createWindow = () => {
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, "page", 'index.html'));
 
+  mainWindow.maximize();
+
   mainWindow.title = "JJSploit++ by Charlzk05";
 
   ipcMain.on("execPageExecuteButton", async (event, content) => {

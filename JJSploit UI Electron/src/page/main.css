@@ -24,7 +24,7 @@ body {
     background-color: #191919;
     color: white;
     font-family: "Segoe UI";
-    overflow: scroll;
+    overflow-y: scroll;
 }
 /* go to top */
 .gotoTop {
@@ -185,6 +185,19 @@ body {
     right: 0;
     left: 0;
 }
+.buttonsPage .backgroundImage {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-image: url("Resources/203514.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: blur(3px);
+    z-index: -1;
+}
 .buttonsPage .column {
     display: flex;
     justify-content: center;
@@ -237,6 +250,19 @@ body {
     height: 100%;
     right: 0;
     left: 0;
+}
+.scriptsLibPage .backgroundImage {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-image: url("Resources/203518.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: blur(3px);
+    z-index: -1;
 }
 .scriptsLibPage .existsWarning {
     position: fixed;
@@ -400,6 +426,19 @@ body {
     height: 100%;
     right: 0;
     left: 0;
+}
+.scriptHubPage .backgroundImage {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-image: url("Resources/203545.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: blur(3px);
+    z-index: -1;
 }
 .scriptHubPage .column {
     display: flex;
