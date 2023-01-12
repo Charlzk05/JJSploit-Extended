@@ -74,7 +74,7 @@ body {
     background-color: #3c3c3c;
     transition: all 0.5s;
 }
-.navigatorBar div {
+.navigatorBar .attachButton {
     position: absolute;
     left: 0;
 }

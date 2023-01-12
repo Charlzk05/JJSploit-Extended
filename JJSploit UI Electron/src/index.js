@@ -24,8 +24,6 @@ const createWindow = () => {
 
   mainWindow.title = "JJSploit++ by Charlzk05";
 
-  mainWindow.maximize();
-
   ipcMain.on("execPageExecuteButton", async (event, content) => {
     try {
       await fs.writeFile("./Bin/Script.txt", content, (err) => {
