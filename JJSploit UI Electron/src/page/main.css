@@ -48,6 +48,7 @@ body {
     padding-bottom: 5px;
     border-radius: 5px;
     font-size: 14px;
+    cursor: pointer;
     color: black;
 }
 .gotoTop p:hover {
@@ -82,6 +83,7 @@ body {
     background-color: transparent;
     margin: 0;
     padding: 12px;
+    cursor: pointer;
     transition: all 0.2s;
 }
 .navigatorBar p:hover {
@@ -113,6 +115,7 @@ body {
     border: 0px;
     padding-left: 20px;
     padding-right: 20px;
+    cursor: pointer;
     padding-top: 7px;
     padding-bottom: 7px;
     transition: all 0.2s;
@@ -223,6 +226,7 @@ body {
 .buttonsPage .script button {
     background-color: #1e1e1e;
     position: absolute;
+    cursor: pointer;
     color: white;
     border: 0px;
     padding-left: 20px;
@@ -335,6 +339,7 @@ body {
 .scriptsLibPage .addScript button {
     background-color: #1e1e1e;
     color: white;
+    cursor: pointer;
     border: 0px;
     margin-top: 10px;
     padding-left: 20px;
@@ -395,6 +400,7 @@ body {
 }
 .scriptsLibPage .script .buttons button {
     background-color: #1e1e1e;
+    cursor: pointer;
     color: white;
     border: 0px;
     padding-left: 20px;
@@ -464,6 +470,7 @@ body {
 }
 .scriptHubPage .item button {
     background-color: #1e1e1e;
+    cursor: pointer;
     position: absolute;
     color: white;
     border: 0px;
