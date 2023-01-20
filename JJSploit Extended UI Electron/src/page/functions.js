@@ -11,6 +11,10 @@ const explorer = document.getElementsByClassName("explorer")[0];
 const scriptsExplorer = document.getElementsByClassName("explorer")[0].getElementsByClassName("scripts")[0];
 const scriptHubPage = document.getElementsByClassName("scriptHubPage")[0];
 
+attach_click = () => {
+    window.electronAPI.attachClick();
+}
+
 luaExecutor_click = () => {
     executorPage.setAttribute("style", "display: block;");
     buttonsPage.setAttribute("style", "display: none;");

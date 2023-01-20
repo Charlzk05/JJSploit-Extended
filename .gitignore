@@ -1,6 +1,8 @@
 #JJSploit UI Electron
-JJSploit\ UI\ Electron/out
-JJSploit\ UI\ Electron/node_modules
+JJSploit\ Extended\ UI\ Electron/out
+JJSploit\ Extended\ UI\ Electron/node_modules
+JJSploit\ Extended\ UI\ Electron/src/page/Console\ App
+
 
 #JJSploit Extended Console App
 JJSploit\ Extended\ Console\ App/.vs
