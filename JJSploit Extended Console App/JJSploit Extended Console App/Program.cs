@@ -17,7 +17,7 @@ namespace JJSploit_Extended_Console_App
         {
             ExploitAPI api = new ExploitAPI();
 
-            if (args != null)
+            if (args.Length != 0)
             {
                 if (args[0] == "--attach")
                 {
