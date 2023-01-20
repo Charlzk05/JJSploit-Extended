@@ -1,3 +1,8 @@
 #JJSploit UI Electron
 JJSploit\ UI\ Electron/out
 JJSploit\ UI\ Electron/node_modules
+
+#JJSploit Extended Console App
+JJSploit\ Extended\ Console\ App/.vs
+JJSploit\ Extended\ Console\ App/bin
+JJSploit\ Extended\ Console\ App/obj
