@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Net;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -102,6 +103,34 @@ namespace JJSploit_Extended_Console_App
                         else
                         {
                             MessageBox.Show("Invalid file", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                else if (args[0] == "--executeUrl")
+                {
+                    try
+                    {
+                        if (args[1] != null)
+                        {
+                            if (api.isAPIAttached() == true)
+                            {
+                                using (WebClient client = new WebClient())
+                                {
+                                    api.SendLuaScript(client.DownloadString(args[1]));
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("WeAreDevs is not attached", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid url", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
                     catch (Exception e)
