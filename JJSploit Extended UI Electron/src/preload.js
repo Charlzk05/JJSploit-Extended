@@ -14,6 +14,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
     scriptsLibraryLoad_Scripts: (jsonItems) => ipcRenderer.on("scriptsLibraryLoad_Scripts", jsonItems),
     scriptLibraryAdd: (name, desc, url) => ipcRenderer.send("scriptLibraryAdd", name, desc, url),
     scriptLibraryDeleteItem: (name) => ipcRenderer.send("scriptLibraryDeleteItem", name),
+    executeScriptLibraryItem: (name) => ipcRenderer.send("executeScriptLibraryItem", name),
 
     // Buttons
 
@@ -21,22 +22,18 @@ contextBridge.exposeInMainWorld("electronAPI", {
     aimbot: (scriptName) => ipcRenderer.send("aimbot", scriptName),
     gravitySwitch: (scriptName) => ipcRenderer.send("gravitySwitch", scriptName),
     clickTP: (scriptName) => ipcRenderer.send("clickTP", scriptName),
-    
     humanFlashlight: (scriptName) => ipcRenderer.send("humanFlashlight", scriptName),
     removeLegs: (scriptName) => ipcRenderer.send("removeLegs", scriptName),
     floatCharacter: (scriptName) => ipcRenderer.send("floatCharacter", scriptName),
     highHips: (scriptName) => ipcRenderer.send("highHips", scriptName),
-
     BTools: (scriptName) => ipcRenderer.send("BTools", scriptName),
     nightToggle: (scriptName) => ipcRenderer.send("nightToggle", scriptName),
     limpCharacter: (scriptName) => ipcRenderer.send("limpCharacter", scriptName),
     blockHead: (scriptName) => ipcRenderer.send("blockHead", scriptName),
-
     highLightPlayer: (scriptName) => ipcRenderer.send("highLightPlayer", scriptName),
     removeArms: (scriptName) => ipcRenderer.send("removeArms", scriptName),
     invisibleCharacter: (scriptName) => ipcRenderer.send("invisibleCharacter", scriptName),
     magnetizePlayer: (scriptName) => ipcRenderer.send("magnetizePlayer", scriptName),
-
     teleportToPlayer: (scriptName) => ipcRenderer.send("teleportToPlayer", scriptName),
     unlockWorkspaceBase: (scriptName) => ipcRenderer.send("unlockWorkspaceBase", scriptName),
     WRDEsp: (scriptName) => ipcRenderer.send("WRDEsp", scriptName),

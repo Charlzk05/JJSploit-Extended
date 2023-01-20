@@ -200,7 +200,37 @@ const createWindow = () => {
               });
               break;
             }
-           } 
+          }
+        }
+      });
+    } catch (err) {
+      await dialog.showMessageBox(err, {
+        type: "error"
+      });
+    }
+  });
+
+  ipcMain.on("executeScriptLibraryItem", async (event, name) => {
+    try {
+      await fs.readFile("./Bin/ScriptsLibrary.json", { encoding: "utf-8" }, async (err, data) => {
+        if (err) {
+          return console.log(err);
+        }
+        var dataArray = JSON.parse(data);
+        for (var i = 0; i < dataArray.length; i++) {
+          if (dataArray[i] != null) {
+            if (JSON.parse(JSON.stringify(dataArray[i]))["name"] == name) {
+              await childProcess.exec(`"JJSploit Extended Console App.exe" --executeUrl "${JSON.parse(JSON.stringify(dataArray[i]))["url"]}"`, { 
+                cwd: path.join(__dirname, "page", "Console App")
+               }, (err, stdout) => {
+                if (err) {
+                  return console.log(err);
+                }
+                console.log(stdout);
+              });
+              break;
+            }
+          }
         }
       });
     } catch (err) {

@@ -136,7 +136,7 @@ scriptLibraryCreator = (name, desc, url, parent) => {
     var execute = document.createElement("button");
     execute.innerText = "Execute";
     execute.addEventListener("click", () => {
-        console.log(input.value);
+        window.electronAPI.executeScriptLibraryItem(name);
     });
 
     var deleteButton = document.createElement("button");
