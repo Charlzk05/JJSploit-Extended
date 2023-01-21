@@ -209,3 +209,7 @@ window.electronAPI.explorerLoad_Files((event, files) => {
 window.electronAPI.explorerSelectedFile_Content((event, content) => {
     editor.setValue(content);
 });
+
+submitSuggestion_click = () => {
+    window.electronAPI.suggestionSubmit(suggestionOwnerTeamTextBox.value, suggestionUrlTextBox.value);
+}

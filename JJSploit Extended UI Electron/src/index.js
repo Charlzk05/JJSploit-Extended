@@ -4,6 +4,7 @@ const fs = require("fs");
 const childProcess = require("child_process");
 const axios = require("axios");
 const extract = require("extract-zip");
+const { AsyncLocalStorage } = require('async_hooks');
 
 if (require('electron-squirrel-startup')) {
   app.quit();
@@ -25,7 +26,7 @@ const createWindow = () => {
   mainWindow.loadFile(path.join(__dirname, "page", 'index.html'));
   // mainWindow.maximize();
   mainWindow.title = "JJSploit++ by Charlzk05";
-  mainWindow.setMenu(null);
+  // mainWindow.setMenu(null);
 
   ipcMain.on("initializeExploit", async (event) => {
     try {
@@ -309,6 +310,27 @@ const createWindow = () => {
   ipcMain.on("openLink", async (event, url) => {
     try {
       await shell.openExternal(url);
+    } catch (err) {
+      await dialog.showMessageBox(err, {
+        type: "error"
+      });
+    }
+  });
+
+  ipcMain.on("suggestionSubmit", async (event, ownerTeam, url) => {
+    try {
+      await axios({
+        method: "post",
+        url: "http://localhost:3000/suggestion",
+        data: {
+          ownerTeam: ownerTeam,
+          url: url
+        }
+      }).then((response) => {
+        // console.log(response);
+      }).catch((err) => {
+        console.log(err);
+      });
     } catch (err) {
       await dialog.showMessageBox(err, {
         type: "error"

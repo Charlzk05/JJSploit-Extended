@@ -25,6 +25,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
     // Script hub
 
     executeScriptHub: (scriptName) => ipcRenderer.send("executeScriptHub", scriptName),
+    suggestionSubmit: (ownerTeam, url) => ipcRenderer.send("suggestionSubmit", ownerTeam, url),
 
     // About
 

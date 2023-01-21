@@ -193,6 +193,17 @@
                 <button onclick="window.electronAPI.executeScriptHub('Rogue Hub.txt')">Execute</button>
             </div>
         </div>
+        <div class="column">
+            <div class="suggestion">
+                <p class="header">Script suggestion</p>
+                <hr>
+                <p>Owner/Team (Required)</p>
+                <input type="text" placeholder="Charlzk05" id="suggestionOwnerTeamTextBox">
+                <p>Url (Must include http or https on the first 4-5 Characters)</p>
+                <input type="text" placeholder="https://example.com/" id="suggestionUrlTextBox">
+                <button onclick="submitSuggestion_click()">Submit</button>
+            </div>
+        </div>
     </div>
     <div class="aboutPage" style="display: none;">
         <span>Project Version: v1.0.0</span><br>
