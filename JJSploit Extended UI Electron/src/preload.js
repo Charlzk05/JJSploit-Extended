@@ -20,29 +20,13 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
     // Buttons
 
-    fly: (scriptName) => ipcRenderer.send("fly", scriptName),
-    aimbot: (scriptName) => ipcRenderer.send("aimbot", scriptName),
-    gravitySwitch: (scriptName) => ipcRenderer.send("gravitySwitch", scriptName),
-    clickTP: (scriptName) => ipcRenderer.send("clickTP", scriptName),
-    humanFlashlight: (scriptName) => ipcRenderer.send("humanFlashlight", scriptName),
-    removeLegs: (scriptName) => ipcRenderer.send("removeLegs", scriptName),
-    floatCharacter: (scriptName) => ipcRenderer.send("floatCharacter", scriptName),
-    highHips: (scriptName) => ipcRenderer.send("highHips", scriptName),
-    BTools: (scriptName) => ipcRenderer.send("BTools", scriptName),
-    nightToggle: (scriptName) => ipcRenderer.send("nightToggle", scriptName),
-    limpCharacter: (scriptName) => ipcRenderer.send("limpCharacter", scriptName),
-    blockHead: (scriptName) => ipcRenderer.send("blockHead", scriptName),
-    highLightPlayer: (scriptName) => ipcRenderer.send("highLightPlayer", scriptName),
-    removeArms: (scriptName) => ipcRenderer.send("removeArms", scriptName),
-    invisibleCharacter: (scriptName) => ipcRenderer.send("invisibleCharacter", scriptName),
-    magnetizePlayer: (scriptName) => ipcRenderer.send("magnetizePlayer", scriptName),
-    teleportToPlayer: (scriptName) => ipcRenderer.send("teleportToPlayer", scriptName),
-    unlockWorkspaceBase: (scriptName) => ipcRenderer.send("unlockWorkspaceBase", scriptName),
-    WRDEsp: (scriptName) => ipcRenderer.send("WRDEsp", scriptName),
-    infiniteJump: (scriptName) => ipcRenderer.send("infiniteJump", scriptName),
+    executeButton: (scriptName) => ipcRenderer.send("executeButton", scriptName),
 
-    ezHub: (scriptName) => ipcRenderer.send("ezHub", scriptName),
-    owlHub: (scriptName) => ipcRenderer.send("owlHub", scriptName),
-    infiniteYield: (scriptName) => ipcRenderer.send("infiniteYield", scriptName),
-    rogueHub: (scriptName) => ipcRenderer.send("rogueHub", scriptName),
+    // Script hub
+
+    executeScriptHub: (scriptName) => ipcRenderer.send("executeScriptHub", scriptName),
+
+    // About
+
+    openLink: (url) => ipcRenderer.send("openLink", url),
 });
