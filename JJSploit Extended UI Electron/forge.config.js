@@ -4,8 +4,9 @@ module.exports = {
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
-      config: {},
-    },
+      config: { },
+    }
+    /*
     {
       name: '@electron-forge/maker-zip',
       platforms: ['darwin'],
@@ -18,5 +19,6 @@ module.exports = {
       name: '@electron-forge/maker-rpm',
       config: {},
     },
+    */
   ],
 };

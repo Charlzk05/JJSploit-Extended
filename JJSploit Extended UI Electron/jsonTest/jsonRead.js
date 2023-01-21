@@ -9,7 +9,7 @@ var a = {
 console.log(JSON.parse(JSON.stringify(a))["name"]);
 */
 
-fs.readFile("./results.json", {
+fs.readFile("./jsonTest/results.json", {
     encoding: "utf-8"
 }, (err, data) => {
     if (err) {

@@ -18,10 +18,12 @@ const createWindow = () => {
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
     },
+    title: "JJSploit++ by Charlzk05",
+    icon: path.join(__dirname, "page", "Resources", "Logo.ico")
   });
 
   mainWindow.loadFile(path.join(__dirname, "page", 'index.html'));
-  mainWindow.maximize();
+  // mainWindow.maximize();
   mainWindow.title = "JJSploit++ by Charlzk05";
   mainWindow.setMenu(null);
 

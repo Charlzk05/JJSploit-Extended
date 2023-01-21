@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-fs.readFile("./results.json", { encoding: "utf-8" }, (err, data) => {
+fs.readFile("./jsonTest/results.json", { encoding: "utf-8" }, (err, data) => {
     if (err) {
         return console.log(err);
     }
