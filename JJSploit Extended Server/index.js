@@ -5,7 +5,7 @@ const app = express();
 const port = 3000;
 
 app.get("/", (req, res) => {
-    res.send("<h1 style='font-weight: 500;'>Hello World</h1>");
+    res.send("<h1 style='font-weight: 500; font-family: Segoe UI;'>Hello World</h1>");
 });
 
 app.post("/DownloadConsoleApp", (req, res) => {
