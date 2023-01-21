@@ -10,6 +10,7 @@ const scriptsLibraryRow = document.getElementsByClassName("scriptsLibPage")[0].g
 const explorer = document.getElementsByClassName("explorer")[0];
 const scriptsExplorer = document.getElementsByClassName("explorer")[0].getElementsByClassName("scripts")[0];
 const scriptHubPage = document.getElementsByClassName("scriptHubPage")[0];
+const aboutPage = document.getElementsByClassName("aboutPage")[0];
 
 attach_click = () => {
     window.electronAPI.attachClick();
@@ -20,6 +21,7 @@ luaExecutor_click = () => {
     buttonsPage.setAttribute("style", "display: none;");
     scriptsLibPage.setAttribute("style", "display: none;");
     scriptHubPage.setAttribute("style", "display: none;");
+    aboutPage.setAttribute("style", "display: none;");
 }
 
 buttons_click = () => {
@@ -27,6 +29,31 @@ buttons_click = () => {
     buttonsPage.setAttribute("style", "display: block;");
     scriptsLibPage.setAttribute("style", "display: none;");
     scriptHubPage.setAttribute("style", "display: none;");
+    aboutPage.setAttribute("style", "display: none;");
+}
+
+scriptsLib_click = () => {
+    executorPage.setAttribute("style", "display: none;");
+    buttonsPage.setAttribute("style", "display: none;");
+    scriptsLibPage.setAttribute("style", "display: block;");
+    scriptHubPage.setAttribute("style", "display: none;");
+    aboutPage.setAttribute("style", "display: none;");
+}
+
+scriptHubButton_click = () => {
+    executorPage.setAttribute("style", "display: none;");
+    buttonsPage.setAttribute("style", "display: none;");
+    scriptsLibPage.setAttribute("style", "display: none;");
+    scriptHubPage.setAttribute("style", "display: block;");
+    aboutPage.setAttribute("style", "display: none;");
+}
+
+aboutButton_click = () => {
+    executorPage.setAttribute("style", "display: none;");
+    buttonsPage.setAttribute("style", "display: none;");
+    scriptsLibPage.setAttribute("style", "display: none;");
+    scriptHubPage.setAttribute("style", "display: none;");
+    aboutPage.setAttribute("style", "display: block;");
 }
 
 window.addEventListener("scroll", () => {
@@ -43,19 +70,6 @@ gotoTop_click = () => {
     window.scroll(0, 0);
 }
 
-scriptsLib_click = () => {
-    executorPage.setAttribute("style", "display: none;");
-    buttonsPage.setAttribute("style", "display: none;");
-    scriptsLibPage.setAttribute("style", "display: block;");
-    scriptHubPage.setAttribute("style", "display: none;");
-}
-
-scriptHubButton_click = () => {
-    executorPage.setAttribute("style", "display: none;");
-    buttonsPage.setAttribute("style", "display: none;");
-    scriptsLibPage.setAttribute("style", "display: none;");
-    scriptHubPage.setAttribute("style", "display: block;");
-}
 
 addScript_click = () => {
     for (var i = 0; i < scriptsLibraryRow.getElementsByClassName("script").length; i++) {

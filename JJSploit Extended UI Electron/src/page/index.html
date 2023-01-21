@@ -17,6 +17,7 @@
         <p onclick="buttons_click()">Buttons</p>
         <p onclick="scriptsLib_click()">Scripts library</p>
         <p onclick="scriptHubButton_click()">Script hub</p>
+        <p onclick="aboutButton_click()">About</p>
     </div>
     <div class="executorPage" style="display: block;">
         <div class="buttons">
@@ -24,6 +25,7 @@
             <button onclick="execPageClearButton_click()">Clear</button>
             <button onclick="openFileButton_click()">Open file</button>
             <button onclick="saveFileButton_click()">Save file</button>
+            <button onclick="explorerButton_click()">Explorer</button>
         </div>
         <div id="editor"></div>
         <div class="explorer explorerHidden">
@@ -37,11 +39,6 @@
     <div class="buttonsPage" style="display: none;">
         <div class="backgroundImage"></div>
         <div class="column">
-            <div class="script">
-                <p>Fly <span>By (Unknown)</span></p>
-                <p>Why walk when you can fly?</p>
-                <button onclick="window.electronAPI.fly('Fly.txt');">Execute</button>
-            </div>
             <div class="script">
                 <p>Aimbot <span>By WeAreDevs</span></p>
                 <p>Snaps aim to player heads. Featuring wall detection, team check, and mouse movement bypass.</p>
@@ -57,13 +54,13 @@
                 <p>Left ctrl + click on any spot on the game and you will immediately teleport to it!</p>
                 <button onclick="window.electronAPI.clickTP('Click Teleport.txt');">Execute</button>
             </div>
-        </div>
-        <div class="column">
             <div class="script">
                 <p>Human Flashlight <span>By WeAreDevs</span></p>
                 <p>Turns your character into a private flashlight.</p>
                 <button onclick="window.electronAPI.humanFlashlight('Human Flashlight.txt');">Execute</button>
             </div>
+        </div>
+        <div class="column">
             <div class="script">
                 <p>Remove Legs <span>By WeAreDevs</span></p>
                 <p>Removes the legs from your player's character.</p>
@@ -79,13 +76,13 @@
                 <p>Walk like normal, but a little "taller".</p>
                 <button onclick="window.electronAPI.highHips('High Hips.txt');">Execute</button>
             </div>
-        </div>
-        <div class="column">
             <div class="script">
                 <p>BTools <span>By WeAreDevs</span></p>
                 <p>Gives your player the old system of building tools.</p>
                 <button onclick="window.electronAPI.BTools('BTools.txt');">Execute</button>
             </div>
+        </div>
+        <div class="column">
             <div class="script">
                 <p>Night Time Toggle <span>By WeAreDevs</span></p>
                 <p>Changes the time of day so that it is night.</p>
@@ -101,13 +98,13 @@
                 <p>Turns your character's head into a plain block.</p>
                 <button onclick="window.electronAPI.blockHead('Blochead.txt');">Execute</button>
             </div>
-        </div>
-        <div class="column">
             <div class="script">
                 <p>Highlight Player <span>By WeAreDevs</span></p>
                 <p>Places a selection box around the selected player.</p>
                 <button onclick="window.electronAPI.highLightPlayer('Highlight Player.txt');">Execute</button>
             </div>
+        </div>
+        <div class="column">
             <div class="script">
                 <p>Remove Arms <span>By WeAreDevs</span></p>
                 <p>Removes the arms from your player's character.</p>
@@ -123,13 +120,13 @@
                 <p>Makes your character magnetically attracted to another player.</p>
                 <button onclick="window.electronAPI.magnetizePlayer('Magnetize To Players.txt');">Execute</button>
             </div>
-        </div>
-        <div class="column">
             <div class="script">
                 <p>Teleport To Player <span>By WeAreDevs</span></p>
                 <p>Teleports your player's character to the selected player's character.</p>
                 <button onclick="window.electronAPI.teleportToPlayer('Teleport To Player.txt');">Execute</button>
             </div>
+        </div>
+        <div class="column">
             <div class="script">
                 <p>Unlock Workspace Baseparts <span>By WeAreDevs</span></p>
                 <p>Unlocks all bricks in the game so you can use btools on them.</p>
@@ -197,8 +194,53 @@
             </div>
         </div>
     </div>
+    <div class="aboutPage" style="display: none;">
+        <span>Project Version: v1.0.0</span><br>
+        <span>Made by Charlzk05</span>
+        <div>
+            <h2>JJSploit Extended</h2>
+            <p>Unofficial open source and extended version of JJSploit made using Electron JS for user interface and .NET Framework 4.8 for ExploitAPI.</p>
+        </div>
+        <hr>
+        <div>
+            <h2>instructions</h2>
+            <ol>
+                <li>Join a game (make sure the exploit is opened)</li>
+                <li>In the top right corner, click the attach button</li>
+                <li>Wait for the notification to show up in the game's bottom right corner</li>
+            </ol>
+        </div>
+        <hr>
+        <div>
+            <h2>Requirements</h2>
+            <ul>
+                <li><a href="https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48">.NET Framework 4.8 Runtime</a></li>
+            </ul>
+            <h2>OS Requirements <span>Based on <a href="https://www.electronjs.org/docs/latest/tutorial/support">Electron supported platforms</a></span></h2>
+            <p>Windows</p>
+            <ul>
+                <li>Windows 7 and later are supported, older operating systems are not supported (and do not work).</li>
+                <li>Both x86 and amd64 (x64) binaries are provided for Windows. Please note, the ARM version of Windows is not supported for now.</li>
+            </ul>
+            <h2>Hardware Requirements <span>Based on <a href="https://support.google.com/chrome/answer/95346?hl=en">Chrome minimum requirements</a></span></h2>
+            <p>About RAM and CPU, there are no information about that in Electron's docs, but Electron is based on Chromium, so it should need nearly the same requirements.</p>
+            <p>Windows</p>
+            <ul>
+                <li>An Intel Pentium 4 processor or later that's SSE2 capable</li>
+                <li>512 MB of RAM</li>
+            </ul>
+        </div>
+        <hr>
+        <div>
+            <h2>Development</h2>
+            <ul>
+                <li><a href="https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48">Source code from Github</a></li>
+            </ul>
+        </div>
+    </div>
 
     <script src="vs/loader.js"></script>
+    <script src="Auto Complete/lua.js"></script>
     <script src='main.js'></script>
     <script src='functions.js'></script>
 </body>
