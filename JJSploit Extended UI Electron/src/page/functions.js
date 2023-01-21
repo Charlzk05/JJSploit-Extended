@@ -171,6 +171,10 @@ scriptLibraryCreator = (name, desc, url, parent) => {
     parent.appendChild(div);
 }
 
+window.addEventListener("load", () => {
+    window.electronAPI.initializeExploit();
+});
+
 window.addEventListener("DOMContentLoaded", () => {
     window.electronAPI.explorerLoad();
     window.electronAPI.scriptsLibraryLoad();

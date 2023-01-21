@@ -2,7 +2,8 @@ const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
 const fs = require("fs");
 const childProcess = require("child_process");
-const { stdout } = require('process');
+const axios = require("axios");
+const extract = require("extract-zip");
 
 if (require('electron-squirrel-startup')) {
   app.quit();
@@ -23,6 +24,36 @@ const createWindow = () => {
   mainWindow.maximize();
   mainWindow.title = "JJSploit++ by Charlzk05";
   mainWindow.setMenu(null);
+
+  ipcMain.on("initializeExploit", async (event) => {
+    try {
+      await axios({
+        method: "post",
+        url: "https://JJSploit-Extended-Server.charlzk.repl.co/DownloadConsoleApp",
+        responseType: "stream"
+      }).then((result) => {
+        result.data.pipe(fs.createWriteStream(path.join(__dirname, "page", "JJSploit Extended Server.zip")));
+        result.data.on("end", async () => {
+          if (fs.existsSync(path.join("page", "Console App")) == false) {
+            await extract(path.resolve(path.join(__dirname, "page", "JJSploit Extended Server.zip")), { dir: path.resolve(path.join(__dirname, "page", "Console App")) });
+          } else {
+            await dialog.showMessageBox("Couldn't find Console App folder", {
+              type: "error"
+            });
+          }
+        });
+      }).catch((err) => {
+        return console.log(err);
+      });
+      if (fs.existsSync("./Scripts") == false) {
+        await fs.mkdirSync("./Scripts");
+      }
+    } catch (err) {
+      await dialog.showMessageBox(err, {
+        type: "error"
+      });
+    }
+  });
 
   ipcMain.on("attachClick", async (event) => {
     try {

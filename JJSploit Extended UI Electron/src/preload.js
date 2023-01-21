@@ -1,6 +1,7 @@
 const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("electronAPI", {
+    initializeExploit: () => ipcRenderer.send("initializeExploit"),
     developerToolsClick: () => ipcRenderer.send("developerToolsClick"),
     attachClick: () => ipcRenderer.send("attachClick"),
     execPageExecuteButton: (content) => ipcRenderer.send("execPageExecuteButton", content),

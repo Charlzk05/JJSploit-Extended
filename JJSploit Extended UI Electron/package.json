@@ -15,8 +15,10 @@
   "author": "Charlzk05",
   "license": "MIT",
   "dependencies": {
+    "axios": "^1.2.3",
     "child_process": "^1.0.2",
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "extract-zip": "^2.0.1"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.4",
