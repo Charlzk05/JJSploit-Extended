@@ -24,7 +24,6 @@
             <button onclick="execPageClearButton_click()">Clear</button>
             <button onclick="openFileButton_click()">Open file</button>
             <button onclick="saveFileButton_click()">Save file</button>
-            <button onclick="explorerButton_click()">Scripts explorer</button>
         </div>
         <div id="editor"></div>
         <div class="explorer explorerHidden">
@@ -177,24 +176,24 @@
             <div class="item">
                 <p>Ez Hub <span>By Ez Industries</span></p>
                 <p>Multi-game script hub with a beautifully made UI.</p>
-                <button>Execute</button>
+                <button onclick="window.electronAPI.ezHub('Ez Hub.txt')">Execute</button>
             </div>
             <div class="item">
                 <p>Owl Hub <span>By CriShoux & Chrome</span></p>
                 <p>One of the most popular script hubs. 30+ games.</p>
-                <button>Execute</button>
+                <button onclick="window.electronAPI.owlHub('OwlHub.txt')">Execute</button>
             </div>
             <div class="item">
                 <p>Infinite Yield <span>By Edge</span></p>
                 <p>A command line script hub with over 6 years of development.</p>
-                <button>Execute</button>
+                <button onclick="window.electronAPI.infiniteYield('Infinite Yield.txt')">Execute</button>
             </div>
         </div>
         <div class="column">
             <div class="item">
                 <p>Rogue Hub <span>By Nolix</span></p>
                 <p>A script hub which supports well known games such as Slap Battles, and No-Scope Arcade with incredible features added!</p>
-                <button>Execute</button>
+                <button onclick="window.electronAPI.rogueHub('Rogue Hub.txt')">Execute</button>
             </div>
         </div>
     </div>

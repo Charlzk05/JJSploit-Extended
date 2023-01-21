@@ -20,10 +20,9 @@ const createWindow = () => {
   });
 
   mainWindow.loadFile(path.join(__dirname, "page", 'index.html'));
-
   mainWindow.maximize();
-
   mainWindow.title = "JJSploit++ by Charlzk05";
+  mainWindow.setMenu(null);
 
   ipcMain.on("attachClick", async (event) => {
     try {
@@ -244,18 +243,13 @@ const createWindow = () => {
 
   ipcMain.on("fly", async (event, scriptName) => {
     try {
-      await fs.readFile(path.join(__dirname, "page", "Console App", "Buttons", scriptName), { encoding: "utf-8" }, async (err, data) => {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
         if (err) {
-          return console.log(err)
+          return console.log(err);
         }
-        await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
-          cwd: path.join(__dirname, "page", "Console App")
-         }, (err, stdout) => {
-          if (err) {
-            return console.log(err);
-          }
-          console.log(stdout);
-        });
+        console.log(stdout);
       });
     } catch (err) {
       await dialog.showMessageBox(err, {
@@ -266,18 +260,13 @@ const createWindow = () => {
 
   ipcMain.on("aimbot", async (event, scriptName) => {
     try {
-      await fs.readFile(path.join(__dirname, "page", "Console App", "Buttons", scriptName), { encoding: "utf-8" }, async (err, data) => {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
         if (err) {
-          return console.log(err)
+          return console.log(err);
         }
-        await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
-          cwd: path.join(__dirname, "page", "Console App")
-         }, (err, stdout) => {
-          if (err) {
-            return console.log(err);
-          }
-          console.log(stdout);
-        });
+        console.log(stdout);
       });
     } catch (err) {
       await dialog.showMessageBox(err, {
@@ -288,18 +277,13 @@ const createWindow = () => {
 
   ipcMain.on("gravitySwitch", async (event, scriptName) => {
     try {
-      await fs.readFile(path.join(__dirname, "page", "Console App", "Buttons", scriptName), { encoding: "utf-8" }, async (err, data) => {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
         if (err) {
-          return console.log(err)
+          return console.log(err);
         }
-        await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
-          cwd: path.join(__dirname, "page", "Console App")
-         }, (err, stdout) => {
-          if (err) {
-            return console.log(err);
-          }
-          console.log(stdout);
-        });
+        console.log(stdout);
       });
     } catch (err) {
       await dialog.showMessageBox(err, {
@@ -310,18 +294,13 @@ const createWindow = () => {
 
   ipcMain.on("clickTP", async (event, scriptName) => {
     try {
-      await fs.readFile(path.join(__dirname, "page", "Console App", "Buttons", scriptName), { encoding: "utf-8" }, async (err, data) => {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
         if (err) {
-          return console.log(err)
+          return console.log(err);
         }
-        await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
-          cwd: path.join(__dirname, "page", "Console App")
-         }, (err, stdout) => {
-          if (err) {
-            return console.log(err);
-          }
-          console.log(stdout);
-        });
+        console.log(stdout);
       });
     } catch (err) {
       await dialog.showMessageBox(err, {
@@ -332,18 +311,13 @@ const createWindow = () => {
 
   ipcMain.on("humanFlashlight", async (event, scriptName) => {
     try {
-      await fs.readFile(path.join(__dirname, "page", "Console App", "Buttons", scriptName), { encoding: "utf-8" }, async (err, data) => {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
         if (err) {
-          return console.log(err)
+          return console.log(err);
         }
-        await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
-          cwd: path.join(__dirname, "page", "Console App")
-         }, (err, stdout) => {
-          if (err) {
-            return console.log(err);
-          }
-          console.log(stdout);
-        });
+        console.log(stdout);
       });
     } catch (err) {
       await dialog.showMessageBox(err, {
@@ -354,18 +328,13 @@ const createWindow = () => {
 
   ipcMain.on("removeLegs", async (event, scriptName) => {
     try {
-      await fs.readFile(path.join(__dirname, "page", "Console App", "Buttons", scriptName), { encoding: "utf-8" }, async (err, data) => {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
         if (err) {
-          return console.log(err)
+          return console.log(err);
         }
-        await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
-          cwd: path.join(__dirname, "page", "Console App")
-         }, (err, stdout) => {
-          if (err) {
-            return console.log(err);
-          }
-          console.log(stdout);
-        });
+        console.log(stdout);
       });
     } catch (err) {
       await dialog.showMessageBox(err, {
@@ -376,18 +345,13 @@ const createWindow = () => {
 
   ipcMain.on("floatCharacter", async (event, scriptName) => {
     try {
-      await fs.readFile(path.join(__dirname, "page", "Console App", "Buttons", scriptName), { encoding: "utf-8" }, async (err, data) => {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
         if (err) {
-          return console.log(err)
+          return console.log(err);
         }
-        await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
-          cwd: path.join(__dirname, "page", "Console App")
-         }, (err, stdout) => {
-          if (err) {
-            return console.log(err);
-          }
-          console.log(stdout);
-        });
+        console.log(stdout);
       });
     } catch (err) {
       await dialog.showMessageBox(err, {
@@ -398,18 +362,13 @@ const createWindow = () => {
 
   ipcMain.on("highHips", async (event, scriptName) => {
     try {
-      await fs.readFile(path.join(__dirname, "page", "Console App", "Buttons", scriptName), { encoding: "utf-8" }, async (err, data) => {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
         if (err) {
-          return console.log(err)
+          return console.log(err);
         }
-        await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
-          cwd: path.join(__dirname, "page", "Console App")
-         }, (err, stdout) => {
-          if (err) {
-            return console.log(err);
-          }
-          console.log(stdout);
-        });
+        console.log(stdout);
       });
     } catch (err) {
       await dialog.showMessageBox(err, {
@@ -420,18 +379,13 @@ const createWindow = () => {
 
   ipcMain.on("BTools", async (event, scriptName) => {
     try {
-      await fs.readFile(path.join(__dirname, "page", "Console App", "Buttons", scriptName), { encoding: "utf-8" }, async (err, data) => {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
         if (err) {
-          return console.log(err)
+          return console.log(err);
         }
-        await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
-          cwd: path.join(__dirname, "page", "Console App")
-         }, (err, stdout) => {
-          if (err) {
-            return console.log(err);
-          }
-          console.log(stdout);
-        });
+        console.log(stdout);
       });
     } catch (err) {
       await dialog.showMessageBox(err, {
@@ -442,18 +396,13 @@ const createWindow = () => {
 
   ipcMain.on("nightToggle", async (event, scriptName) => {
     try {
-      await fs.readFile(path.join(__dirname, "page", "Console App", "Buttons", scriptName), { encoding: "utf-8" }, async (err, data) => {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
         if (err) {
-          return console.log(err)
+          return console.log(err);
         }
-        await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
-          cwd: path.join(__dirname, "page", "Console App")
-         }, (err, stdout) => {
-          if (err) {
-            return console.log(err);
-          }
-          console.log(stdout);
-        });
+        console.log(stdout);
       });
     } catch (err) {
       await dialog.showMessageBox(err, {
@@ -464,18 +413,13 @@ const createWindow = () => {
 
   ipcMain.on("limpCharacter", async (event, scriptName) => {
     try {
-      await fs.readFile(path.join(__dirname, "page", "Console App", "Buttons", scriptName), { encoding: "utf-8" }, async (err, data) => {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
         if (err) {
-          return console.log(err)
+          return console.log(err);
         }
-        await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
-          cwd: path.join(__dirname, "page", "Console App")
-         }, (err, stdout) => {
-          if (err) {
-            return console.log(err);
-          }
-          console.log(stdout);
-        });
+        console.log(stdout);
       });
     } catch (err) {
       await dialog.showMessageBox(err, {
@@ -486,18 +430,13 @@ const createWindow = () => {
 
   ipcMain.on("blockHead", async (event, scriptName) => {
     try {
-      await fs.readFile(path.join(__dirname, "page", "Console App", "Buttons", scriptName), { encoding: "utf-8" }, async (err, data) => {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
         if (err) {
-          return console.log(err)
+          return console.log(err);
         }
-        await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
-          cwd: path.join(__dirname, "page", "Console App")
-         }, (err, stdout) => {
-          if (err) {
-            return console.log(err);
-          }
-          console.log(stdout);
-        });
+        console.log(stdout);
       });
     } catch (err) {
       await dialog.showMessageBox(err, {
@@ -508,18 +447,13 @@ const createWindow = () => {
 
   ipcMain.on("highLightPlayer", async (event, scriptName) => {
     try {
-      await fs.readFile(path.join(__dirname, "page", "Console App", "Buttons", scriptName), { encoding: "utf-8" }, async (err, data) => {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
         if (err) {
-          return console.log(err)
+          return console.log(err);
         }
-        await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
-          cwd: path.join(__dirname, "page", "Console App")
-         }, (err, stdout) => {
-          if (err) {
-            return console.log(err);
-          }
-          console.log(stdout);
-        });
+        console.log(stdout);
       });
     } catch (err) {
       await dialog.showMessageBox(err, {
@@ -530,18 +464,13 @@ const createWindow = () => {
 
   ipcMain.on("removeArms", async (event, scriptName) => {
     try {
-      await fs.readFile(path.join(__dirname, "page", "Console App", "Buttons", scriptName), { encoding: "utf-8" }, async (err, data) => {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
         if (err) {
-          return console.log(err)
+          return console.log(err);
         }
-        await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
-          cwd: path.join(__dirname, "page", "Console App")
-         }, (err, stdout) => {
-          if (err) {
-            return console.log(err);
-          }
-          console.log(stdout);
-        });
+        console.log(stdout);
       });
     } catch (err) {
       await dialog.showMessageBox(err, {
@@ -552,18 +481,13 @@ const createWindow = () => {
 
   ipcMain.on("invisibleCharacter", async (event, scriptName) => {
     try {
-      await fs.readFile(path.join(__dirname, "page", "Console App", "Buttons", scriptName), { encoding: "utf-8" }, async (err, data) => {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
         if (err) {
-          return console.log(err)
+          return console.log(err);
         }
-        await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
-          cwd: path.join(__dirname, "page", "Console App")
-         }, (err, stdout) => {
-          if (err) {
-            return console.log(err);
-          }
-          console.log(stdout);
-        });
+        console.log(stdout);
       });
     } catch (err) {
       await dialog.showMessageBox(err, {
@@ -574,18 +498,13 @@ const createWindow = () => {
 
   ipcMain.on("magnetizePlayer", async (event, scriptName) => {
     try {
-      await fs.readFile(path.join(__dirname, "page", "Console App", "Buttons", scriptName), { encoding: "utf-8" }, async (err, data) => {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
         if (err) {
-          return console.log(err)
+          return console.log(err);
         }
-        await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
-          cwd: path.join(__dirname, "page", "Console App")
-         }, (err, stdout) => {
-          if (err) {
-            return console.log(err);
-          }
-          console.log(stdout);
-        });
+        console.log(stdout);
       });
     } catch (err) {
       await dialog.showMessageBox(err, {
@@ -596,18 +515,13 @@ const createWindow = () => {
 
   ipcMain.on("teleportToPlayer", async (event, scriptName) => {
     try {
-      await fs.readFile(path.join(__dirname, "page", "Console App", "Buttons", scriptName), { encoding: "utf-8" }, async (err, data) => {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
         if (err) {
-          return console.log(err)
+          return console.log(err);
         }
-        await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
-          cwd: path.join(__dirname, "page", "Console App")
-         }, (err, stdout) => {
-          if (err) {
-            return console.log(err);
-          }
-          console.log(stdout);
-        });
+        console.log(stdout);
       });
     } catch (err) {
       await dialog.showMessageBox(err, {
@@ -618,18 +532,13 @@ const createWindow = () => {
 
   ipcMain.on("unlockWorkspaceBase", async (event, scriptName) => {
     try {
-      await fs.readFile(path.join(__dirname, "page", "Console App", "Buttons", scriptName), { encoding: "utf-8" }, async (err, data) => {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
         if (err) {
-          return console.log(err)
+          return console.log(err);
         }
-        await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
-          cwd: path.join(__dirname, "page", "Console App")
-         }, (err, stdout) => {
-          if (err) {
-            return console.log(err);
-          }
-          console.log(stdout);
-        });
+        console.log(stdout);
       });
     } catch (err) {
       await dialog.showMessageBox(err, {
@@ -640,18 +549,13 @@ const createWindow = () => {
 
   ipcMain.on("WRDEsp", async (event, scriptName) => {
     try {
-      await fs.readFile(path.join(__dirname, "page", "Console App", "Buttons", scriptName), { encoding: "utf-8" }, async (err, data) => {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
         if (err) {
-          return console.log(err)
+          return console.log(err);
         }
-        await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
-          cwd: path.join(__dirname, "page", "Console App")
-         }, (err, stdout) => {
-          if (err) {
-            return console.log(err);
-          }
-          console.log(stdout);
-        });
+        console.log(stdout);
       });
     } catch (err) {
       await dialog.showMessageBox(err, {
@@ -662,18 +566,98 @@ const createWindow = () => {
 
   ipcMain.on("infiniteJump", async (event, scriptName) => {
     try {
-      await fs.readFile(path.join(__dirname, "page", "Console App", "Buttons", scriptName), { encoding: "utf-8" }, async (err, data) => {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
         if (err) {
-          return console.log(err)
+          return console.log(err);
         }
-        await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Buttons/${scriptName}"`, { 
-          cwd: path.join(__dirname, "page", "Console App")
-         }, (err, stdout) => {
-          if (err) {
-            return console.log(err);
-          }
-          console.log(stdout);
-        });
+        console.log(stdout);
+      });
+    } catch (err) {
+      await dialog.showMessageBox(err, {
+        type: "error"
+      });
+    }
+  });
+
+  ipcMain.on("ezHub", async (event, scriptName) => {
+    try {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Script Hub/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
+        if (err) {
+          return console.log(err);
+        }
+        console.log(stdout);
+      });
+    } catch (err) {
+      await dialog.showMessageBox(err, {
+        type: "error"
+      });
+    }
+  });
+
+  ipcMain.on("ezHub", async (event, scriptName) => {
+    try {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Script Hub/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
+        if (err) {
+          return console.log(err);
+        }
+        console.log(stdout);
+      });
+    } catch (err) {
+      await dialog.showMessageBox(err, {
+        type: "error"
+      });
+    }
+  });
+
+  ipcMain.on("owlHub", async (event, scriptName) => {
+    try {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Script Hub/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
+        if (err) {
+          return console.log(err);
+        }
+        console.log(stdout);
+      });
+    } catch (err) {
+      await dialog.showMessageBox(err, {
+        type: "error"
+      });
+    }
+  });
+
+  ipcMain.on("infiniteYield", async (event, scriptName) => {
+    try {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Script Hub/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
+        if (err) {
+          return console.log(err);
+        }
+        console.log(stdout);
+      });
+    } catch (err) {
+      await dialog.showMessageBox(err, {
+        type: "error"
+      });
+    }
+  });
+
+  ipcMain.on("rogueHub", async (event, scriptName) => {
+    try {
+      await childProcess.exec(`"JJSploit Extended Console App.exe" --executeFile "Script Hub/${scriptName}"`, { 
+        cwd: path.join(__dirname, "page", "Console App")
+       }, (err, stdout) => {
+        if (err) {
+          return console.log(err);
+        }
+        console.log(stdout);
       });
     } catch (err) {
       await dialog.showMessageBox(err, {

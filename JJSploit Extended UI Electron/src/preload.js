@@ -1,6 +1,7 @@
 const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("electronAPI", {
+    developerToolsClick: () => ipcRenderer.send("developerToolsClick"),
     attachClick: () => ipcRenderer.send("attachClick"),
     execPageExecuteButton: (content) => ipcRenderer.send("execPageExecuteButton", content),
     openFileButton_Call: () => ipcRenderer.send("openFileButton_Call"),
@@ -38,4 +39,9 @@ contextBridge.exposeInMainWorld("electronAPI", {
     unlockWorkspaceBase: (scriptName) => ipcRenderer.send("unlockWorkspaceBase", scriptName),
     WRDEsp: (scriptName) => ipcRenderer.send("WRDEsp", scriptName),
     infiniteJump: (scriptName) => ipcRenderer.send("infiniteJump", scriptName),
+
+    ezHub: (scriptName) => ipcRenderer.send("ezHub", scriptName),
+    owlHub: (scriptName) => ipcRenderer.send("owlHub", scriptName),
+    infiniteYield: (scriptName) => ipcRenderer.send("infiniteYield", scriptName),
+    rogueHub: (scriptName) => ipcRenderer.send("rogueHub", scriptName),
 });
