@@ -1,8 +1,8 @@
 const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("electronAPI", {
-    initializeExploit: () => ipcRenderer.send("initializeExploit"),
-    developerToolsClick: () => ipcRenderer.send("developerToolsClick"),
+    initializeSoftware: () => ipcRenderer.send("initializeSoftware"),
+    restartRequiredCall: (callback) => ipcRenderer.on("restartRequiredCall", callback),
     attachClick: () => ipcRenderer.send("attachClick"),
     execPageExecuteButton: (content) => ipcRenderer.send("execPageExecuteButton", content),
     openFileButton_Call: () => ipcRenderer.send("openFileButton_Call"),
@@ -17,6 +17,18 @@ contextBridge.exposeInMainWorld("electronAPI", {
     scriptLibraryAdd: (name, desc, url) => ipcRenderer.send("scriptLibraryAdd", name, desc, url),
     scriptLibraryDeleteItem: (name) => ipcRenderer.send("scriptLibraryDeleteItem", name),
     executeScriptLibraryItem: (name) => ipcRenderer.send("executeScriptLibraryItem", name),
+
+    // Settings
+    
+    showMenu: () => ipcRenderer.send("showMenu"),
+    hideMenu: () => ipcRenderer.send("hideMenu"),
+    topMost: () => ipcRenderer.send("topMost"),
+    noTopMost: () => ipcRenderer.send("noTopMost"),
+    
+    topMostData: (data) => ipcRenderer.on("topMostData", data),
+    showMenuData: (data) => ipcRenderer.on("showMenuData", data),
+
+    restartApp: () => ipcRenderer.send("restartApp"),
 
     // Buttons
 

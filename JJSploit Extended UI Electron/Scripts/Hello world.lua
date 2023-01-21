@@ -1,1 +1,1 @@
-print("Hello world - lua file")
+print("Hello World - Lua file")

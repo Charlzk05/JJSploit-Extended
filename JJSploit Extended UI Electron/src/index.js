@@ -1,10 +1,9 @@
-const { app, BrowserWindow, ipcMain, dialog, shell } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog, shell, MenuItem } = require('electron');
 const path = require('path');
 const fs = require("fs");
 const childProcess = require("child_process");
 const axios = require("axios");
 const extract = require("extract-zip");
-const { AsyncLocalStorage } = require('async_hooks');
 
 if (require('electron-squirrel-startup')) {
   app.quit();
@@ -26,10 +25,30 @@ const createWindow = () => {
   mainWindow.loadFile(path.join(__dirname, "page", 'index.html'));
   // mainWindow.maximize();
   mainWindow.title = "JJSploit++ by Charlzk05";
-  // mainWindow.setMenu(null);
 
-  ipcMain.on("initializeExploit", async (event) => {
+  ipcMain.on("initializeSoftware", async (event) => {
     try {
+      await fs.readFile("./Bin/Settings/Topmost.txt", { encoding: "utf-8" }, async (err, data) => {
+        if (err) {
+          return console.log(err);
+        }
+        if (data == "true") {
+          await mainWindow.webContents.send("topMostData", true);
+        } else {
+          await mainWindow.webContents.send("topMostData", false);
+        }
+      });
+      await fs.readFile("./Bin/Settings/ShowMenu.txt", { encoding: "utf-8" }, async (err, data) => {
+        if (err) {
+          return console.log(err);
+        }
+        if (data == "true") {
+          await mainWindow.webContents.send("showMenuData", true);
+        } else {
+          await mainWindow.webContents.send("showMenuData", false);
+          mainWindow.menuBarVisible = false; 
+        }
+      });
       await axios({
         method: "post",
         url: "https://JJSploit-Extended-Server.charlzk.repl.co/DownloadConsoleApp",
@@ -49,7 +68,47 @@ const createWindow = () => {
         return console.log(err);
       });
       if (fs.existsSync("./Scripts") == false) {
-        await fs.mkdirSync("./Scripts");
+        await fs.mkdir("./Scripts", async () => {
+          await fs.writeFile("./Scripts/Hello World.lua", 'print("Hello World - Lua file")', { encoding: "utf-8" }, async (err) => {
+            if (err) {
+              return console.log(err);
+            }
+          });
+          await fs.writeFile("./Scripts/Hello World.txt", 'print("Hello World - Lua file")', { encoding: "utf-8" }, async (err) => {
+            if (err) {
+              return console.log(err);
+            }
+          });
+        });
+      }
+      if (fs.existsSync("./Bin") == false) {
+        var scriptsLibraryData = [
+          {
+            "name": "BTools Script (Example)",
+            "desc": "Gives your player the old system of building tools. (Example) (Description is optional)",
+            "url": "https://pastebin.com/raw/NjttFM2K"
+          }
+        ]
+        await fs.mkdir("./Bin", async () => {
+          await fs.mkdir("./Bin/Settings", async () => {
+            await fs.writeFile("./Bin/Settings/ShowMenu.txt", "false", { encoding: "utf-8" }, (err) => { 
+              if (err) {
+                return console.log(err);
+              }
+            });
+            await fs.writeFile("./Bin/Settings/Topmost.txt", "false", { encoding: "utf-8" }, (err) => { 
+              if (err) {
+                return console.log(err);
+              }
+            });
+          });
+          await fs.writeFile("./Bin/ScriptsLibrary.json", JSON.stringify(scriptsLibraryData, null, 4), { encoding: "utf-8" }, async (err) => {
+            if (err) {
+              return console.log(err);
+            }
+            await mainWindow.webContents.send("restartRequiredCall");
+          });
+        });
       }
     } catch (err) {
       await dialog.showMessageBox(err, {
@@ -321,7 +380,7 @@ const createWindow = () => {
     try {
       await axios({
         method: "post",
-        url: "http://localhost:3000/suggestion",
+        url: "https://jjsploit-extended-server.charlzk.repl.co/suggestion",
         data: {
           ownerTeam: ownerTeam,
           url: url
@@ -331,6 +390,77 @@ const createWindow = () => {
       }).catch((err) => {
         console.log(err);
       });
+    } catch (err) {
+      await dialog.showMessageBox(err, {
+        type: "error"
+      });
+    }
+  });
+
+  ipcMain.on("showMenu", async (event) => {  
+    try {
+      mainWindow.menuBarVisible = true; 
+      await fs.writeFile("./Bin/Settings/ShowMenu.txt", "true", (err) => {
+        if (err) {
+          return console.log(err);
+        }
+      });
+    } catch (err) {
+      await dialog.showMessageBox(err, {
+        type: "error"
+      });
+    }
+  });
+
+  ipcMain.on("hideMenu", async (event) => {  
+    try {
+      mainWindow.menuBarVisible = false; 
+      await fs.writeFile("./Bin/Settings/ShowMenu.txt", "false", (err) => {
+        if (err) {
+          return console.log(err);
+        }
+      });
+    } catch (err) {
+      await dialog.showMessageBox(err, {
+        type: "error"
+      });
+    }
+  });
+
+  ipcMain.on("topMost", async (event) => {  
+    try {
+      mainWindow.setAlwaysOnTop(true);
+      await fs.writeFile("./Bin/Settings/Topmost.txt", "true", (err) => {
+        if (err) {
+          return console.log(err);
+        }
+      });
+    } catch (err) {
+      await dialog.showMessageBox(err, {
+        type: "error"
+      });
+    }
+  });
+
+  ipcMain.on("noTopMost", async (event) => {  
+    try {
+      mainWindow.setAlwaysOnTop(false);
+      await fs.writeFile("./Bin/Settings/Topmost.txt", "false", (err) => {
+        if (err) {
+          return console.log(err);
+        }
+      });
+    } catch (err) {
+      await dialog.showMessageBox(err, {
+        type: "error"
+      });
+    }
+  });
+
+  ipcMain.on("restartApp", async (event) => {
+    try {
+      app.relaunch();
+      app.quit();
     } catch (err) {
       await dialog.showMessageBox(err, {
         type: "error"

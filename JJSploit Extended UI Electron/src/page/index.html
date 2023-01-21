@@ -8,245 +8,272 @@
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
 </head>
 <body>
-    <div class="gotoTop">
-        <p onclick="gotoTop_click()">Go to Top</p>
-    </div>
-    <div class="navigatorBar">
-        <p onclick="attach_click()" class="attachButton">Attach</p>
-        <p onclick="luaExecutor_click()">Lua executor</p>
-        <p onclick="buttons_click()">Buttons</p>
-        <p onclick="scriptsLib_click()">Scripts library</p>
-        <p onclick="scriptHubButton_click()">Script hub</p>
-        <p onclick="aboutButton_click()">About</p>
-    </div>
-    <div class="executorPage" style="display: block;">
-        <div class="buttons">
-            <button onclick="execPageExecuteButton_click()">Execute</button>
-            <button onclick="execPageClearButton_click()">Clear</button>
-            <button onclick="openFileButton_click()">Open file</button>
-            <button onclick="saveFileButton_click()">Save file</button>
-            <button onclick="explorerButton_click()">Explorer</button>
+    <div class="restartRequired" style="display: none;">
+        <div>
+            <p>Restart is required ...</p>
+            <button onclick="window.electronAPI.restartApp()">Restart</button>
         </div>
-        <div id="editor"></div>
-        <div class="explorer explorerHidden">
-            <p class="header">Explorer</p>
-            <hr>
-            <div class="scripts">
+    </div>
+    <div id="main" style="display: block;">
+        <div class="gotoTop">
+            <p onclick="gotoTop_click()">Go to Top</p>
+        </div>
+        <div class="navigatorBar">
+            <p onclick="attach_click()" class="attachButton">Attach</p>
+            <p onclick="luaExecutor_click()">Lua executor</p>
+            <p onclick="buttons_click()">Buttons</p>
+            <p onclick="scriptsLib_click()">Scripts library</p>
+            <p onclick="scriptHubButton_click()">Script hub</p>
+            <p onclick="settingsButton_click()">Settings</p>
+            <p onclick="aboutButton_click()">About</p>
+        </div>
+        <div class="executorPage" style="display: block;">
+            <div class="buttons">
+                <button onclick="execPageExecuteButton_click()">Execute</button>
+                <button onclick="execPageClearButton_click()">Clear</button>
+                <button onclick="openFileButton_click()">Open file</button>
+                <button onclick="saveFileButton_click()">Save file</button>
+                <button onclick="explorerButton_click()">Explorer</button>
+            </div>
+            <div id="editor"></div>
+            <div class="explorer explorerHidden">
+                <p class="header">Explorer</p>
+                <hr>
+                <div class="scripts">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="buttonsPage" style="display: none;">
+            <div class="backgroundImage"></div>
+            <div class="column">
+                <div class="script">
+                    <p>Aimbot <span>By WeAreDevs</span></p>
+                    <p>Snaps aim to player heads. Featuring wall detection, team check, and mouse movement bypass.</p>
+                    <button onclick="window.electronAPI.executeButton('WRD Aimbot.txt');">Execute</button>
+                </div>
+                <div class="script">
+                    <p>Gravity Switch <span>By WeAreDevs</span></p>
+                    <p>Press "e" to toggle the game's gravity</p>
+                    <button onclick="window.electronAPI.executeButton('Gravity Switch.txt');">Execute</button>
+                </div>
+                <div class="script">
+                    <p>Click Teleport <span>By WeAreDevs</span></p>
+                    <p>Left ctrl + click on any spot on the game and you will immediately teleport to it!</p>
+                    <button onclick="window.electronAPI.executeButton('Click Teleport.txt');">Execute</button>
+                </div>
+                <div class="script">
+                    <p>Human Flashlight <span>By WeAreDevs</span></p>
+                    <p>Turns your character into a private flashlight.</p>
+                    <button onclick="window.electronAPI.executeButton('Human Flashlight.txt');">Execute</button>
+                </div>
+            </div>
+            <div class="column">
+                <div class="script">
+                    <p>Remove Legs <span>By WeAreDevs</span></p>
+                    <p>Removes the legs from your player's character.</p>
+                    <button onclick="window.electronAPI.executeButton('Remove Legs.txt');">Execute</button>
+                </div>
+                <div class="script">
+                    <p>Float Character <span>By WeAreDevs</span></p>
+                    <p>Makes your player's character float in the air.</p>
+                    <button onclick="window.electronAPI.executeButton('Float Character.txt');">Execute</button>
+                </div>
+                <div class="script">
+                    <p>High Hips <span>By WeAreDevs</span></p>
+                    <p>Walk like normal, but a little "taller".</p>
+                    <button onclick="window.electronAPI.executeButton('High Hips.txt');">Execute</button>
+                </div>
+                <div class="script">
+                    <p>BTools <span>By WeAreDevs</span></p>
+                    <p>Gives your player the old system of building tools.</p>
+                    <button onclick="window.electronAPI.executeButton('BTools.txt');">Execute</button>
+                </div>
+            </div>
+            <div class="column">
+                <div class="script">
+                    <p>Night Time Toggle <span>By WeAreDevs</span></p>
+                    <p>Changes the time of day so that it is night.</p>
+                    <button onclick="window.electronAPI.executeButton('Night Time Toggle.txt');">Execute</button>
+                </div>
+                <div class="script">
+                    <p>Limp Character <span>By WeAreDevs</span></p>
+                    <p>Messes with your characters joints so it walks with a limp.</p>
+                    <button onclick="window.electronAPI.executeButton('Limp Character.txt');">Execute</button>
+                </div>
+                <div class="script">
+                    <p>Blockhead <span>By WeAreDevs</span></p>
+                    <p>Turns your character's head into a plain block.</p>
+                    <button onclick="window.electronAPI.executeButton('Blochead.txt');">Execute</button>
+                </div>
+                <div class="script">
+                    <p>Highlight Player <span>By WeAreDevs</span></p>
+                    <p>Places a selection box around the selected player.</p>
+                    <button onclick="window.electronAPI.executeButton('Highlight Player.txt');">Execute</button>
+                </div>
+            </div>
+            <div class="column">
+                <div class="script">
+                    <p>Remove Arms <span>By WeAreDevs</span></p>
+                    <p>Removes the arms from your player's character.</p>
+                    <button onclick="window.electronAPI.executeButton('Remove Arms.txt');">Execute</button>
+                </div>
+                <div class="script">
+                    <p>Invisible Character <span>By WeAreDevs</span></p>
+                    <p>Makes your character's baseparts fully transparent.</p>
+                    <button onclick="window.electronAPI.executeButton('Invisible Character.txt');">Execute</button>
+                </div>
+                <div class="script">
+                    <p>Magnetize To Player <span>By WeAreDevs</span></p>
+                    <p>Makes your character magnetically attracted to another player.</p>
+                    <button onclick="window.electronAPI.executeButton('Magnetize To Players.txt');">Execute</button>
+                </div>
+                <div class="script">
+                    <p>Teleport To Player <span>By WeAreDevs</span></p>
+                    <p>Teleports your player's character to the selected player's character.</p>
+                    <button onclick="window.electronAPI.executeButton('Teleport To Player.txt');">Execute</button>
+                </div>
+            </div>
+            <div class="column">
+                <div class="script">
+                    <p>Unlock Workspace Baseparts <span>By WeAreDevs</span></p>
+                    <p>Unlocks all bricks in the game so you can use btools on them.</p>
+                    <button onclick="window.electronAPI.executeButton('Unlock Workspace Baseparts.txt');">Execute</button>
+                </div>
+                <div class="script">
+                    <p>WRD ESP <span>By WeAreDevs</span></p>
+                    <p>Draws boxes around other players. As used in JJSploit.</p>
+                    <button onclick="window.electronAPI.executeButton('WRD ESP.txt');">Execute</button>
+                </div>
+                <div class="script">
+                    <p>Infinite Jump <span>By WeAreDevs</span></p>
+                    <p>Spam the spacebar to jump as high as you want.</p>
+                    <button onclick="window.electronAPI.executeButton('Infinite Jump.txt');">Execute</button>
+                </div>
+            </div>
+        </div>
+        <div class="scriptsLibPage" style="display: none;">
+            <div class="backgroundImage"></div>
+            <div class="existsWarning">
+                <p>Script already existed</p>
+            </div>
+            <div class="warning">
+                <p>Invalid input, Please try again ...</p>
+            </div>
+            <div class="addScript">
+                <p class="header">Add Script</p>
+                <hr>
+                <p style="margin-top: 0;">Script name (Must be more than 5 characters in length)</p>
+                <input type="text" id="scriptName">
+                <p>Script description (Optional)</p>
+                <input type="text" id="scriptDesc">
+                <p>Script url (Must have http or https on the first 4-5 characters)</p>
+                <input type="text" id="scriptUrl">
+                <button onclick="addScript_click()">Add</button>
+            </div>
+            <div class="row">
                 
             </div>
         </div>
-    </div>
-    <div class="buttonsPage" style="display: none;">
-        <div class="backgroundImage"></div>
-        <div class="column">
-            <div class="script">
-                <p>Aimbot <span>By WeAreDevs</span></p>
-                <p>Snaps aim to player heads. Featuring wall detection, team check, and mouse movement bypass.</p>
-                <button onclick="window.electronAPI.executeButton('WRD Aimbot.txt');">Execute</button>
+        <div class="scriptHubPage" style="display: none;">
+            <div class="backgroundImage"></div>
+            <div class="warning">
+                <p>Invalid input, Please try again ...</p>
             </div>
-            <div class="script">
-                <p>Gravity Switch <span>By WeAreDevs</span></p>
-                <p>Press "e" to toggle the game's gravity</p>
-                <button onclick="window.electronAPI.executeButton('Gravity Switch.txt');">Execute</button>
+            <div class="column">
+                <div class="item">
+                    <p>Ez Hub <span>By Ez Industries</span></p>
+                    <p>Multi-game script hub with a beautifully made UI.</p>
+                    <button onclick="window.electronAPI.executeScriptHub('Ez Hub.txt')">Execute</button>
+                </div>
+                <div class="item">
+                    <p>Owl Hub <span>By CriShoux & Chrome</span></p>
+                    <p>One of the most popular script hubs. 30+ games.</p>
+                    <button onclick="window.electronAPI.executeScriptHub('OwlHub.txt')">Execute</button>
+                </div>
+                <div class="item">
+                    <p>Infinite Yield <span>By Edge</span></p>
+                    <p>A command line script hub with over 6 years of development.</p>
+                    <button onclick="window.electronAPI.executeScriptHub('Infinite Yield.txt')">Execute</button>
+                </div>
             </div>
-            <div class="script">
-                <p>Click Teleport <span>By WeAreDevs</span></p>
-                <p>Left ctrl + click on any spot on the game and you will immediately teleport to it!</p>
-                <button onclick="window.electronAPI.executeButton('Click Teleport.txt');">Execute</button>
+            <div class="column">
+                <div class="item">
+                    <p>Rogue Hub <span>By Nolix</span></p>
+                    <p>A script hub which supports well known games such as Slap Battles, and No-Scope Arcade with incredible features added!</p>
+                    <button onclick="window.electronAPI.executeScriptHub('Rogue Hub.txt')">Execute</button>
+                </div>
             </div>
-            <div class="script">
-                <p>Human Flashlight <span>By WeAreDevs</span></p>
-                <p>Turns your character into a private flashlight.</p>
-                <button onclick="window.electronAPI.executeButton('Human Flashlight.txt');">Execute</button>
-            </div>
-        </div>
-        <div class="column">
-            <div class="script">
-                <p>Remove Legs <span>By WeAreDevs</span></p>
-                <p>Removes the legs from your player's character.</p>
-                <button onclick="window.electronAPI.executeButton('Remove Legs.txt');">Execute</button>
-            </div>
-            <div class="script">
-                <p>Float Character <span>By WeAreDevs</span></p>
-                <p>Makes your player's character float in the air.</p>
-                <button onclick="window.electronAPI.executeButton('Float Character.txt');">Execute</button>
-            </div>
-            <div class="script">
-                <p>High Hips <span>By WeAreDevs</span></p>
-                <p>Walk like normal, but a little "taller".</p>
-                <button onclick="window.electronAPI.executeButton('High Hips.txt');">Execute</button>
-            </div>
-            <div class="script">
-                <p>BTools <span>By WeAreDevs</span></p>
-                <p>Gives your player the old system of building tools.</p>
-                <button onclick="window.electronAPI.executeButton('BTools.txt');">Execute</button>
+            <div class="column">
+                <div class="suggestion">
+                    <p class="header">Script suggestion</p>
+                    <hr>
+                    <p>Owner/Team (Required)</p>
+                    <input type="text" placeholder="Charlzk05" id="suggestionOwnerTeamTextBox">
+                    <p>Url (Must include http or https on the first 4-5 Characters)</p>
+                    <input type="text" placeholder="https://example.com/" id="suggestionUrlTextBox">
+                    <button onclick="submitSuggestion_click()">Submit</button>
+                </div>
             </div>
         </div>
-        <div class="column">
-            <div class="script">
-                <p>Night Time Toggle <span>By WeAreDevs</span></p>
-                <p>Changes the time of day so that it is night.</p>
-                <button onclick="window.electronAPI.executeButton('Night Time Toggle.txt');">Execute</button>
-            </div>
-            <div class="script">
-                <p>Limp Character <span>By WeAreDevs</span></p>
-                <p>Messes with your characters joints so it walks with a limp.</p>
-                <button onclick="window.electronAPI.executeButton('Limp Character.txt');">Execute</button>
-            </div>
-            <div class="script">
-                <p>Blockhead <span>By WeAreDevs</span></p>
-                <p>Turns your character's head into a plain block.</p>
-                <button onclick="window.electronAPI.executeButton('Blochead.txt');">Execute</button>
-            </div>
-            <div class="script">
-                <p>Highlight Player <span>By WeAreDevs</span></p>
-                <p>Places a selection box around the selected player.</p>
-                <button onclick="window.electronAPI.executeButton('Highlight Player.txt');">Execute</button>
-            </div>
+        <div class="settingsPage" style="display: none;">
+            <h2>Settings</h2>
+            <ul>
+                <div class="checkbox">
+                    <p>Topmost</p>
+                    <input type="checkbox" id="topMostCheckBox" onclick="topMost_click()">
+                    <span class="checkmark"></span>
+                </div>
+                <div class="checkbox">
+                    <p>Show menu</p>
+                    <input type="checkbox" id="showMenuCheckBox" onclick="showMenu_click()">
+                    <span class="checkmark"></span>
+                </div>
+            </ul>
         </div>
-        <div class="column">
-            <div class="script">
-                <p>Remove Arms <span>By WeAreDevs</span></p>
-                <p>Removes the arms from your player's character.</p>
-                <button onclick="window.electronAPI.executeButton('Remove Arms.txt');">Execute</button>
+        <div class="aboutPage" style="display: none;">
+            <span>Project Version: v1.0.0</span><br>
+            <span>Made by Charlzk05</span>
+            <div>
+                <h2>JJSploit Extended</h2>
+                <p>Unofficial open source and extended version of JJSploit made using Electron JS for user interface and .NET Framework 4.8 for ExploitAPI.</p>
             </div>
-            <div class="script">
-                <p>Invisible Character <span>By WeAreDevs</span></p>
-                <p>Makes your character's baseparts fully transparent.</p>
-                <button onclick="window.electronAPI.executeButton('Invisible Character.txt');">Execute</button>
-            </div>
-            <div class="script">
-                <p>Magnetize To Player <span>By WeAreDevs</span></p>
-                <p>Makes your character magnetically attracted to another player.</p>
-                <button onclick="window.electronAPI.executeButton('Magnetize To Players.txt');">Execute</button>
-            </div>
-            <div class="script">
-                <p>Teleport To Player <span>By WeAreDevs</span></p>
-                <p>Teleports your player's character to the selected player's character.</p>
-                <button onclick="window.electronAPI.executeButton('Teleport To Player.txt');">Execute</button>
-            </div>
-        </div>
-        <div class="column">
-            <div class="script">
-                <p>Unlock Workspace Baseparts <span>By WeAreDevs</span></p>
-                <p>Unlocks all bricks in the game so you can use btools on them.</p>
-                <button onclick="window.electronAPI.executeButton('Unlock Workspace Baseparts.txt');">Execute</button>
-            </div>
-            <div class="script">
-                <p>WRD ESP <span>By WeAreDevs</span></p>
-                <p>Draws boxes around other players. As used in JJSploit.</p>
-                <button onclick="window.electronAPI.executeButton('WRD ESP.txt');">Execute</button>
-            </div>
-            <div class="script">
-                <p>Infinite Jump <span>By WeAreDevs</span></p>
-                <p>Spam the spacebar to jump as high as you want.</p>
-                <button onclick="window.electronAPI.executeButton('Infinite Jump.txt');">Execute</button>
-            </div>
-        </div>
-    </div>
-    <div class="scriptsLibPage" style="display: none;">
-        <div class="backgroundImage"></div>
-        <div class="existsWarning">
-            <p>Script name already existed</p>
-        </div>
-        <div class="warning">
-            <p>Script name be more than 5 characters in length and Script url must have http or https on the first 4-5 characters</p>
-        </div>
-        <div class="addScript">
-            <p class="header">Add Script</p>
             <hr>
-            <p style="margin-top: 0;">Script name (Must be more than 5 characters in length)</p>
-            <input type="text" id="scriptName">
-            <p>Script description (Optional)</p>
-            <input type="text" id="scriptDesc">
-            <p>Script url (Must have http or https on the first 4-5 characters)</p>
-            <input type="text" id="scriptUrl">
-            <button onclick="addScript_click()">Add</button>
-        </div>
-        <div class="row">
-            
-        </div>
-    </div>
-    <div class="scriptHubPage" style="display: none;">
-        <div class="backgroundImage"></div>
-        <div class="column">
-            <div class="item">
-                <p>Ez Hub <span>By Ez Industries</span></p>
-                <p>Multi-game script hub with a beautifully made UI.</p>
-                <button onclick="window.electronAPI.executeScriptHub('Ez Hub.txt')">Execute</button>
+            <div>
+                <h2>Instructions</h2>
+                <ol>
+                    <li>Join a game (make sure the exploit is opened)</li>
+                    <li>In the top right corner, click the attach button</li>
+                    <li>Wait for the notification to show up in the game's bottom right corner</li>
+                </ol>
             </div>
-            <div class="item">
-                <p>Owl Hub <span>By CriShoux & Chrome</span></p>
-                <p>One of the most popular script hubs. 30+ games.</p>
-                <button onclick="window.electronAPI.executeScriptHub('OwlHub.txt')">Execute</button>
+            <hr>
+            <div>
+                <h2>Requirements</h2>
+                <ul>
+                    <li><a onclick='window.electronAPI.openLink("https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48");'>.NET Framework 4.8 Runtime</a></li>
+                </ul>
+                <h2>OS Requirements <span>Based on <a onclick='window.electronAPI.openLink("https://www.electronjs.org/docs/latest/tutorial/support");'>Electron supported platforms</a></span></h2>
+                <p>Windows</p>
+                <ul>
+                    <li>Windows 7 and later are supported, older operating systems are not supported (and do not work).</li>
+                    <li>Both x86 and amd64 (x64) binaries are provided for Windows. Please note, the ARM version of Windows is not supported for now.</li>
+                </ul>
+                <h2>Hardware Requirements <span>Based on <a onclick='window.electronAPI.openLink("https://support.google.com/chrome/answer/95346?hl=en");'>Chrome minimum requirements</a></span></h2>
+                <p>About RAM and CPU, there are no information about that in Electron's docs, but Electron is based on Chromium, so it should need nearly the same requirements.</p>
+                <p>Windows</p>
+                <ul>
+                    <li>An Intel Pentium 4 processor or later that's SSE2 capable</li>
+                    <li>512 MB of RAM</li>
+                </ul>
             </div>
-            <div class="item">
-                <p>Infinite Yield <span>By Edge</span></p>
-                <p>A command line script hub with over 6 years of development.</p>
-                <button onclick="window.electronAPI.executeScriptHub('Infinite Yield.txt')">Execute</button>
+            <hr>
+            <div>
+                <h2>Development</h2>
+                <ul>
+                    <li><a onclick='window.electronAPI.openLink("https://github.com/Charlzk05/JJSploit-Extended");'>Source code from Github</a></li>
+                </ul>
             </div>
-        </div>
-        <div class="column">
-            <div class="item">
-                <p>Rogue Hub <span>By Nolix</span></p>
-                <p>A script hub which supports well known games such as Slap Battles, and No-Scope Arcade with incredible features added!</p>
-                <button onclick="window.electronAPI.executeScriptHub('Rogue Hub.txt')">Execute</button>
-            </div>
-        </div>
-        <div class="column">
-            <div class="suggestion">
-                <p class="header">Script suggestion</p>
-                <hr>
-                <p>Owner/Team (Required)</p>
-                <input type="text" placeholder="Charlzk05" id="suggestionOwnerTeamTextBox">
-                <p>Url (Must include http or https on the first 4-5 Characters)</p>
-                <input type="text" placeholder="https://example.com/" id="suggestionUrlTextBox">
-                <button onclick="submitSuggestion_click()">Submit</button>
-            </div>
-        </div>
-    </div>
-    <div class="aboutPage" style="display: none;">
-        <span>Project Version: v1.0.0</span><br>
-        <span>Made by Charlzk05</span>
-        <div>
-            <h2>JJSploit Extended</h2>
-            <p>Unofficial open source and extended version of JJSploit made using Electron JS for user interface and .NET Framework 4.8 for ExploitAPI.</p>
-        </div>
-        <hr>
-        <div>
-            <h2>instructions</h2>
-            <ol>
-                <li>Join a game (make sure the exploit is opened)</li>
-                <li>In the top right corner, click the attach button</li>
-                <li>Wait for the notification to show up in the game's bottom right corner</li>
-            </ol>
-        </div>
-        <hr>
-        <div>
-            <h2>Requirements</h2>
-            <ul>
-                <li><a onclick='window.electronAPI.openLink("https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48");'>.NET Framework 4.8 Runtime</a></li>
-            </ul>
-            <h2>OS Requirements <span>Based on <a onclick='window.electronAPI.openLink("https://www.electronjs.org/docs/latest/tutorial/support");'>Electron supported platforms</a></span></h2>
-            <p>Windows</p>
-            <ul>
-                <li>Windows 7 and later are supported, older operating systems are not supported (and do not work).</li>
-                <li>Both x86 and amd64 (x64) binaries are provided for Windows. Please note, the ARM version of Windows is not supported for now.</li>
-            </ul>
-            <h2>Hardware Requirements <span>Based on <a onclick='window.electronAPI.openLink("https://support.google.com/chrome/answer/95346?hl=en");'>Chrome minimum requirements</a></span></h2>
-            <p>About RAM and CPU, there are no information about that in Electron's docs, but Electron is based on Chromium, so it should need nearly the same requirements.</p>
-            <p>Windows</p>
-            <ul>
-                <li>An Intel Pentium 4 processor or later that's SSE2 capable</li>
-                <li>512 MB of RAM</li>
-            </ul>
-        </div>
-        <hr>
-        <div>
-            <h2>Development</h2>
-            <ul>
-                <li><a onclick='window.electronAPI.openLink("https://github.com/Charlzk05/JJSploit-Extended");'>Source code from Github</a></li>
-            </ul>
         </div>
     </div>
 

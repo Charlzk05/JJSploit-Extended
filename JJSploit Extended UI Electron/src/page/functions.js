@@ -11,6 +11,11 @@ const explorer = document.getElementsByClassName("explorer")[0];
 const scriptsExplorer = document.getElementsByClassName("explorer")[0].getElementsByClassName("scripts")[0];
 const scriptHubPage = document.getElementsByClassName("scriptHubPage")[0];
 const aboutPage = document.getElementsByClassName("aboutPage")[0];
+const suggestionOwnerTeamTextBox = document.getElementById("suggestionOwnerTeamTextBox");
+const suggestionUrlTextBox = document.getElementById("suggestionUrlTextBox");
+const settingsPage = document.getElementsByClassName("settingsPage")[0];
+const restartRequired = document.getElementsByClassName("restartRequired")[0];
+const mainUI = document.getElementById("main");
 
 attach_click = () => {
     window.electronAPI.attachClick();
@@ -21,6 +26,7 @@ luaExecutor_click = () => {
     buttonsPage.setAttribute("style", "display: none;");
     scriptsLibPage.setAttribute("style", "display: none;");
     scriptHubPage.setAttribute("style", "display: none;");
+    settingsPage.setAttribute("style", "display: none;");
     aboutPage.setAttribute("style", "display: none;");
 }
 
@@ -29,6 +35,7 @@ buttons_click = () => {
     buttonsPage.setAttribute("style", "display: block;");
     scriptsLibPage.setAttribute("style", "display: none;");
     scriptHubPage.setAttribute("style", "display: none;");
+    settingsPage.setAttribute("style", "display: none;");
     aboutPage.setAttribute("style", "display: none;");
 }
 
@@ -37,6 +44,7 @@ scriptsLib_click = () => {
     buttonsPage.setAttribute("style", "display: none;");
     scriptsLibPage.setAttribute("style", "display: block;");
     scriptHubPage.setAttribute("style", "display: none;");
+    settingsPage.setAttribute("style", "display: none;");
     aboutPage.setAttribute("style", "display: none;");
 }
 
@@ -45,6 +53,7 @@ scriptHubButton_click = () => {
     buttonsPage.setAttribute("style", "display: none;");
     scriptsLibPage.setAttribute("style", "display: none;");
     scriptHubPage.setAttribute("style", "display: block;");
+    settingsPage.setAttribute("style", "display: none;");
     aboutPage.setAttribute("style", "display: none;");
 }
 
@@ -53,7 +62,17 @@ aboutButton_click = () => {
     buttonsPage.setAttribute("style", "display: none;");
     scriptsLibPage.setAttribute("style", "display: none;");
     scriptHubPage.setAttribute("style", "display: none;");
+    settingsPage.setAttribute("style", "display: none;");
     aboutPage.setAttribute("style", "display: block;");
+}
+
+settingsButton_click = () => {
+    executorPage.setAttribute("style", "display: none;");
+    buttonsPage.setAttribute("style", "display: none;");
+    scriptsLibPage.setAttribute("style", "display: none;");
+    scriptHubPage.setAttribute("style", "display: none;");
+    settingsPage.setAttribute("style", "display: block;");
+    aboutPage.setAttribute("style", "display: none;");
 }
 
 window.addEventListener("scroll", () => {
@@ -172,8 +191,9 @@ scriptLibraryCreator = (name, desc, url, parent) => {
 }
 
 window.addEventListener("load", () => {
-    window.electronAPI.initializeExploit();
+    window.electronAPI.initializeSoftware();
 });
+
 
 window.addEventListener("DOMContentLoaded", () => {
     window.electronAPI.explorerLoad();
@@ -211,5 +231,43 @@ window.electronAPI.explorerSelectedFile_Content((event, content) => {
 });
 
 submitSuggestion_click = () => {
-    window.electronAPI.suggestionSubmit(suggestionOwnerTeamTextBox.value, suggestionUrlTextBox.value);
+    if (suggestionOwnerTeamTextBox.value.length > 0 || suggestionUrlTextBox.value.includes("http") || suggestionUrlTextBox.value.includes("https")) {
+
+    } else {
+        scriptHubPage.getElementsByClassName("warning")[0].setAttribute("class", "warning warningActive");
+        setTimeout(() => {
+            scriptHubPage.getElementsByClassName("warning")[0].setAttribute("class", "warning");
+        }, 3000);
+    }
 }
+
+const showMenuCheckBox = document.getElementById("showMenuCheckBox");
+showMenu_click = () => {
+    if (showMenuCheckBox.checked == true) {
+        window.electronAPI.showMenu();
+    } else {
+        window.electronAPI.hideMenu();
+    }
+}
+
+const topMostCheckBox = document.getElementById("topMostCheckBox");
+const topMost_click = () => {
+    if (topMostCheckBox.checked == true) {
+        window.electronAPI.topMost();   
+    } else {
+        window.electronAPI.noTopMost();
+    }
+}
+
+window.electronAPI.topMostData((event, data) => {
+    topMostCheckBox.checked = data;
+});
+
+window.electronAPI.showMenuData((event, data) => {
+    showMenuCheckBox.checked = data;
+});
+
+window.electronAPI.restartRequiredCall((event) => {
+    restartRequired.setAttribute("style", "display: block;");
+    mainUI.setAttribute("style", "display: none;");
+});

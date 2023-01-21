@@ -26,6 +26,43 @@ body {
     font-family: "Segoe UI";
     overflow-y: scroll;
 }
+/* restart required */
+.restartRequired div {
+    position: relative;
+    background-color: #dc3545;
+    margin: 50px;
+    height: 100px;
+    box-shadow: 0px 0px 12px #dc3545;
+    border-radius: 5px;
+}
+.restartRequired div p {
+    text-align: center;
+    padding: 20px;
+}
+.restartRequired div button {
+    background-color: #e63f45;
+    position: absolute;
+    color: white;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    border: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    transition: all 0.2s;
+    border-radius: 5px;
+}
+.restartRequired div button:hover {
+    background-color: #f0494f;
+    transition: all 0.2s;
+}
+.restartRequired div button:active {
+    background-color: #fa5359;
+    transition: all 0.2s;
+}
 /* go to top */
 .gotoTop {
     left: -150px;
@@ -269,8 +306,9 @@ body {
     z-index: -1;
 }
 .scriptsLibPage .existsWarning {
+    z-index: 1;
     position: fixed;
-    right: -1000px;
+    right: -300px;
     background-color: #dc3545;
     margin: 10px;
     border-radius: 10px;
@@ -285,8 +323,9 @@ body {
     transition: all 1s;
 }
 .scriptsLibPage .warning {
+    z-index: 1;
     position: fixed;
-    right: -1000px;
+    right: -300px;
     background-color: #dc3545;
     margin: 10px;
     border-radius: 10px;
@@ -446,6 +485,23 @@ body {
     filter: blur(3px);
     z-index: -1;
 }
+.scriptHubPage .warning {
+    z-index: 1;
+    position: fixed;
+    right: -300px;
+    background-color: #dc3545;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    transition: all 1s;
+}
+.scriptHubPage .warning p {
+    margin: 0px;
+}
+.scriptHubPage .warningActive {
+    right: 0;
+    transition: all 1s;
+}
 .scriptHubPage .column {
     display: flex;
     justify-content: center;
@@ -549,6 +605,61 @@ body {
 }
 .scriptHubPage .suggestion button:active {
     background-color: #282828;
+    transition: all 0.2s;
+}
+/* settings page */
+.settingsPage {
+    top: 45px;
+    position: absolute;
+    height: 100%;
+    right: 0;
+    left: 0;
+    padding: 30px;
+}
+.settingsPage h2 {
+    margin: 0;
+    font-weight: 500;
+}
+.settingsPage .checkbox {
+    position: relative;
+}
+.settingsPage .checkbox input[type=checkbox] {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+}
+.settingsPage .checkbox p {
+    cursor: pointer;
+    margin-left: 23px;
+    font-size: 14px;
+}
+.settingsPage .checkbox .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 15px;
+    width: 15px;
+    border: 0.2px solid gray;
+    border-radius: 5px;
+}
+.settingsPage .checkbox:hover .checkmark {
+    box-shadow: 0px 0px 0px transparent;
+    background-color: #232323;
+    transition: all 0.2s;
+}
+.settingsPage .checkbox input[type=checkbox]:checked ~ .checkmark {
+    box-shadow: 0px 0px 10px #ffffff;
+    background-color: #ffffff;
+    transition: all 0.2s;
+}
+.settingsPage .checkbox input[type=checkbox]::after ~ .checkmark {
+    background-color: #232323;
     transition: all 0.2s;
 }
 /* about page */
