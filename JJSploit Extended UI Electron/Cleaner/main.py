@@ -15,6 +15,11 @@ def main():
     downloaded_file = "./../src/page/JJSploit Extended Server.zip"
     if (os.path.exists(downloaded_file)):
         os.unlink(downloaded_file)
+        
+    if (os.path.isdir("./../Bin")):
+        shutil.rmtree("./../Bin")
+    if (os.path.isdir("./../Scripts")):
+        shutil.rmtree("./../Scripts")
     
 if __name__ == "__main__":
     main()
