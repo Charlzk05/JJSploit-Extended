@@ -74,7 +74,7 @@ const createWindow = () => {
               return console.log(err);
             }
           });
-          await fs.writeFile("./Scripts/Hello World.txt", 'print("Hello World - Lua file")', { encoding: "utf-8" }, async (err) => {
+          await fs.writeFile("./Scripts/Hello World.txt", 'print("Hello World - Txt file")', { encoding: "utf-8" }, async (err) => {
             if (err) {
               return console.log(err);
             }
