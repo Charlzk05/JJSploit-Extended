@@ -7,7 +7,7 @@ Unofficial open source and extended version of JJSploit made using Electron JS f
 3. Open "JJSploit Ext.exe"
 4. Enjoy!
 
-# Excluding from anti virus software
+# Excluding from anti-virus software
 
 Unfortunately, WeAreDevsAPI has always had issues with anti-virus software due to the nature of how it works. WeAreDevsAPI uses techniques that are also commonly used by malicious programs, which causes false positives in anti-virus software.
 
