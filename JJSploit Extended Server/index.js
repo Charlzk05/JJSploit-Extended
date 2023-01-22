@@ -6,8 +6,10 @@ const fs = require("fs");
 const app = express();
 const port = 3000;
 
+app.use(express.static(path.join(__dirname, "views")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
     try {
@@ -27,7 +29,23 @@ app.post("/DownloadConsoleApp", (req, res) => {
     }
 });
 
-app.post("/suggestion", async (req, res) => {
+app.get("/suggestions", (req, res) => {
+    try {
+        fs.readFile("./Suggestions.json", { encoding: "utf-8" }, (err, data) =>{
+            if (err) {
+                return console.log(err);
+            }
+            var jsonData = JSON.parse(data);
+            res.render("suggestions", { 
+                result: jsonData
+            });
+        });
+    } catch (err) {
+        res.sendStatus(500);
+    }
+});
+
+app.post("/suggestion", (req, res) => {
     try {
         const date = new Date();
         var recievedData = {
@@ -36,13 +54,13 @@ app.post("/suggestion", async (req, res) => {
             "Time": `${date.getHours() - 12}-${date.getMinutes()}`,
             "Date": `${date.getMonth()}-${date.getDate()}-${date.getFullYear()}`
         };
-        await fs.readFile("./Suggestions.json", { encoding: "utf-8" }, async (err, data) => {
+        fs.readFile("./Suggestions.json", { encoding: "utf-8" }, (err, data) => {
             if (err) {
                 return console.log(err);
             }
             var jsonArray = JSON.parse(data);
             jsonArray.push(recievedData);
-            await fs.writeFile("./Suggestions.json", JSON.stringify(jsonArray, null, 4), { encoding: "utf-8" }, (err) => {
+            fs.writeFile("./Suggestions.json", JSON.stringify(jsonArray, null, 4), { encoding: "utf-8" }, (err) => {
                 if (err) {
                     return console.log(err.message);
                 }

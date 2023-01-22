@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>JJSploit Extended - Suggestions</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='suggestions.css'>
+</head>
+<body>
+    <h1>Suggestions</h1>
+    <% result.forEach((item) => { %>
+        <div class="item">
+            <p style="margin: 0;">Owner/Team: <%- item["Owner/Team"] %></p>
+            <p>Url: <%- item["Url"] %></p>
+            <p>Time: <%- item["Time"] %></p>
+            <p>Date: <%- item["Date"] %></p>
+        </div>
+    <% }); %>
+    
+    
+
+    <script src='suggestions.js'></script>
+</body>
+</html>
