@@ -53,5 +53,5 @@ Windows
 - An Intel Pentium 4 processor or later that's SSE2 capable
 - 512 MB of RAM
 
-Development
+- Development
 ``git clone https://github.com/Charlzk05/JJSploit-Extended``
