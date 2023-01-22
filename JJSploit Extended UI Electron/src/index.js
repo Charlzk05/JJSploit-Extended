@@ -24,7 +24,6 @@ const createWindow = () => {
 
   mainWindow.loadFile(path.join(__dirname, "page", 'index.html'));
   // mainWindow.maximize();
-  mainWindow.menuBarVisible = false; 
   mainWindow.title = "JJSploit++ by Charlzk05";
 
   ipcMain.on("initializeSoftware", async (event) => {
