@@ -77,7 +77,7 @@ settingsButton_click = () => {
 
 window.addEventListener("scroll", () => {
     if (window.scrollY > 30) {
-        navigatorBar.setAttribute("class", "navigatorBar navigatorBarActive");
+        navigatorBar.setAttribute("class", "navigatorBarActive");
         gotoTop.setAttribute("class", "gotoTop gotoTopActive");
     } else {
         navigatorBar.setAttribute("class", "navigatorBar");
