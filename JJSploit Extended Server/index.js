@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 
 app.post("/DownloadConsoleApp", (req, res) => {
     try {
-        res.download(path.join(__dirname, "Downloads", "JJSploit Extended Server.zip"));
+        res.download(path.join(__dirname, "Downloads", "JJSploit Extended Files.zip"));
     } catch (err) {
         console.log(err);
         res.sendStatus(500);

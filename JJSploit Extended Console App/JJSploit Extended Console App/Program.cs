@@ -67,7 +67,7 @@ namespace JJSploit_Extended_Console_App
                                 }
                                 else
                                 {
-                                    MessageBox.Show("WeAreDevs is notattached","Warning",MessageBoxButton.OK,MessageBoxImage.Warning);
+                                    MessageBox.Show("WeAreDevs is not attached","Warning",MessageBoxButton.OK,MessageBoxImage.Warning);
                                 }
                             }
                             else

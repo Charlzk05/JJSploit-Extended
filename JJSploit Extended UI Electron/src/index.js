@@ -24,6 +24,7 @@ const createWindow = () => {
 
   mainWindow.loadFile(path.join(__dirname, "page", 'index.html'));
   // mainWindow.maximize();
+  mainWindow.menuBarVisible = false; 
   mainWindow.title = "JJSploit++ by Charlzk05";
 
   ipcMain.on("initializeSoftware", async (event) => {
@@ -54,10 +55,10 @@ const createWindow = () => {
         url: "https://JJSploit-Extended-Server.charlzk.repl.co/DownloadConsoleApp",
         responseType: "stream"
       }).then((result) => {
-        result.data.pipe(fs.createWriteStream(path.join(__dirname, "page", "JJSploit Extended Server.zip")));
+        result.data.pipe(fs.createWriteStream(path.join(__dirname, "page", "JJSploit Extended Files.zip")));
         result.data.on("end", async () => {
           if (fs.existsSync(path.join("page", "Console App")) == false) {
-            await extract(path.resolve(path.join(__dirname, "page", "JJSploit Extended Server.zip")), { dir: path.resolve(path.join(__dirname, "page", "Console App")) });
+            await extract(path.resolve(path.join(__dirname, "page", "JJSploit Extended Files.zip")), { dir: path.resolve(path.join(__dirname, "page", "Console App")) });
           } else {
             await dialog.showMessageBox("Couldn't find Console App folder", {
               type: "error"
