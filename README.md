@@ -10,8 +10,10 @@ Content
 # JJSploit Extended
 Unofficial open source and extended version of JJSploit made using Electron JS for user interface and .NET Framework 4.8 for ExploitAPI.
 
+- [Download here](https://github.com/Charlzk05/JJSploit-Extended/releases)
+
 # Installation
-1. Download JJSploit Ext here
+1. Download JJSploit Ext - [Releases](https://github.com/Charlzk05/JJSploit-Extended/releases)
 2. Extract the file
 3. Open "JJSploit Ext.exe"
 4. Enjoy!
