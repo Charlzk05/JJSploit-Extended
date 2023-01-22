@@ -12,7 +12,7 @@ def main():
     else:
         os.makedirs(console_app_dir)
         
-    downloaded_file = "./../src/page/JJSploit Extended Server.zip"
+    downloaded_file = "./../src/page/JJSploit Extended Files.zip"
     if (os.path.exists(downloaded_file)):
         os.unlink(downloaded_file)
         
