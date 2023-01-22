@@ -1,5 +1,6 @@
 Content
 - [Introduction](https://github.com/Charlzk05/JJSploit-Extended#JJSploit-Extended)
+- [User interface](https://github.com/Charlzk05/JJSploit-Extended#User-interface)
 - [Installation](https://github.com/Charlzk05/JJSploit-Extended#Installation)
 - [Excluding from anti-virus software](https://github.com/Charlzk05/JJSploit-Extended#Excluding-from-anti-virus-software)
 - [Instructions](https://github.com/Charlzk05/JJSploit-Extended#Instructions)
@@ -60,6 +61,28 @@ Windows
 
 - An Intel Pentium 4 processor or later that's SSE2 capable
 - 512 MB of RAM
+
+# User interface
+
+Lua executor page
+
+![image](https://user-images.githubusercontent.com/104715127/213916289-c6a9ca14-a2d0-42b7-beb9-0e18bf6308b1.png)
+
+Buttons page
+
+![image](https://user-images.githubusercontent.com/104715127/213916296-316aa4bb-ae47-43f9-a48e-e8a00f27de00.png)
+
+Script library page
+
+![image](https://user-images.githubusercontent.com/104715127/213916303-279cf5c6-2a2f-447d-a848-2e34974c7ab5.png)
+
+Script hub page
+
+![image](https://user-images.githubusercontent.com/104715127/213916312-c6675faa-b7d1-4ba4-be0f-17c8a2b3ba06.png)
+
+Full screen
+
+![image](https://user-images.githubusercontent.com/104715127/213916337-b3531e2d-f7bc-4854-be7f-72bbddd75928.png)
 
 # Development
 ``git clone https://github.com/Charlzk05/JJSploit-Extended``
