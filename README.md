@@ -1,3 +1,11 @@
+Content
+- [Introduction](https://github.com/Charlzk05/JJSploit-Extended#JJSploit-Extended)
+- [Installation](https://github.com/Charlzk05/JJSploit-Extended#Installation)
+- [Excluding from anti-virus software](https://github.com/Charlzk05/JJSploit-Extended#Excluding-from-anti-virus-software)
+- [Instructions](https://github.com/Charlzk05/JJSploit-Extended#Instructions)
+- [Requirements](https://github.com/Charlzk05/JJSploit-Extended#Requirements)
+- [Development](https://github.com/Charlzk05/JJSploit-Extended#Development)
+
 # JJSploit Extended
 Unofficial open source and extended version of JJSploit made using Electron JS for user interface and .NET Framework 4.8 for ExploitAPI.
 
@@ -53,5 +61,5 @@ Windows
 - An Intel Pentium 4 processor or later that's SSE2 capable
 - 512 MB of RAM
 
-- Development
+# Development
 ``git clone https://github.com/Charlzk05/JJSploit-Extended``
