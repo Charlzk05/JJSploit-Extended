@@ -230,9 +230,17 @@ window.electronAPI.explorerSelectedFile_Content((event, content) => {
     editor.setValue(content);
 });
 
-submitSuggestion_click = () => {
-    if (suggestionOwnerTeamTextBox.value.length > 0 || suggestionUrlTextBox.value.includes("http") || suggestionUrlTextBox.value.includes("https")) {
-
+submitSuggestion_click = (e) => {
+    if (suggestionOwnerTeamTextBox.value.length >= 0 && suggestionUrlTextBox.value.length >= 0 && suggestionUrlTextBox.value.slice(0, 4) == "http" || suggestionUrlTextBox.value.slice(0, 5) == "https") {
+        window.electronAPI.suggestionSubmit(suggestionOwnerTeamTextBox.value, suggestionUrlTextBox.value);
+        scriptHubPage.getElementsByClassName("success")[0].setAttribute("class", "success successActive");
+        setTimeout(() => {
+            scriptHubPage.getElementsByClassName("success")[0].setAttribute("class", "success");
+        }, 3000);
+        e.disabled = true;
+        setTimeout(() => {
+            e.disabled = false;
+        }, 10000);
     } else {
         scriptHubPage.getElementsByClassName("warning")[0].setAttribute("class", "warning warningActive");
         setTimeout(() => {

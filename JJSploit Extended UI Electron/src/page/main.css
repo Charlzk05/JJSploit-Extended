@@ -526,6 +526,23 @@ body {
     right: 0;
     transition: all 1s;
 }
+.scriptHubPage .success {
+    z-index: 1;
+    position: fixed;
+    right: -300px;
+    background-color: #05a95c;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    transition: all 1s;
+}
+.scriptHubPage .success p {
+    margin: 0px;
+}
+.scriptHubPage .successActive {
+    right: 0;
+    transition: all 1s;
+}
 .scriptHubPage .column {
     display: flex;
     justify-content: center;
@@ -629,6 +646,12 @@ body {
 }
 .scriptHubPage .suggestion button:active {
     background-color: #282828;
+    transition: all 0.2s;
+}
+.scriptHubPage .suggestion button:disabled {
+    cursor: default;
+    opacity: 0.5;
+    background-color: #dc3545;
     transition: all 0.2s;
 }
 /* settings page */
