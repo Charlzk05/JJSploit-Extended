@@ -784,19 +784,20 @@ body {
 }
 .aboutPage .profile {
     cursor: pointer;
-    width: 100px;
-    height: 100px;
+    margin-bottom: 10px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     box-shadow: 0px 0px 12px 5px #232323;
-    transition: all 0.2;
+    transition: all 0.2s;
 }
 .aboutPage .profile:hover {
     box-shadow: 0px 0px 12px 5px #2d2d2d;
-    transition: all 0.2;
+    transition: all 0.2s;
 }
 .aboutPage .profile:active {
     box-shadow: 0px 0px 12px 5px #373737;
-    transition: all 0.2;
+    transition: all 0.2s;
 }
 .aboutPage .updates {
     color: gray; 

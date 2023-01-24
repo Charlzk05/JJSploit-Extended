@@ -58,10 +58,6 @@ const createWindow = () => {
         result.data.on("end", async () => {
           if (fs.existsSync(path.join("page", "Console App")) == false) {
             await extract(path.resolve(path.join(__dirname, "page", "JJSploit Extended Files.zip")), { dir: path.resolve(path.join(__dirname, "page", "Console App")) });
-          } else {
-            await dialog.showMessageBox("Couldn't find Console App folder", {
-              type: "error"
-            });
           }
         });
       }).catch((err) => {
