@@ -38,6 +38,9 @@
             <div id="editor"></div>
             <div class="explorer explorerHidden">
                 <p class="header">Explorer</p>
+                <div class="buttons">
+                    <button onclick="window.electronAPI.selectFolder_click()">Open folder</button>
+                </div>
                 <hr>
                 <div class="scripts">
                     
@@ -236,8 +239,13 @@
             </ul>
         </div>
         <div class="aboutPage" style="display: none;">
-            <span>Project version: v1.0.0</span><br>
-            <span>Made by Charlzk05</span>
+            <div>
+                <h2>Project version v1.0.0</h2>
+                <p class="updates">Update 2</p>
+                <h3>Made by Charlzk05</h3>
+                <img class="profile" src="resources/Charlzk05.jpg" onclick="window.electronAPI.openLink('https://github.com/Charlzk05')">
+            </div>
+            <hr>
             <div>
                 <h2>JJSploit Extended</h2>
                 <p>Unofficial open source and extended version of JJSploit made using Electron JS for user interface and .NET Framework 4.8 for ExploitAPI.</p>

@@ -230,6 +230,27 @@ window.electronAPI.explorerSelectedFile_Content((event, content) => {
     editor.setValue(content);
 });
 
+window.electronAPI.openFolder_selectedFolder((event, files) => {
+    document.getElementsByClassName("scripts")[0].innerHTML = "";
+
+    files.forEach((file) => {
+        if (file.includes(".txt") || file.includes(".lua")) {
+            var script = document.createElement("p");
+            script.innerText = file;
+            
+            script.addEventListener("click", () => {
+                window.electronAPI.openFolder_selectedFile(file);
+            });
+
+            scriptsExplorer.appendChild(script);
+        }
+    });
+});
+
+window.electronAPI.openFolder_SelectedFile_Content((event, content) => {
+    editor.setValue(content);
+});
+
 submitSuggestion_click = (e) => {
     if (suggestionOwnerTeamTextBox.value.length >= 0 && suggestionUrlTextBox.value.length >= 0 && suggestionUrlTextBox.value.slice(0, 4) == "http" || suggestionUrlTextBox.value.slice(0, 5) == "https") {
         window.electronAPI.suggestionSubmit(suggestionOwnerTeamTextBox.value, suggestionUrlTextBox.value);

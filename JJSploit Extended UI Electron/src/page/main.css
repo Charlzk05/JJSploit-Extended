@@ -219,6 +219,29 @@ body {
     font-size: 14px;
     color: gray;
 }
+.executorPage .explorer .buttons {
+    margin: 0;
+    margin-top: 5px;
+}
+.executorPage .explorer .buttons button {
+    background-color: #1e1e1e;
+    cursor: pointer;
+    color: white;
+    border: 0px;
+    width: 100%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-radius: 5px;
+    transition: all 0.2s;
+}
+.executorPage .explorer .buttons button:hover {
+    background-color: #232323;
+    transition: all 0.2s;
+}
+.executorPage .explorer .buttons button:active {
+    background-color: #282828;
+    transition: all 0.2s;
+}
 .executorPage .explorer hr {
     border: 0.2px solid #191919;
 }
@@ -751,8 +774,31 @@ body {
 .aboutPage h2 {
     font-weight: 500;
 }
+.aboutPage h3 {
+    font-weight: 500;
+}
 .aboutPage span {
     font-size: 12px;
     font-weight: 400;
     color: gray;
+}
+.aboutPage .profile {
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 12px 5px #232323;
+    transition: all 0.2;
+}
+.aboutPage .profile:hover {
+    box-shadow: 0px 0px 12px 5px #2d2d2d;
+    transition: all 0.2;
+}
+.aboutPage .profile:active {
+    box-shadow: 0px 0px 12px 5px #373737;
+    transition: all 0.2;
+}
+.aboutPage .updates {
+    color: gray; 
+    font-size: 12px;
 }

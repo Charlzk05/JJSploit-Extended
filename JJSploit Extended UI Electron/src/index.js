@@ -235,6 +235,47 @@ const createWindow = () => {
     }
   });
 
+  var selectedFolder = "";
+  ipcMain.on("selectFolder_call", async (event) => {
+    try {
+      await dialog.showOpenDialog(mainWindow, {
+        properties: [
+          "openDirectory"
+        ]
+      }).then(async (result) => {
+        if (result.canceled == false) {
+          selectedFolder = result.filePaths.toString();
+          await fs.readdir(result.filePaths.toString(), { encoding: "utf-8" }, (err, data) => {
+            if (err) {
+              return console.log(err);
+            }
+            mainWindow.webContents.send("openFolder_selectedFolder", data);
+          });
+        }
+      });
+    } catch (err) {
+      await dialog.showMessageBox(err, {
+        type: "error"
+      });
+    }
+  });
+
+  ipcMain.on("openFolder_selectedFile", async (event, file) => {
+    try {
+      await fs.readFile(path.join(selectedFolder, file), { encoding: "utf-8" }, (err, data) => {
+        if (err) {
+          return console.log (err);
+        }
+        mainWindow.webContents.send("openFolder_SelectedFile_Content", data);
+      });
+      console.log(path.join(selectedFolder, file));
+    } catch (err) {
+      await dialog.showMessageBox(err, {
+        type: "error"
+      });
+    }
+  });
+
   ipcMain.on("scriptsLibraryLoad", async (event) => {
     try {
       await fs.readFile("./Bin/ScriptsLibrary.json", { encoding: "utf-8" }, async (err, data) => {
