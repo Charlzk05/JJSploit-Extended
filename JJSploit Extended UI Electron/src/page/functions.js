@@ -102,13 +102,22 @@ addScript_click = () => {
     }
 
     if (scriptName.value.length >= 5 && scriptUrl.value.slice(0, 4) == "http" || scriptUrl.value.slice(0, 5) == "https") {
-        if (scriptDesc.value == "") {
-            window.electronAPI.scriptLibraryAdd(scriptName.value, "(No description provided)", scriptUrl.value);
-            scriptLibraryCreator(scriptName.value, "(No description provided)", scriptUrl.value, scriptsLibraryRow);
-        } else {
-            scriptLibraryCreator(scriptName.value, scriptDesc.value, scriptUrl.value, scriptsLibraryRow);
-            window.electronAPI.scriptLibraryAdd(scriptName.value, scriptDesc.value, scriptUrl.value);
+        if (scriptName.value.length >= 5) {
+            if (scriptDesc.value == "") {
+                window.electronAPI.scriptLibraryAdd(scriptName.value, "(No description provided)", scriptUrl.value);
+                scriptLibraryCreator(scriptName.value, "(No description provided)", scriptUrl.value, scriptsLibraryRow);
+            } else {
+                scriptLibraryCreator(scriptName.value, scriptDesc.value, scriptUrl.value, scriptsLibraryRow);
+                window.electronAPI.scriptLibraryAdd(scriptName.value, scriptDesc.value, scriptUrl.value);
+            }
         }
+        else {
+            scriptsLibPage.getElementsByClassName("warning")[0].setAttribute("class", "warning warningActive");
+            setTimeout(() => {
+                scriptsLibPage.getElementsByClassName("warning")[0].setAttribute("class", "warning");
+            }, 3000);   
+        }
+        
     } else {
         scriptsLibPage.getElementsByClassName("warning")[0].setAttribute("class", "warning warningActive");
         setTimeout(() => {
@@ -252,16 +261,23 @@ window.electronAPI.openFolder_SelectedFile_Content((event, content) => {
 });
 
 submitSuggestion_click = (e) => {
-    if (suggestionOwnerTeamTextBox.value.length >= 0 && suggestionUrlTextBox.value.length >= 0 && suggestionUrlTextBox.value.slice(0, 4) == "http" || suggestionUrlTextBox.value.slice(0, 5) == "https") {
-        window.electronAPI.suggestionSubmit(suggestionOwnerTeamTextBox.value, suggestionUrlTextBox.value);
-        scriptHubPage.getElementsByClassName("success")[0].setAttribute("class", "success successActive");
-        setTimeout(() => {
-            scriptHubPage.getElementsByClassName("success")[0].setAttribute("class", "success");
-        }, 3000);
-        e.disabled = true;
-        setTimeout(() => {
-            e.disabled = false;
-        }, 10000);
+    if (suggestionOwnerTeamTextBox.value.length >= 3 && suggestionUrlTextBox.value.length >= 0 && suggestionUrlTextBox.value.slice(0, 4) == "http" || suggestionUrlTextBox.value.slice(0, 5) == "https") {
+        if (suggestionOwnerTeamTextBox.value.length >= 3 ) {
+            window.electronAPI.suggestionSubmit(suggestionOwnerTeamTextBox.value, suggestionUrlTextBox.value);
+            scriptHubPage.getElementsByClassName("success")[0].setAttribute("class", "success successActive");
+            setTimeout(() => {
+                scriptHubPage.getElementsByClassName("success")[0].setAttribute("class", "success");
+            }, 3000);
+            e.disabled = true;
+            setTimeout(() => {
+                e.disabled = false;
+            }, 10000);
+        } else {
+            scriptHubPage.getElementsByClassName("warning")[0].setAttribute("class", "warning warningActive");
+            setTimeout(() => {
+                scriptHubPage.getElementsByClassName("warning")[0].setAttribute("class", "warning");
+            }, 3000);
+        }
     } else {
         scriptHubPage.getElementsByClassName("warning")[0].setAttribute("class", "warning warningActive");
         setTimeout(() => {

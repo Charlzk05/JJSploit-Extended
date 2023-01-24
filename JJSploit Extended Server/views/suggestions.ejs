@@ -6,15 +6,17 @@
     <title>JJSploit Extended - Suggestions</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='suggestions.css'>
+    <link rel="icon" type="image/x-icon" href="Resources/Logo.ico">
 </head>
 <body>
     <h1>Suggestions</h1>
+    <p>Date format <span style="font-weight: 500;">month-day-year</span></p>
     <% result.forEach((item) => { %>
         <div class="item">
-            <p style="margin: 0;">Owner/Team: <%- item["Owner/Team"] %></p>
-            <p>Url: <%- item["Url"] %></p>
-            <p>Time: <%- item["Time"] %></p>
-            <p>Date: <%- item["Date"] %></p>
+            <p style="margin: 0;"><span>Owner/Team:</span> <%- item["Owner/Team"] %></p>
+            <p><span>Url:</span> <%- item["Url"] %></p>
+            <p><span>Time:</span> <%- item["Time"] %></p>
+            <p><span>Date:</span> <%- item["Date"] %></p>
         </div>
     <% }); %>
     

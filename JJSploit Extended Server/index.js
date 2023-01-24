@@ -48,12 +48,23 @@ app.get("/suggestions", (req, res) => {
 app.post("/suggestion", (req, res) => {
     try {
         const date = new Date();
-        var recievedData = {
-            "Owner/Team": req.body.ownerTeam,
-            "Url": req.body.url,
-            "Time": `${date.getHours() - 12}-${date.getMinutes()}`,
-            "Date": `${date.getMonth()}-${date.getDate()}-${date.getFullYear()}`
-        };
+
+        if (date.getHours() > 12) {
+            var recievedData = {
+                "Owner/Team": req.body.ownerTeam,
+                "Url": req.body.url,
+                "Time": `${date.getHours() -12}:${date.getMinutes()} PM`,
+                "Date": `${date.getMonth()}-${date.getDate()}-${date.getFullYear()}`
+            };
+        } else {
+            var recievedData = {
+                "Owner/Team": req.body.ownerTeam,
+                "Url": req.body.url,
+                "Time": `${date.getHours()}:${date.getMinutes()} AM`,
+                "Date": `${date.getMonth()}-${date.getDate()}-${date.getFullYear()}`
+            };
+        }
+
         fs.readFile("./Suggestions.json", { encoding: "utf-8" }, (err, data) => {
             if (err) {
                 return console.log(err);
@@ -62,7 +73,7 @@ app.post("/suggestion", (req, res) => {
             jsonArray.push(recievedData);
             fs.writeFile("./Suggestions.json", JSON.stringify(jsonArray, null, 4), { encoding: "utf-8" }, (err) => {
                 if (err) {
-                    return console.log(err.message);
+                    return console.log(err);
                 }
                 res.send("Suggestion submitted");
             });
