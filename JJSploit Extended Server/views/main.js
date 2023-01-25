@@ -1,5 +1,34 @@
 const slideShow = document.getElementsByClassName("slideShow")[0];
 
+about_click = () => {
+    document.getElementsByClassName("main")[0].getElementsByTagName("h1")[0].scrollIntoView();
+    window.scroll(0, scrollY - 70);
+}
+
+installation_click = () => {
+    document.getElementsByClassName("main")[0].getElementsByTagName("h1")[1].scrollIntoView();
+    window.scroll(0, scrollY - 70);
+}
+
+antiVirus_click = () => {
+    document.getElementsByClassName("main")[0].getElementsByTagName("h1")[2].scrollIntoView();
+    window.scroll(0, scrollY - 70);
+}
+
+instructions_click = () => {
+    document.getElementsByClassName("main")[0].getElementsByTagName("h1")[3].scrollIntoView();
+    window.scroll(0, scrollY - 70);
+}
+
+requirements_click = () => {
+    document.getElementsByClassName("main")[0].getElementsByTagName("h1")[4].scrollIntoView();
+    window.scroll(0, scrollY - 70);
+}
+
+development_click = () => {
+    document.getElementsByClassName("main")[0].getElementsByTagName("h1")[5].scrollIntoView();
+}
+
 var slideIndex = 0;
 forwardSlide_click = () => {
     if (slideIndex >= slideShow.getElementsByTagName("img").length - 1) {

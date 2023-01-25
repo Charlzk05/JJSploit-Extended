@@ -10,8 +10,16 @@
 </head>
 <body>
     <div class="navBar">
-        <p>Script hub suggestion</p>
+        <p onclick="window.location.assign('/suggestions');">Suggestions</p>
         <p onclick="window.open('https://github.com/Charlzk05/JJSploit-Extended/releases')">Download</p>
+    </div>
+    <div class="sideBar">
+        <p onclick="about_click()">About</p>
+        <p onclick="installation_click()">Installation</p>
+        <p onclick="antiVirus_click()">Excluding from anti-virus software</p>
+        <p onclick="instructions_click()">Instructions</p>
+        <p onclick="requirements_click()">Requirements</p>
+        <p onclick="development_click()">Development</p>
     </div>
     <div class="main">
         <div class="slideShow">
@@ -21,6 +29,9 @@
             <img src="Resources/Slide 3.png" class="imgInactive">
             <img src="Resources/Slide 4.png" class="imgInactive">
             <button onclick="forwardSlide_click()">></button>
+        </div>
+        <div class="buttons">
+            <button>Download</button>
         </div>
         <h1>JJSploit Extended</h1>
         <p>Unofficial open source and extended version of JJSploit made using Electron JS for user interface and .NET Framework 4.8 for ExploitAPI.</p>
