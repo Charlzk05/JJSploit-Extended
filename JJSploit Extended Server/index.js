@@ -13,7 +13,7 @@ app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
     try {
-        res.send("<h1 style='font-weight: 500; font-family: Segoe UI;'>Hello World</h1>");
+        res.render("main");
     } catch (err) {
         console.log(err);
         res.sendStatus(500);
