@@ -30,7 +30,7 @@ const createWindow = () => {
     try {
       await fs.readFile("./Bin/Settings/Topmost.txt", { encoding: "utf-8" }, async (err, data) => {
         if (err) {
-          return console.log(err);
+          return console.log(err.message);
         }
         if (data == "true") {
           await mainWindow.webContents.send("topMostData", true);
@@ -40,7 +40,7 @@ const createWindow = () => {
       });
       await fs.readFile("./Bin/Settings/ShowMenu.txt", { encoding: "utf-8" }, async (err, data) => {
         if (err) {
-          return console.log(err);
+          return console.log(err.message);
         }
         if (data == "true") {
           await mainWindow.webContents.send("showMenuData", true);
@@ -61,18 +61,18 @@ const createWindow = () => {
           }
         });
       }).catch((err) => {
-        return console.log(err);
+        return console.log(err.message);
       });
       if (fs.existsSync("./Scripts") == false) {
         await fs.mkdir("./Scripts", async () => {
           await fs.writeFile("./Scripts/Hello World.lua", 'print("Hello World - Lua file")', { encoding: "utf-8" }, async (err) => {
             if (err) {
-              return console.log(err);
+              return console.log(err.message);
             }
           });
           await fs.writeFile("./Scripts/Hello World.txt", 'print("Hello World - Txt file")', { encoding: "utf-8" }, async (err) => {
             if (err) {
-              return console.log(err);
+              return console.log(err.message);
             }
           });
         });
@@ -89,26 +89,27 @@ const createWindow = () => {
           await fs.mkdir("./Bin/Settings", async () => {
             await fs.writeFile("./Bin/Settings/ShowMenu.txt", "false", { encoding: "utf-8" }, (err) => { 
               if (err) {
-                return console.log(err);
+                return console.log(err.message);
               }
             });
             await fs.writeFile("./Bin/Settings/Topmost.txt", "false", { encoding: "utf-8" }, (err) => { 
               if (err) {
-                return console.log(err);
+                return console.log(err.message);
               }
             });
           });
           await fs.writeFile("./Bin/ScriptsLibrary.json", JSON.stringify(scriptsLibraryData, null, 4), { encoding: "utf-8" }, async (err) => {
             if (err) {
-              return console.log(err);
+              return console.log(err.message);
             }
             await mainWindow.webContents.send("restartRequiredCall");
           });
         });
       }
     } catch (err) {
-      await dialog.showMessageBox(err, {
-        type: "error"
+      await dialog.showMessageBox(mainWindow, {
+        type: "error",
+        message: err.message
       });
     }
   });
@@ -119,13 +120,14 @@ const createWindow = () => {
         cwd: path.join(__dirname, "page", "Console App")
        }, (err, stdout) => {
         if (err) {
-          return console.log(err);
+          return console.log(err.message);
         }
         console.log(stdout);
       });
     } catch (err) {
-      await dialog.showMessageBox(err, {
-        type: "error"
+      await dialog.showMessageBox(mainWindow, {
+        type: "error",
+        message: err.message
       });
     }
   });
@@ -134,20 +136,21 @@ const createWindow = () => {
     try {
       await fs.writeFile(path.join(__dirname, "page", "Console App", "Script.txt"), content, async (err) => {
         if (err) {
-          return console.log(err);
+          return console.log(err.message);
         }
         await childProcess.exec(`"JJSploit Extended Console App.exe" --executeScriptTxt`, { 
           cwd: path.join(__dirname, "page", "Console App")
          }, (err, stdout) => {
           if (err) {
-            return console.log(err);
+            return console.log(err.message);
           }
           console.log(stdout);
         });
       });
     } catch (err) {
-      await dialog.showMessageBox(err, {
-        type: "error"
+      await dialog.showMessageBox(mainWindow, {
+        type: "error",
+        message: err.message
       });
     }
   });
@@ -164,15 +167,16 @@ const createWindow = () => {
         if (result.canceled == false) {
           await fs.readFile(result.filePaths.toString(), { encoding: "utf-8" }, async (err, data) => {
             if (err) {
-              return console.log(err);
+              return console.log(err.message);
             }
             await mainWindow.webContents.send("openFileButton_Content", data);
           });
         }
       });
     } catch (err) {
-      await dialog.showMessageBox(err, {
-        type: "error"
+      await dialog.showMessageBox(mainWindow, {
+        type: "error",
+        message: err.message
       });
     }
   });
@@ -189,14 +193,15 @@ const createWindow = () => {
         if (result.canceled == false) {
           await fs.writeFile(result.filePath, content, { encoding: "utf-8" }, (err) => {
             if (err) {
-              return console.log(err);
+              return console.log(err.message);
             }
           });
         }
       });
     } catch (err) {
-      await dialog.showMessageBox(err, {
-        type: "error"
+      await dialog.showMessageBox(mainWindow, {
+        type: "error",
+        message: err.message
       });
     }
   });
@@ -205,13 +210,14 @@ const createWindow = () => {
     try {
       await fs.readdir("./Scripts", async (err, files) => {
         if (err) {
-          return console.log(err);
+          return console.log(err.message);
         }
         await mainWindow.webContents.send("explorerLoad_Files", files);
       });
     } catch (err) {
-      await dialog.showMessageBox(err, {
-        type: "error"
+      await dialog.showMessageBox(mainWindow, {
+        type: "error",
+        message: err.message
       });
     }
   });
@@ -220,13 +226,14 @@ const createWindow = () => {
     try {
       await fs.readFile(path.join("./Scripts", file), { encoding: "utf-8" }, async (err, data) => {
         if (err) {
-          return console.log(err);
+          return console.log(err.message);
         }
         await mainWindow.webContents.send("explorerSelectedFile_Content", data);
       });
     } catch (err) {
-      await dialog.showMessageBox(err, {
-        type: "error"
+      await dialog.showMessageBox(mainWindow, {
+        type: "error",
+        message: err.message
       });
     }
   });
@@ -243,15 +250,16 @@ const createWindow = () => {
           selectedFolder = result.filePaths.toString();
           await fs.readdir(result.filePaths.toString(), { encoding: "utf-8" }, (err, data) => {
             if (err) {
-              return console.log(err);
+              return console.log(err.message);
             }
             mainWindow.webContents.send("openFolder_selectedFolder", data);
           });
         }
       });
     } catch (err) {
-      await dialog.showMessageBox(err, {
-        type: "error"
+      await dialog.showMessageBox(mainWindow, {
+        type: "error",
+        message: err.message
       });
     }
   });
@@ -266,8 +274,9 @@ const createWindow = () => {
       });
       console.log(path.join(selectedFolder, file));
     } catch (err) {
-      await dialog.showMessageBox(err, {
-        type: "error"
+      await dialog.showMessageBox(mainWindow, {
+        type: "error",
+        message: err.message
       });
     }
   });
@@ -276,21 +285,23 @@ const createWindow = () => {
     try {
       await fs.readFile("./Bin/ScriptsLibrary.json", { encoding: "utf-8" }, async (err, data) => {
         if (err) {
-          return console.log(err);
+          return console.log(err.message);
         }
         await mainWindow.webContents.send("scriptsLibraryLoad_Scripts", data);
       });
     } catch (err) {
-      await dialog.showMessageBox(err, {
-        type: "error"
-      });}
+      await dialog.showMessageBox(mainWindow, {
+        type: "error",
+        message: err.message
+      });
+    }
   });
 
   ipcMain.on("scriptLibraryAdd", async (event, name, desc, url) => {
     try {
       fs.readFile("./Bin/ScriptsLibrary.json", { encoding: "utf-8" }, async (err, data) => {
         if (err) {
-          return console.log(err);
+          return console.log(err.message);
         }
         var dataArray = JSON.parse(data);
         dataArray.push({
@@ -300,13 +311,14 @@ const createWindow = () => {
         });
         await fs.writeFile("./Bin/ScriptsLibrary.json", JSON.stringify(dataArray, null, 4), { encoding: "utf-8" }, (err) => {
           if (err) {
-            return console.log(err);
+            return console.log(err.message);
           }
         });
       });
     } catch (err) {
-      await dialog.showMessageBox(err, {
-        type: "error"
+      await dialog.showMessageBox(mainWindow, {
+        type: "error",
+        message: err.message
       });
     }
   });
@@ -315,7 +327,7 @@ const createWindow = () => {
     try {
       await fs.readFile("./Bin/ScriptsLibrary.json", { encoding: "utf-8" }, async (err, data) => {
         if (err) {
-          return console.log(err);
+          return console.log(err.message);
         }
         var dataArray = JSON.parse(data);
         for (var i = 0; i < dataArray.length; i++) {
@@ -324,7 +336,7 @@ const createWindow = () => {
               delete dataArray[i];
               await fs.writeFile("./Bin/ScriptsLibrary.json", JSON.stringify(dataArray, null, 4), { encoding: "utf-8" }, async (err) => {
                 if (err) {
-                  return console.log(err);
+                  return console.log(err.message);
                 }
               });
               break;
@@ -333,8 +345,9 @@ const createWindow = () => {
         }
       });
     } catch (err) {
-      await dialog.showMessageBox(err, {
-        type: "error"
+      await dialog.showMessageBox(mainWindow, {
+        type: "error",
+        message: err.message
       });
     }
   });
@@ -343,7 +356,7 @@ const createWindow = () => {
     try {
       await fs.readFile("./Bin/ScriptsLibrary.json", { encoding: "utf-8" }, async (err, data) => {
         if (err) {
-          return console.log(err);
+          return console.log(err.message);
         }
         var dataArray = JSON.parse(data);
         for (var i = 0; i < dataArray.length; i++) {
@@ -353,7 +366,7 @@ const createWindow = () => {
                 cwd: path.join(__dirname, "page", "Console App")
                }, (err, stdout) => {
                 if (err) {
-                  return console.log(err);
+                  return console.log(err.message);
                 }
                 console.log(stdout);
               });
@@ -363,8 +376,9 @@ const createWindow = () => {
         }
       });
     } catch (err) {
-      await dialog.showMessageBox(err, {
-        type: "error"
+      await dialog.showMessageBox(mainWindow, {
+        type: "error",
+        message: err.message
       });
     }
   });
@@ -375,13 +389,14 @@ const createWindow = () => {
         cwd: path.join(__dirname, "page", "Console App")
        }, (err, stdout) => {
         if (err) {
-          return console.log(err);
+          return console.log(err.message);
         }
         console.log(stdout);
       });
     } catch (err) {
-      await dialog.showMessageBox(err, {
-        type: "error"
+      await dialog.showMessageBox(mainWindow, {
+        type: "error",
+        message: err.message
       });
     }
   });
@@ -392,13 +407,14 @@ const createWindow = () => {
         cwd: path.join(__dirname, "page", "Console App")
        }, (err, stdout) => {
         if (err) {
-          return console.log(err);
+          return console.log(err.message);
         }
         console.log(stdout);
       });
     } catch (err) {
-      await dialog.showMessageBox(err, {
-        type: "error"
+      await dialog.showMessageBox(mainWindow, {
+        type: "error",
+        message: err.message
       });
     }
   });
@@ -407,8 +423,9 @@ const createWindow = () => {
     try {
       await shell.openExternal(url);
     } catch (err) {
-      await dialog.showMessageBox(err, {
-        type: "error"
+      await dialog.showMessageBox(mainWindow, {
+        type: "error",
+        message: err.message
       });
     }
   });
@@ -425,11 +442,12 @@ const createWindow = () => {
       }).then((response) => {
         // console.log(response);
       }).catch((err) => {
-        console.log(err);
+        console.log(err.message);
       });
     } catch (err) {
-      await dialog.showMessageBox(err, {
-        type: "error"
+      await dialog.showMessageBox(mainWindow, {
+        type: "error",
+        message: err.message
       });
     }
   });
@@ -439,12 +457,13 @@ const createWindow = () => {
       mainWindow.menuBarVisible = true; 
       await fs.writeFile("./Bin/Settings/ShowMenu.txt", "true", (err) => {
         if (err) {
-          return console.log(err);
+          return console.log(err.message);
         }
       });
     } catch (err) {
-      await dialog.showMessageBox(err, {
-        type: "error"
+      await dialog.showMessageBox(mainWindow, {
+        type: "error",
+        message: err.message
       });
     }
   });
@@ -454,12 +473,13 @@ const createWindow = () => {
       mainWindow.menuBarVisible = false; 
       await fs.writeFile("./Bin/Settings/ShowMenu.txt", "false", (err) => {
         if (err) {
-          return console.log(err);
+          return console.log(err.message);
         }
       });
     } catch (err) {
-      await dialog.showMessageBox(err, {
-        type: "error"
+      await dialog.showMessageBox(mainWindow, {
+        type: "error",
+        message: err.message
       });
     }
   });
@@ -469,12 +489,13 @@ const createWindow = () => {
       mainWindow.setAlwaysOnTop(true);
       await fs.writeFile("./Bin/Settings/Topmost.txt", "true", (err) => {
         if (err) {
-          return console.log(err);
+          return console.log(err.message);
         }
       });
     } catch (err) {
-      await dialog.showMessageBox(err, {
-        type: "error"
+      await dialog.showMessageBox(mainWindow, {
+        type: "error",
+        message: err.message
       });
     }
   });
@@ -484,12 +505,13 @@ const createWindow = () => {
       mainWindow.setAlwaysOnTop(false);
       await fs.writeFile("./Bin/Settings/Topmost.txt", "false", (err) => {
         if (err) {
-          return console.log(err);
+          return console.log(err.message);
         }
       });
     } catch (err) {
-      await dialog.showMessageBox(err, {
-        type: "error"
+      await dialog.showMessageBox(mainWindow, {
+        type: "error",
+        message: err.message
       });
     }
   });
@@ -499,8 +521,9 @@ const createWindow = () => {
       app.relaunch();
       app.quit();
     } catch (err) {
-      await dialog.showMessageBox(err, {
-        type: "error"
+      await dialog.showMessageBox(mainWindow, {
+        type: "error",
+        message: err.message
       });
     }
   });
