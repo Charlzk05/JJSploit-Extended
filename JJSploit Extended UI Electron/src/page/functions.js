@@ -276,6 +276,8 @@ window.electronAPI.restartRequiredCall((event) => {
 });
 
 search_oninput = (event) => {
+    var searchFor = document.getElementById("searchFor");
+    searchFor.innerText = "Search for " + event.value;
     var scripts = scriptsLibraryRow.getElementsByClassName("script");
     for (var i = 0; i < scripts.length; i++) {
         if (scripts[i].getElementsByTagName("h3")[0].innerText.includes(event.value)) {
