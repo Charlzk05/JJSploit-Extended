@@ -157,48 +157,6 @@ explorerButton_click = () => {
     }
 }
 
-scriptLibraryCreator = (name, desc, url, parent) => {
-    var div = document.createElement("div");
-    div.setAttribute("class", "script");
-
-    var h3 = document.createElement("h3");
-    h3.innerText = name;
-
-    var p = document.createElement("p");
-    p.innerText = desc;
-
-    var input = document.createElement("input");
-    input.type = "text";
-    input.readOnly = true;
-    input.value = url;
-
-    var buttons = document.createElement("div");
-    buttons.setAttribute("class", "buttons");
-
-    var execute = document.createElement("button");
-    execute.innerText = "Execute";
-    execute.addEventListener("click", () => {
-        window.electronAPI.executeScriptLibraryItem(name);
-    });
-
-    var deleteButton = document.createElement("button");
-    deleteButton.innerText = "Delete";
-    deleteButton.addEventListener("click", () => {
-        window.electronAPI.scriptLibraryDeleteItem(name);
-        parent.removeChild(div);
-    });
-
-    buttons.appendChild(execute);
-    buttons.appendChild(deleteButton);
-
-    div.appendChild(h3);
-    div.appendChild(p);
-    div.appendChild(input);
-    div.appendChild(buttons);
-
-    parent.appendChild(div);
-}
-
 window.addEventListener("load", () => {
     window.electronAPI.initializeSoftware();
 });
@@ -316,3 +274,14 @@ window.electronAPI.restartRequiredCall((event) => {
     restartRequired.setAttribute("style", "display: block;");
     mainUI.setAttribute("style", "display: none;");
 });
+
+search_oninput = (event) => {
+    var scripts = scriptsLibraryRow.getElementsByClassName("script");
+    for (var i = 0; i < scripts.length; i++) {
+        if (scripts[i].getElementsByTagName("h3")[0].innerText.includes(event.value)) {
+            scripts[i].setAttribute("style", "display: block;");
+        } else {
+            scripts[i].setAttribute("style", "display: none;");
+        }
+    }
+}
